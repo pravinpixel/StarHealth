@@ -3,7 +3,7 @@ import Logo from "../../assets/images/logo.png";
 import Welcome from "../../assets/images/welcome.png";
 import HeadShotImage from "../../assets/images/head-shot.png";
 
-function BannerComponent({type}) {
+function BannerComponent({ type }) {
   return (
     <section>
       {type === "personal-details" ? (
@@ -72,7 +72,7 @@ function BannerComponent({type}) {
           </div>
         </div>
       ) : type === "upload-image" ? (
-        <div className="p-4">
+        <div className="p-4 pb-5">
           <div>
             <img src={Logo} alt="splash" />
           </div>

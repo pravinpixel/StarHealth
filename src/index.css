@@ -132,3 +132,31 @@ body {
   border-radius: 6px;
   border: 1px solid #E6E6E6;
 }
+
+.dropzone {
+  width: 190px;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #E6E6E6;
+  border-radius: 6px;
+}
+
+.preview {
+  width: 190px;
+  height: 190px;
+}
+
+.preview img {
+  width: 190px;
+  height: 190px;
+  border: 1px solid #E6E6E6;
+  border-radius: 6px;
+}
+
+.closeIcon-img img {
+  width: auto !important;
+  height: auto !important;
+  border: none !important;
+}

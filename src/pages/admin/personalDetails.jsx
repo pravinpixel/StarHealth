@@ -1,9 +1,9 @@
-import React, {useState} from "react";
-import {Col, Row} from "react-bootstrap";
+import React, { useState } from "react";
+import { Col, Row } from "react-bootstrap";
 import PersonalDetailsForm from "components/wizard-form/PersonalDetailsForm";
 import UploadPhotosForm from "components/wizard-form/UploadPhotosForm";
 import SummaryComponent from "components/wizard-form/Summary";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import BannerComponent from "../../components/banner";
 
 import Step1Active from "../../assets/images/icons/step1-active.png";
@@ -15,13 +15,13 @@ import Step3 from "../../assets/images/icons/step3.png";
 import Step3Active from "../../assets/images/icons/step3-active.png";
 
 function PersonalDetails() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
 
   const handleStep1Submit = (data) => {
     console.log("data", data);
-    setFormData((prev) => ({...prev, ...data}));
+    setFormData((prev) => ({ ...prev, ...data }));
     setStep(2);
   };
 
@@ -68,9 +68,8 @@ function PersonalDetails() {
                 </div>
               </div>
               <div
-                className={`w-100 ${
-                  step !== 1 ? "active-border-dotted" : "border-dotted"
-                }`}
+                className={`w-100 ${step !== 1 ? "active-border-dotted" : "border-dotted"
+                  }`}
               ></div>
               <div>
                 <div
@@ -78,8 +77,8 @@ function PersonalDetails() {
                     step === 1
                       ? "deactive-cl round-cl"
                       : step === 2
-                      ? "active-cl round-cl"
-                      : "filled-cl round-cl"
+                        ? "active-cl round-cl"
+                        : "filled-cl round-cl"
                   }
                 >
                   <img
@@ -87,17 +86,16 @@ function PersonalDetails() {
                       step === 1
                         ? Step2
                         : step === 2
-                        ? Step2Active
-                        : Step2Filled
+                          ? Step2Active
+                          : Step2Filled
                     }
                     alt="icon"
                   />
                 </div>
               </div>
               <div
-                className={`w-100 ${
-                  step === 3 ? "active-border-dotted" : "border-dotted"
-                }`}
+                className={`w-100 ${step === 3 ? "active-border-dotted" : "border-dotted"
+                  }`}
               ></div>
               <div>
                 <div
@@ -123,9 +121,8 @@ function PersonalDetails() {
                 Upload Photos
               </div>
               <div
-                className={`fs-12 rel-left-5 mt-1  ${
-                  step === 3 ? "activeLabel" : "grey-color-2"
-                }`}
+                className={`fs-12 rel-left-5 mt-1  ${step === 3 ? "activeLabel" : "grey-color-2"
+                  }`}
               >
                 Summary
               </div>

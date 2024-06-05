@@ -1,0 +1,188 @@
+.h-100vh {
+  height: 100vh;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.h-80vh {
+  height: 83vh;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.fs-20 {
+  font-size: 20px;
+}
+
+.fs-22 {
+  font-size: 22px;
+}
+
+.fs-24 {
+  font-size: 24px;
+}
+
+.fs-26 {
+  font-size: 26px;
+}
+
+.fs-28 {
+  font-size: 28px;
+}
+
+.fs-37 {
+  font-size: 37px;
+}
+
+.fs-40 {
+  font-size: 40px;
+}
+
+.fs-88 {
+  font-size: 88px;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-900 {
+  font-weight: 900;
+}
+
+.lh-90 {
+  line-height: 90px;
+}
+
+.letter-space-6 {
+  letter-spacing: 6px;
+}
+
+.light-blue {
+  color: #7dc0e7;
+}
+
+.dark-blue {
+  color: #2B3984;
+}
+
+.grey-color {
+  color: #666666;
+}
+
+.grey-color-2 {
+  color: #BEBEBE;
+}
+
+.bg-transparent {
+  background: transparent;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+button {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.splash-btn {
+  background: #FFFFFF;
+  color: #2B3984;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 5000px;
+  line-height: 12px;
+  height: 35px;
+}
+
+.primary-button {
+  background: #2B3984;
+  color: #FFFFFF;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 5000px;
+  line-height: 12px;
+  height: 35px;
+}
+
+.secondary-button {
+  background: #FFFFFF;
+  color: #2B3984;
+  border: 1px solid #2B3984;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 5000px;
+  line-height: 12px;
+  height: 35px;
+}
+
+.splash-btn:hover {
+  background: #7dc0e7;
+}
+
+input:focus {
+  box-shadow: none !important;
+  border-color: #E6E6E6 !important;
+}
+
+input::placeholder {
+  color: #999999;
+  font-size: 16px;
+}
+
+input {
+  color: #000000 !important;
+  font-size: 16px;
+}
+
+.rel-left-5 {
+  position: relative;
+  left: 5px;
+}
+
+.rel-left-15 {
+  position: relative;
+  left: 15px;
+}
+
+.roboto-font {
+  font-family: "Roboto", sans-serif;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}

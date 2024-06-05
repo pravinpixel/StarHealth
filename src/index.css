@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #000000;
+}
+
+.splash-bg {
+  background-image: url("./assets/images/background-auth.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.bannerleft-bg {
+  background-image: url("./assets/images/background-auth.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* height: 100vh; */
+  border-radius: 0px 20px 20px 0px;
+}
+
+.bannerleft-bg-1 {
+  background-image: url("./assets/images/faceShai.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.bannerright-bg {
+  background-image: url("./assets/images/star-bg.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  height: 100vh;
+}
+
+/* login css */
+
+.loginform-ctr .input-group {
+  width: 558px;
+}
+
+.loginform-ctr .input-group input {
+  height: 45px;
+  border: 1px solid #E6E6E6;
+  border-radius: 6px;
+  border-left: 0px;
+  padding-left: 0px;
+  background: white;
+}
+
+.innerform-ctr input {
+  height: 45px;
+  border: 1px solid #E6E6E6;
+  border-radius: 6px;
+  background: white;
+}
+
+.innerform-ctr .input-group {
+  width: 100%;
+  background: white;
+}
+
+.termsand-condotion-popup .modal-content {
+  width: 573px;
+}
+
+.termsand-condotion-popup .modal-body {
+  width: 573px;
+  max-height: 552px;
+  overflow: auto;
+}
+
+.optform-ctr input {
+  width: 45px;
+  height: 45px;
+  padding: 0px;
+  border: 1px solid #E6E6E6;
+  border-radius: 6px;
+}
+
+.optform-ctr .MuiOtpInput-Box {
+  gap: 25px;
+}
+
+/*  */
+
+.border-dotted {
+  border: 2px dashed #BEBEBE;
+}
+
+.active-border-dotted {
+  border: 2px dashed #2B3984;
+}
+
+.active-cl {
+  border: 2px solid #2B3984;
+}
+
+.deactive-cl {
+  border: 2px solid #BEBEBE;
+}
+
+.filled-cl {
+  background: #2B3984;
+}
+
+.round-cl {
+  width: 47px;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.round-cl img {
+  width: 21px;
+  height: 21px;
+}
+
+.activeLabel {
+  color: #2B3984;
+  font-weight: 600;
+}
+
+.uploadimages-ctr img {
+  width: 97px;
+  height: 97px;
+  border-radius: 6px;
+  border: 1px solid #E6E6E6;
+}

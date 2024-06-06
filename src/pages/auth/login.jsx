@@ -7,6 +7,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {authLogin, authOtpVerify} from "../../redux/Service/authService";
 import {notify} from "helpers/global";
+import authLeftImage from "../../assets/images/authLeft.png";
 
 function LoginComponent() {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ function LoginComponent() {
     try {
       const response = await dispatch(authOtpVerify(formData)).unwrap();
       setLoading(false);
-      localStorage.setItem("token", response?.data?.access_token);
+      sessionStorage.setItem("token", response?.data?.access_token);
       navigate("/admin/personal-details");
       notify(response);
     } catch (error) {
@@ -50,9 +51,12 @@ function LoginComponent() {
   return (
     <section>
       <Row className="m-0">
-        <Col md={6} className="bannerleft-bg-1">
-          <BannerComponent />
+        <Col md={6} className="p-0">
+          <img src={authLeftImage} alt="img" className="w-100 h-100vh" />
         </Col>
+        {/* <Col md={6} className="bannerleft-bg-1">
+          <BannerComponent />
+        </Col> */}
         <Col
           md={6}
           className="bannerright-bg d-flex align-items-center justify-content-center"
@@ -60,7 +64,11 @@ function LoginComponent() {
           {formStateValue === "login" ? (
             <LoginFormComponent loginSubmit={loginSubmit} loading={loading} />
           ) : formStateValue === "otp" ? (
-            <OtpFormComponent otpFormSubmit={otpFormSubmit} loading={loading} />
+            <OtpFormComponent
+              otpFormSubmit={otpFormSubmit}
+              loading={loading}
+              emailValue={emailValue}
+            />
           ) : null}
         </Col>
       </Row>

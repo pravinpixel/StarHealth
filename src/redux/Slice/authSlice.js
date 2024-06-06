@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { authLogin, authOtpVerify } from "../Service/authService";
+import { authLogin, authOtpVerify, resendOtp } from "../Service/authService";
 
 const authCases = [
   { api: authLogin, name: "authLogin" },
-  { api: authOtpVerify, name: "authOtpVerify" }
+  { api: authOtpVerify, name: "authOtpVerify" },
+  { api: resendOtp, name: "resendOtp" }
 ];
 
 const initialState = {};

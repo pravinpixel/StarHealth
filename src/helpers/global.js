@@ -2,8 +2,6 @@ import { toast } from "react-toastify";
 
 export const notify = (props) => {
   const errorObj = props?.error || props?.message;
-  console.log("errorObj", typeof errorObj);
-  console.log("props.status", props.status);
 
   switch (props.status || props.success) {
     case true:

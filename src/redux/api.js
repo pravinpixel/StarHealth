@@ -5,7 +5,7 @@ const API = axios.create({
 });
 const TOKEN_PAYLOAD_KEY = "authorization";
 
-const TOKEN = () => localStorage.getItem('token');
+const TOKEN = () => sessionStorage.getItem("token");
 
 API.interceptors.request.use(function (config) {
   if (TOKEN()) {
@@ -19,8 +19,8 @@ API.interceptors.response.use(
   (error) => {
     if (error?.response) {
       if (error.response.status === 401) {
-        localStorage.clear();
-        window.location.href = `/}`;
+        sessionStorage.clear();
+        window.location.href = "/";
         return Promise.reject(error.response);
       } else {
         return Promise.reject(error?.response?.data);

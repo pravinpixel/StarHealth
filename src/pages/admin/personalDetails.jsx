@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import React, {useEffect, useState} from "react";
+import {Col, Row} from "react-bootstrap";
 import PersonalDetailsForm from "components/wizard-form/PersonalDetailsForm";
 import UploadPhotosForm from "components/wizard-form/UploadPhotosForm";
 import SummaryComponent from "components/wizard-form/Summary";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {essentialList} from "../../redux/Service/essentialService";
 import BannerComponent from "../../components/banner";
-
 import Step1Active from "../../assets/images/icons/step1-active.png";
 import Step1Filled from "../../assets/images/icons/step1-filled.png";
 import Step2 from "../../assets/images/icons/step2.png";
@@ -13,43 +14,142 @@ import Step2Active from "../../assets/images/icons/step2-active.png";
 import Step2Filled from "../../assets/images/icons/step2-filled.png";
 import Step3 from "../../assets/images/icons/step3.png";
 import Step3Active from "../../assets/images/icons/step3-active.png";
+import {notify} from "helpers/global";
+import dayjs from "dayjs";
+import {
+  personalDetailList,
+  personalDetailsApi,
+  personalDetailsUpdateApi,
+} from "../../redux/Service/adminService";
 
 function PersonalDetails() {
-  const [step, setStep] = useState(2);
-  const [formData, setFormData] = useState({});
-  const navigate = useNavigate();
+  const [stateList, setStateList] = useState([]);
+  const [departmentList, setDepartmentList] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const handleStep1Submit = (data) => {
-    console.log("data", data);
-    setFormData((prev) => ({ ...prev, ...data }));
-    setStep(2);
+  const [backStep, setBackStep] = useState(null);
+
+  const [defaultValues, setDefaultValues] = useState([]);
+  const [step, setStep] = useState(null);
+
+  useEffect(() => {
+    if (backStep) {
+      setStep(backStep);
+    } else {
+      setStep(defaultValues?.status);
+    }
+  }, [defaultValues]);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleStep1Submit = async (data) => {
+    setLoading(true);
+    const firstStepData = {
+      ...data,
+      city: data?.city[0]?.label,
+      state: data?.state[0]?.label,
+      department: data?.department[0]?.label,
+      state_id: data?.state[0]?.id,
+      dob: dayjs(data?.dob).format("YYYY/MM/DD"),
+      status: "upload",
+    };
+    try {
+      const response = await dispatch(
+        step === "completed"
+          ? personalDetailsUpdateApi(firstStepData)
+          : personalDetailsApi(firstStepData)
+      ).unwrap();
+      setStep("upload");
+      setLoading(false);
+      notify(response);
+    } catch (error) {
+      setLoading(false);
+      notify(error);
+    }
   };
 
-  const handleStep2Submit = (data) => {
-    console.log("data", data);
-    // setFormData((prev) => ({
-    //   ...prev,
-    //   ...data,
-    //   image1: data.image1[0],
-    //   image2: data.image2[0],
-    // }));
-    setStep(3);
+  const handleStep2Submit = async (data) => {
+    const secondStepData = {
+      ...data,
+      city: data?.city[0]?.label,
+      state: data?.state[0]?.label,
+      department: data?.department[0]?.label,
+      state_id: data?.state[0]?.id,
+      dob: dayjs(data?.dob).format("YYYY/MM/DD"),
+      status: "summary",
+    };
+    setLoading(true);
+    try {
+      const response = await dispatch(
+        step === "completed"
+          ? personalDetailsUpdateApi(secondStepData)
+          : personalDetailsApi(secondStepData)
+      ).unwrap();
+      setStep("summary");
+      setLoading(false);
+      notify(response);
+    } catch (error) {
+      setLoading(false);
+      notify(error);
+    }
   };
 
   const handleBack = () => {
-    setStep((step) => step - 1);
+    personalDetailListApi();
+    setBackStep(step === "summary" ? "upload" : "basic");
   };
 
-  const confirmSubmit = () => {
-    navigate("/admin/thank-you");
+  const confirmSubmit = async () => {
+    setLoading(true);
+    try {
+      const response = await dispatch(
+        step === "completed"
+          ? personalDetailsUpdateApi({status: "completed"})
+          : personalDetailsApi({status: "completed"})
+      ).unwrap();
+      sessionStorage.clear();
+      navigate("/admin/thank-you");
+      setLoading(false);
+      notify(response);
+    } catch (error) {
+      setLoading(false);
+      notify(error);
+    }
   };
+
+  const essentialListApi = async () => {
+    try {
+      const response = await dispatch(essentialList()).unwrap();
+      setStateList(response?.data?.states);
+      setDepartmentList(response?.data?.departments);
+    } catch (error) {
+      notify(error);
+      console.log("error", error);
+    }
+  };
+
+  const personalDetailListApi = async () => {
+    try {
+      const response = await dispatch(personalDetailList()).unwrap();
+      setDefaultValues(response?.data);
+    } catch (error) {
+      notify(error);
+      console.log("error", error);
+    }
+  };
+
+  useEffect(() => {
+    essentialListApi();
+    personalDetailListApi();
+  }, []);
 
   return (
     <section>
       <Row className="m-0 overflow-auto h-100vh">
-        <Col md={6} className="bannerleft-bg">
+        <Col md={6} className="bannerleft-bg-1">
           <BannerComponent
-            type={step === 2 ? "upload-image" : "personal-details"}
+            type={step === "upload" ? "upload-image" : "personal-details"}
           />
         </Col>
         <Col md={6} className="bannerright-bg">
@@ -58,55 +158,73 @@ function PersonalDetails() {
               <div>
                 <div
                   className={
-                    step === 1 ? "active-cl round-cl" : "filled-cl round-cl"
-                  }
-                >
-                  <img
-                    src={step === 1 ? Step1Active : Step1Filled}
-                    alt="icon"
-                  />
-                </div>
-              </div>
-              <div
-                className={`w-100 ${step !== 1 ? "active-border-dotted" : "border-dotted"
-                  }`}
-              ></div>
-              <div>
-                <div
-                  className={
-                    step === 1
-                      ? "deactive-cl round-cl"
-                      : step === 2
-                        ? "active-cl round-cl"
-                        : "filled-cl round-cl"
+                    step === "basic" || step === "completed"
+                      ? "active-cl round-cl"
+                      : "filled-cl round-cl"
                   }
                 >
                   <img
                     src={
-                      step === 1
-                        ? Step2
-                        : step === 2
-                          ? Step2Active
-                          : Step2Filled
+                      step === "basic" || step === "completed"
+                        ? Step1Active
+                        : Step1Filled
                     }
                     alt="icon"
                   />
                 </div>
               </div>
               <div
-                className={`w-100 ${step === 3 ? "active-border-dotted" : "border-dotted"
-                  }`}
+                className={`w-100 ${
+                  step !== "basic" || step !== "completed"
+                    ? "active-border-dotted"
+                    : "border-dotted"
+                }`}
               ></div>
               <div>
                 <div
                   className={
-                    step === 1 || step === 2
+                    step === "basic" || step === "completed"
+                      ? "deactive-cl round-cl"
+                      : step === "upload"
+                      ? "active-cl round-cl"
+                      : "filled-cl round-cl"
+                  }
+                >
+                  <img
+                    src={
+                      step === "basic" || step === "completed"
+                        ? Step2
+                        : step === "upload"
+                        ? Step2Active
+                        : Step2Filled
+                    }
+                    alt="icon"
+                  />
+                </div>
+              </div>
+              <div
+                className={`w-100 ${
+                  step === "summary" ? "active-border-dotted" : "border-dotted"
+                }`}
+              ></div>
+              <div>
+                <div
+                  className={
+                    step === "basic" ||
+                    step === "completed" ||
+                    step === "upload"
                       ? "deactive-cl round-cl"
                       : "active-cl round-cl"
                   }
                 >
                   <img
-                    src={step === 1 || step === 2 ? Step3 : Step3Active}
+                    src={
+                      step === "basic" ||
+                      step === "completed" ||
+                      step === "upload"
+                        ? Step3
+                        : Step3Active
+                    }
                     alt="icon"
                   />
                 </div>
@@ -116,36 +234,54 @@ function PersonalDetails() {
               <div className="fs-12 rel-left-5 mt-1 activeLabel">Profile</div>
               <div
                 className={`fs-12 rel-left-15 mt-1 
-              ${step === 2 || step === 3 ? "activeLabel" : "grey-color-2"}`}
+              ${
+                step === "upload" || step === "summary"
+                  ? "activeLabel"
+                  : "grey-color-2"
+              }`}
               >
                 Upload Photos
               </div>
               <div
-                className={`fs-12 rel-left-5 mt-1  ${step === 3 ? "activeLabel" : "grey-color-2"
-                  }`}
+                className={`fs-12 rel-left-5 mt-1  ${
+                  step === "summary" ? "activeLabel" : "grey-color-2"
+                }`}
               >
                 Summary
               </div>
             </div>
             <section className="my-3">
-              {step === 1 && (
+              {step === "basic" && (
                 <PersonalDetailsForm
                   onSubmit={handleStep1Submit}
-                  defaultValues={formData}
+                  defaultValues={defaultValues}
+                  stateList={stateList}
+                  departmentList={departmentList}
+                  loading={loading}
                 />
               )}
-              {step === 2 && (
+              {step === "completed" && (
+                <PersonalDetailsForm
+                  onSubmit={handleStep1Submit}
+                  defaultValues={defaultValues}
+                  stateList={stateList}
+                  departmentList={departmentList}
+                  loading={loading}
+                />
+              )}
+              {step === "upload" && (
                 <UploadPhotosForm
                   onSubmit={handleStep2Submit}
                   onBack={handleBack}
-                  defaultValues={formData}
+                  defaultValues={defaultValues}
+                  loading={loading}
                 />
               )}
-              {step === 3 && (
+              {step === "summary" && (
                 <SummaryComponent
-                  data={formData}
                   onBack={handleBack}
                   confirmSubmit={confirmSubmit}
+                  loading={loading}
                 />
               )}
             </section>

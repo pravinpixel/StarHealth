@@ -74,6 +74,14 @@
   letter-spacing: 6px;
 }
 
+.letter-space-3 {
+  letter-spacing: 3px;
+}
+
+.letter-space-1 {
+  letter-spacing: 1px;
+}
+
 .light-blue {
   color: #7dc0e7;
 }
@@ -111,7 +119,7 @@ button {
   padding: 12px 20px;
   border-radius: 5000px;
   line-height: 12px;
-  height: 35px;
+  height: 36px;
 }
 
 .primary-button {
@@ -123,7 +131,7 @@ button {
   padding: 12px 20px;
   border-radius: 5000px;
   line-height: 12px;
-  height: 35px;
+  height: 36px;
 }
 
 .secondary-button {
@@ -135,11 +143,11 @@ button {
   padding: 12px 20px;
   border-radius: 5000px;
   line-height: 12px;
-  height: 35px;
+  height: 36px;
 }
 
 .splash-btn:hover {
-  background: #7dc0e7;
+  background: #2B3984;
 }
 
 input:focus {
@@ -185,4 +193,8 @@ input[type=number] {
 
 .react-datepicker-wrapper {
   width: 100%;
+}
+
+.gap-30 {
+  gap: 30px;
 }

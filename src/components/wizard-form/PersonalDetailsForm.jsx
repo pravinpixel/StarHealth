@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Col, Form, Row} from "react-bootstrap";
 import {Controller, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
@@ -7,67 +7,51 @@ import DatePicker from "react-datepicker";
 import {Typeahead} from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import "react-datepicker/dist/react-datepicker.css";
+import {useDispatch} from "react-redux";
+import {cityListByID} from "../../redux/Service/essentialService";
+import {notify} from "helpers/global";
 
-function PersonalDetailsForm({onSubmit, defaultValues}) {
+function PersonalDetailsForm({
+  onSubmit,
+  defaultValues,
+  stateList,
+  departmentList,
+  loading,
+}) {
+  console.log("defaultValues", defaultValues);
   const {
-    register,
     handleSubmit,
     control,
     watch,
+    reset,
     formState: {errors},
   } = useForm({
     resolver: yupResolver(PersonalInformationSchema),
     mode: "all",
     reValidateMode: "onSubmit",
-    defaultValues,
+    defaultValues: {defaultValues},
   });
+  const dispatch = useDispatch();
+  const stateValue = watch("state");
+  const [cityList, setCityList] = useState([]);
 
-  const departmentList = [
-    {
-      id: 1,
-      label: "Wellness",
-    },
-    {
-      id: 2,
-      label: "Insurance",
-    },
-    {
-      id: 3,
-      label: "Patient Care",
-    },
-  ];
+  const essentialListApi = async () => {
+    try {
+      const response = await dispatch(cityListByID(stateValue[0]?.id)).unwrap();
+      setCityList(response?.data?.cites);
+    } catch (error) {
+      notify(error);
+      console.log("error", error);
+    }
+  };
 
-  const stateList = [
-    {
-      id: 1,
-      label: "Tamilnadu",
-    },
-    {
-      id: 2,
-      label: "Kerala",
-    },
-    {
-      id: 3,
-      label: "Andhra Pradesh",
-    },
-  ];
+  useEffect(() => {
+    if (stateValue) essentialListApi();
+  }, [stateValue]);
 
-  const cityList = [
-    {
-      id: 1,
-      label: "Kanyakumari",
-    },
-    {
-      id: 2,
-      label: "Nagercoil",
-    },
-    {
-      id: 3,
-      label: "Madurai",
-    },
-  ];
-
-  console.log("watch", watch());
+  useEffect(() => {
+    reset(defaultValues);
+  }, [defaultValues]);
 
   return (
     <section>
@@ -149,6 +133,9 @@ function PersonalDetailsForm({onSubmit, defaultValues}) {
                       placeholderText="Select Your Date of Birth"
                       className={`form-control`}
                       autoComplete="off"
+                      showMonthDropdown
+                      showYearDropdown
+                      dropdownMode="select"
                     />
                   );
                 }}
@@ -294,31 +281,10 @@ function PersonalDetailsForm({onSubmit, defaultValues}) {
         </div>
 
         <div className="my-5 text-center">
-          <Button className="primary-button" type="sumbit">
-            Submit
+          <Button className="primary-button" type="sumbit" disabled={loading}>
+            {loading ? "Loading..." : "Submit"}
           </Button>
         </div>
-        {/* <div>
-          <label>First Name</label>
-          <input
-            {...register(
-              "firstName"
-              // {required: "First name is required"}
-            )}
-          />
-          {errors.firstName && <p>{errors.firstName.message}</p>}
-        </div>
-        <div>
-          <label>Last Name</label>
-          <input
-            {...register(
-              "lastName"
-              // {required: "Last name is required"}
-            )}
-          />
-          {errors.lastName && <p>{errors.lastName.message}</p>}
-        </div>
-        <button type="submit">Next</button> */}
       </Form>
     </section>
   );

@@ -4,7 +4,7 @@ export const emailRegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z^\s]{2,}
 const phoneRegExp = /^[0-9]{10}$/;
 
 const LoginSchema = yup.object().shape({
-  // email: yup.string().max(255).required("Email is required").matches(emailRegExp, "Please enter valid email"),
+  email: yup.string().max(255).required("Email is required").matches(emailRegExp, "Please enter valid email"),
 });
 
 const PersonalInformationSchema = yup.object().shape({
@@ -30,7 +30,13 @@ const PersonalInformationSchema = yup.object().shape({
   }),
 });
 
+const UploadImagesSchema = yup.object().shape({
+  passport_photo: yup.mixed().required("Required"),
+  profile_photo: yup.mixed().required("Required"),
+})
+
 export {
   LoginSchema,
-  PersonalInformationSchema
+  PersonalInformationSchema,
+  UploadImagesSchema
 };

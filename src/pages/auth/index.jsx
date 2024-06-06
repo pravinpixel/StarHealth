@@ -1,5 +1,7 @@
 import React from "react";
-import SplashPerson from "../../assets/images/splash-person.png";
+import SplashLogo from "../../assets/images/logo-splash.png";
+import LanuchImage from "../../assets/images/lanuch.png";
+
 import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 
@@ -7,19 +9,18 @@ function SplashScreenComponent() {
   const navigate = useNavigate();
   return (
     <section className="splash-bg">
-      <div className="vstack align-items-center justify-content-end pb-5 h-100vh gap-5">
-        <div className="text-center roboto-font">
-          <div className="text-white fs-37 fw-400 letter-space-6 text-uppercase">
-            An Opportunity to become
-          </div>
-          <div className="hstack justify-content-center fs-88 gap-4 fw-900 letter-space-6 text-uppercase lh-90">
-            <div className="text-white ">FACES</div>
-            <div className="text-white">OF</div>
-            <div className="light-blue">SHAI</div>
-          </div>
-        </div>
+      <div
+        className="vstack align-items-center justify-content-center pb-5 h-100vh gap-30 
+      splash-position"
+      >
         <div>
-          <img src={SplashPerson} alt="splash" className="w-100" />
+          <img src={SplashLogo} alt="SplashLogo" width={164} />
+        </div>
+        <div className="text-center">
+          <img src={LanuchImage} alt="LanuchImage" />
+          <div className="text-white fs-22 fw-500 mt-3">
+            Ready to be the face of STAR?
+          </div>
         </div>
         <div>
           <Button

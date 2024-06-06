@@ -20,3 +20,13 @@ export const authOtpVerify = createAsyncThunk("otp-verify", async (bodyParams, t
     return thunkAPI.rejectWithValue(error);
   }
 });
+
+// auth otp verify
+export const resendOtp = createAsyncThunk("resend-otp", async (bodyParams, thunkAPI) => {
+  try {
+    const response = await API.post(`/resend-otp`, bodyParams);
+    return response;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error);
+  }
+});

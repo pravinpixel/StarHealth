@@ -29,7 +29,7 @@ function BannerComponent({type}) {
             <img src={Logo} alt="logo" />
           </div>
           <div className="adminleftposition">
-            <img src={Lanuch} alt="Lanuch" className="mt-3" />
+            <img src={Lanuch} alt="lanuch" className="mt-3" />
             <div className="mt-3">
               <Button
                 className="whiteBorder-mobilebutton"
@@ -40,7 +40,7 @@ function BannerComponent({type}) {
             </div>
           </div>
           <div className="text-center my-5 dnone-xs dnone-sm">
-            <img src={Lanuch} alt="Lanuch" />
+            <img src={Lanuch} alt="lanuch" />
           </div>
           <div className="vstack gap-3 px-5 dnone-xs dnone-sm">
             <div className="fs-20 fw-600 text-white">About the Campaign</div>
@@ -93,7 +93,7 @@ function BannerComponent({type}) {
             <img src={Logo} alt="logo" />
           </div>
           <div className="adminleftposition">
-            <img src={Lanuch} alt="Lanuch" className="mt-3" />
+            <img src={Lanuch} alt="lanuch" className="mt-3" />
             <div className="mt-3">
               <Button
                 className="whiteBorder-mobilebutton"
@@ -104,7 +104,7 @@ function BannerComponent({type}) {
             </div>
           </div>
           <div className="text-center my-5 dnone-xs dnone-sm launch-img-ctr">
-            <img src={Lanuch} alt="Lanuch" />
+            <img src={Lanuch} alt="launch" />
           </div>
           <div className="vstack px-5 dnone-xs dnone-sm photoguide-ctr-web">
             <div className="vstack gap-3">
@@ -114,21 +114,21 @@ function BannerComponent({type}) {
               </div>
               <div className="hstack justify-content-between mt-3">
                 <div className="text-center">
-                  <img src={HeadShotImage} alt="HeadShotImage" />
+                  <img src={HeadShotImage} alt="headshot" />
                   <div className="vstack fs-14 text-white roboto-font mt-2">
                     <div>A clear headshot photo</div>
                     <div>of yourself*</div>
                   </div>
                 </div>
                 <div className="text-center">
-                  <img src={HeadShotImage} alt="HeadShotImage" />
+                  <img src={HeadShotImage} alt="headshot" />
                   <div className="vstack fs-14 text-white roboto-font mt-2">
                     <div>A full-sized photo </div>
                     <div>of yourself*</div>
                   </div>
                 </div>
                 <div className="text-center">
-                  <img src={HeadShotImage} alt="HeadShotImage" />
+                  <img src={HeadShotImage} alt="headshot" />
                   <div className="vstack fs-14 text-white roboto-font mt-2">
                     <div>A lovely photo with your</div>
                     <div>family (Optional).</div>
@@ -148,7 +148,7 @@ function BannerComponent({type}) {
               Let the star in you stand
             </div>
             <div className="fs-22 fw-500 text-white">under the spotlight</div>
-            <img src={Lanuch} alt="Lanuch" className="mt-3" />
+            <img src={Lanuch} alt="lanuch" className="mt-3" />
           </div>
         </div>
       )}
@@ -164,13 +164,13 @@ function BannerComponent({type}) {
           <div className="hstack gap-4 justify-content-between align-items-center w-100">
             <Offcanvas.Title className="fs-22">Campaign Rules</Offcanvas.Title>
             <div className="cursor" onClick={() => campaignRuleClose()}>
-              <img src={CloseIcon} alt="CloseIcon" />
+              <img src={CloseIcon} alt="close-icon" />
             </div>
           </div>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div className="mb-3">
-            <img src={Lanuch} alt="Lanuch" width={168} />
+            <img src={Lanuch} alt="lanuch" width={168} />
           </div>
           <div className="vstack gap-3">
             <div className="fs-18 fw-600 text-white">About the Campaign</div>
@@ -231,13 +231,13 @@ function BannerComponent({type}) {
               Photo Guidelines
             </Offcanvas.Title>
             <div className="cursor" onClick={() => photoGuidelineClose()}>
-              <img src={CloseIcon} alt="CloseIcon" />
+              <img src={CloseIcon} alt="close-icon" />
             </div>
           </div>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div className="mb-3">
-            <img src={Lanuch} alt="Lanuch" width={168} />
+            <img src={Lanuch} alt="lanch" width={168} />
           </div>
           <div className="vstack">
             <div className="vstack gap-3">
@@ -247,21 +247,21 @@ function BannerComponent({type}) {
               </div>
               <div className="hstack justify-content-around mt-3 flex-wrap row-gap-4">
                 <div className="text-center">
-                  <img src={HeadShotImage} alt="HeadShotImage" />
+                  <img src={HeadShotImage} alt="head-shot" />
                   <div className="vstack fs-12 text-white roboto-font mt-2">
                     <div>A clear headshot photo</div>
                     <div>of yourself*</div>
                   </div>
                 </div>
                 <div className="text-center">
-                  <img src={HeadShotImage} alt="HeadShotImage" />
+                  <img src={HeadShotImage} alt="head-shot" />
                   <div className="vstack fs-12 text-white roboto-font mt-2">
                     <div>A full-sized photo </div>
                     <div>of yourself*</div>
                   </div>
                 </div>
                 <div className="text-center">
-                  <img src={HeadShotImage} alt="HeadShotImage" />
+                  <img src={HeadShotImage} alt="head-shot" />
                   <div className="vstack fs-12 text-white roboto-font mt-2">
                     <div>A lovely photo with your</div>
                     <div>family (Optional).</div>

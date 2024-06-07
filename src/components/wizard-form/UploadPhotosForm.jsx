@@ -123,7 +123,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                   <div {...getRootPassportPhotoProps({className: "dropzone"})}>
                     <input {...getInputPassportPhotoProps()} />
                     <div>
-                      <img src={DragImage} alt="DragImage" />
+                      <img src={DragImage} alt="drag-image" />
                     </div>
                   </div>
                 )
@@ -140,7 +140,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                     className="closeIcon-img cursor"
                     onClick={() => onDelete("passport_photo")}
                   >
-                    <img src={CloseIcon} alt="CloseIcon" />
+                    <img src={CloseIcon} alt="close-icon" />
                   </div>
                 </div>
               </div>
@@ -166,7 +166,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                   <div {...getRootFullSizePhotoProps({className: "dropzone"})}>
                     <input {...getInputFullSizePhotoProps()} />
                     <div>
-                      <img src={DragImage} alt="DragImage" />
+                      <img src={DragImage} alt="drag-image" />
                     </div>
                   </div>
                 )
@@ -183,7 +183,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                     className="closeIcon-img cursor"
                     onClick={() => onDelete("profile_photo")}
                   >
-                    <img src={CloseIcon} alt="CloseIcon" />
+                    <img src={CloseIcon} alt="close-icon" />
                   </div>
                 </div>
               </div>
@@ -209,7 +209,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                   <div {...getRootFamilyPhotoProps({className: "dropzone"})}>
                     <input {...getInputFamilyPhotoProps()} />
                     <div>
-                      <img src={DragImage} alt="DragImage" />
+                      <img src={DragImage} alt="drag-image" />
                     </div>
                   </div>
                 )
@@ -223,7 +223,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                     className="closeIcon-img cursor"
                     onClick={() => onDelete("family_photo")}
                   >
-                    <img src={CloseIcon} alt="CloseIcon" />
+                    <img src={CloseIcon} alt="close-icon" />
                   </div>
                 </div>
               </div>

@@ -75,11 +75,11 @@ function PersonalDetails() {
   const handleStep2Submit = async (data) => {
     const secondStepData = {
       ...data,
-      city: data?.city[0]?.label,
-      state: data?.state[0]?.label,
-      department: data?.department[0]?.label,
-      state_id: data?.state[0]?.id,
-      dob: dayjs(data?.dob).format("YYYY/MM/DD"),
+      // city: data?.city ? data?.city[0]?.label : null,
+      // state: data?.state ? data?.state[0]?.label : null,
+      // department: data?.department ? data?.department[0]?.label : null,
+      // state_id: data?.state[0]?.id,
+      // dob: dayjs(data?.dob).format("YYYY/MM/DD"),
       status: "summary",
     };
     setLoading(true);

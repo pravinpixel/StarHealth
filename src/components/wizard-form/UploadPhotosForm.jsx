@@ -107,21 +107,9 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
     <section>
       <div className="vstack gap-2 mb-4">
         <div className="fs-28 fw-600 dark-blue">Upload Your Photos</div>
-        {/* <div className="fs-18 grey-color roboto-font">
-          To get started, please upload the following 3 photos:
-        </div>
-        <div className="fs-18 grey-color roboto-font">
-          1. A clear passport-sized photo of yourself.
-        </div>
-        <div className="fs-18 grey-color roboto-font">
-          2. A full-body photo of yourself.
-        </div>
-        <div className="fs-18 grey-color roboto-font">
-          3. A lovely photo with your family.
-        </div> */}
       </div>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <div className="hstack gap-4">
+        <div className="hstack gap-4 flex-wrap uploadphoto-wrap">
           <div>
             <div className="fs-16 roboto-font mb-2">
               Headshot photo<span className="text-danger">*</span>

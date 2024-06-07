@@ -1,0 +1,494 @@
+@media screen and (max-width: 380px) {
+
+  .uploadphoto-wrap .dropzone,
+  .uploadphoto-wrap .image-item,
+  .uploadphoto-wrap .image-item>img,
+  .uploadphoto-wrap .preview {
+    width: 138px !important;
+    height: 138px !important;
+  }
+
+  .uploadphoto-wrap {
+    gap: 10px !important;
+  }
+
+  .primary-button {
+    font-size: 14px;
+    padding: revert !important;
+  }
+
+  .secondary-button {
+    font-size: 14px;
+    padding: revert !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .splash-bg {
+    background-image: url("./assets/images/responsive/welcome-bg.png");
+  }
+
+  .banner-logo img {
+    width: 34px;
+  }
+
+  .dnone-xs {
+    display: none;
+  }
+
+  .welocme-logo img {
+    width: 99px;
+  }
+
+  .splash-position {
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 100%;
+    justify-content: end !important;
+  }
+
+  .bannerleft-bg {
+    background-image: url("./assets/images/responsive/auth-left.png");
+    border-radius: unset;
+    height: 390px;
+  }
+
+  .bannerleft-bg-1 {
+    background-image: url("./assets/images/responsive/admin-left.png");
+    border-radius: unset;
+    height: 390px;
+    background-size: 100% 100%;
+  }
+
+  .authleftposition>div {
+    font-size: 10px;
+  }
+
+  .authleftposition img {
+    width: 168px;
+    margin-top: 10px !important;
+  }
+
+  .authleftposition {
+    right: 0;
+    left: 35px;
+  }
+
+  .authright-side .loginform-ctr .input-group {
+    width: auto;
+  }
+
+  .authright-side .loginform-ctr {
+    margin-top: 20px !important;
+  }
+
+  .fs-26 {
+    font-size: 20px;
+  }
+
+  .terms-condition {
+    font-size: 10px;
+  }
+
+  .bannerright-auth {
+    background-color: white;
+    margin-top: -35px;
+    z-index: 999;
+    border-radius: 20px 20px 0px 0px;
+    padding: 100px 20px 150px 20px;
+  }
+
+  .termsand-condotion-popup .modal-body {
+    width: auto;
+  }
+
+  .adminleftposition {
+    display: block;
+    bottom: 25%;
+  }
+
+  .adminleftposition img {
+    width: 168px;
+  }
+
+  .banner-rightamin {
+    margin-top: -65px;
+    background-color: white;
+    z-index: 9;
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  .banner-rightamin .m-5 {
+    margin: 20px 0px !important;
+  }
+
+  .fs-18 {
+    font-size: 16px;
+  }
+
+  .fs-22 {
+    font-size: 18px;
+  }
+
+  .fs-28 {
+    font-size: 20px;
+  }
+
+  .uploadphoto-wrap .dropzone,
+  .uploadphoto-wrap .image-item,
+  .uploadphoto-wrap .preview img,
+  .uploadphoto-wrap .preview {
+    width: 173px;
+    height: 173px;
+  }
+
+  .uploadphoto-wrap {
+    gap: 10px !important;
+  }
+
+  .primary-button {
+    font-size: 14px;
+    height: 30px;
+    padding: 10px 15px;
+    line-height: 0;
+  }
+
+  .secondary-button {
+    font-size: 14px;
+    height: 30px;
+    padding: 10px 15px;
+    line-height: 0;
+  }
+
+  .fs-20 {
+    font-size: 16px;
+  }
+
+  .fs-40 {
+    font-size: 34px;
+  }
+
+}
+
+@media screen and (min-width:576px) and (max-width:767px) {
+  .welocme-logo img {
+    width: 99px;
+  }
+
+  .dnone-sm {
+    display: none;
+  }
+
+  .splash-position {
+    justify-content: end !important;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bannerleft-bg {
+    background-image: url("./assets/images/responsive/auth-left.png");
+    border-radius: unset;
+    background-size: cover;
+    height: 390px;
+  }
+
+  .authleftposition>div {
+    font-size: 10px;
+  }
+
+  .authleftposition img {
+    width: 168px;
+    margin-top: 10px !important;
+  }
+
+  .authleftposition {
+    right: 0;
+    left: 35px;
+  }
+
+  .bannerright-auth {
+    background-color: white;
+    margin-top: -35px;
+    z-index: 999;
+    border-radius: 20px 20px 0px 0px;
+    padding: 100px 20px 150px 20px;
+  }
+
+  .authright-side .loginform-ctr .input-group {
+    width: auto;
+  }
+
+  .authleftposition>div {
+    font-size: 10px;
+  }
+
+  .authleftposition img {
+    width: 168px;
+    margin-top: 10px !important;
+  }
+
+  .fs-26 {
+    font-size: 20px;
+  }
+
+  .terms-condition {
+    font-size: 12px;
+  }
+
+  .termsand-condotion-popup .modal-body {
+    width: auto;
+  }
+
+  .bannerleft-bg-1 {
+    background-image: url("./assets/images/responsive/admin-left.png");
+    border-radius: unset;
+    height: 390px;
+    background-size: 100% 100%;
+  }
+
+  .adminleftposition {
+    display: block;
+    bottom: 25%;
+  }
+
+  .adminleftposition img {
+    width: 168px;
+  }
+
+  .banner-rightamin {
+    margin-top: -65px;
+    background-color: white;
+    z-index: 9;
+    border-radius: 20px 20px 0px 0px;
+    height: 100vh;
+  }
+
+  .banner-rightamin .m-5 {
+    margin: 20px 0px !important;
+  }
+
+  .fs-18 {
+    font-size: 16px;
+  }
+
+  .fs-22 {
+    font-size: 18px;
+  }
+
+  .fs-28 {
+    font-size: 20px;
+  }
+
+  .fs-20 {
+    font-size: 16px;
+  }
+
+  .fs-40 {
+    font-size: 34px;
+  }
+
+  .uploadphoto-wrap .dropzone,
+  .uploadphoto-wrap .image-item,
+  .uploadphoto-wrap .preview img,
+  .uploadphoto-wrap .preview {
+    width: 173px;
+    height: 173px;
+  }
+
+  .uploadphoto-wrap {
+    gap: 10px !important;
+  }
+
+  .primary-button {
+    font-size: 14px;
+    height: 30px;
+    padding: 10px 15px;
+    line-height: 0;
+  }
+
+  .secondary-button {
+    font-size: 14px;
+    height: 30px;
+    padding: 10px 15px;
+    line-height: 0;
+  }
+
+}
+
+@media screen and (min-width:768px) and (max-width:995px) {
+  .welocme-logo img {
+    width: 99px;
+  }
+
+  .splash-position {
+    justify-content: end !important;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .authright-side .loginform-ctr .input-group {
+    width: auto;
+  }
+
+  .bannerleft-bg {
+    background-size: cover;
+  }
+
+  .fs-26 {
+    font-size: 20px;
+  }
+
+  .authleftposition>div {
+    font-size: 14px;
+  }
+
+  .authleftposition img {
+    width: 168px;
+    margin-top: 10px !important;
+  }
+
+  .terms-condition {
+    font-size: 12px;
+  }
+
+  .termsand-condotion-popup .modal-body {
+    width: auto;
+  }
+
+  .banner-rightamin .m-5 {
+    margin: 20px 20px !important;
+  }
+
+  .fs-18 {
+    font-size: 16px;
+  }
+
+  .fs-22 {
+    font-size: 18px;
+  }
+
+  .fs-28 {
+    font-size: 20px;
+  }
+
+  .banner-rightamin {
+    height: 100vh;
+  }
+
+  .launch-img-ctr img {
+    width: 120px;
+  }
+
+  .photoguide-ctr-web {
+    padding: 0px !important;
+  }
+
+  .photoguide-ctr-web img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .uploadphoto-wrap .dropzone,
+  .uploadphoto-wrap .image-item,
+  .uploadphoto-wrap .image-item>img,
+  .uploadphoto-wrap .preview {
+    width: 128px !important;
+    height: 128px !important;
+  }
+
+  .uploadphoto-wrap {
+    gap: 10px !important;
+  }
+
+  .primary-button {
+    font-size: 14px;
+    height: 30px;
+    padding: 10px 5px;
+    line-height: 0;
+  }
+
+  .secondary-button {
+    font-size: 14px;
+    height: 30px;
+    padding: 10px 5px;
+    line-height: 0;
+  }
+
+}
+
+@media screen and (min-width:996px) and (max-width:1200px) {
+  .welocme-logo img {
+    width: 99px;
+  }
+
+  .splash-position {
+    justify-content: end !important;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .authright-side .loginform-ctr .input-group {
+    width: auto;
+  }
+
+  .bannerleft-bg {
+    background-size: cover;
+  }
+
+  .fs-26 {
+    font-size: 20px;
+  }
+
+  .authleftposition>div {
+    font-size: 14px;
+  }
+
+  .authleftposition img {
+    width: 168px;
+    margin-top: 10px !important;
+  }
+
+  .terms-condition {
+    font-size: 12px;
+  }
+
+  .termsand-condotion-popup .modal-body {
+    width: auto;
+  }
+
+  .banner-rightamin {
+    height: 100vh;
+  }
+
+  .uploadphoto-wrap .dropzone,
+  .uploadphoto-wrap .image-item,
+  .uploadphoto-wrap .image-item>img,
+  .uploadphoto-wrap .preview {
+    width: 128px !important;
+    height: 128px !important;
+  }
+
+  .uploadphoto-wrap {
+    gap: 10px !important;
+  }
+
+  .primary-button {
+    font-size: 14px;
+    height: 30px;
+    padding: 10px 15px;
+    line-height: 0;
+  }
+
+  .secondary-button {
+    font-size: 14px;
+    height: 30px;
+    padding: 10px 15px;
+    line-height: 0;
+  }
+
+  .photoguide-ctr-web img {
+    width: 90px;
+    height: 90px;
+  }
+
+}

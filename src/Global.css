@@ -122,6 +122,18 @@ button {
   height: 36px;
 }
 
+.whiteBorder-mobilebutton {
+  background: transparent;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 5000px;
+  height: 27px;
+  line-height: 0px;
+}
+
 .primary-button {
   background: #2B3984;
   color: #FFFFFF;
@@ -148,6 +160,13 @@ button {
 
 .splash-btn:hover {
   background: #2B3984;
+}
+
+button:disabled,
+button:active {
+  background-color: #2B3984 !important;
+  color: white !important;
+  border-color: #2B3984 !important;
 }
 
 input:focus {
@@ -197,4 +216,43 @@ input[type=number] {
 
 .gap-30 {
   gap: 30px;
+}
+
+/* react datepicker style */
+
+.react-datepicker {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected,
+.react-datepicker__year-text--keyboard-selected {
+  border-radius: 50%;
+  background-color: #2b3984;
+  color: rgb(255 255 255);
+}
+
+.react-datepicker__day:hover,
+.react-datepicker__month-text:hover,
+.react-datepicker__quarter-text:hover,
+.react-datepicker__year-text:hover {
+  border-radius: 50% !important;
+  color: rgb(255 255 255);
+  background: #2b3984 !important;
+}
+
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected,
+.react-datepicker__year-text--keyboard-selected {
+  border-radius: 50%;
+}
+
+.react-datepicker__header__dropdown {
+  margin: 15px 0px;
+}
+
+.react-datepicker__navigation {
+  top: 8px;
 }

@@ -1,13 +1,12 @@
 import React, {useState} from "react";
 import {Row, Col} from "react-bootstrap";
 import LoginFormComponent from "./loginForm";
-import BannerComponent from "../../components/banner";
 import OtpFormComponent from "./otpForm";
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {authLogin, authOtpVerify} from "../../redux/Service/authService";
 import {notify} from "helpers/global";
-import authLeftImage from "../../assets/images/authLeft.png";
+import BannerComponent from "../../components/banner";
 
 function LoginComponent() {
   const navigate = useNavigate();
@@ -51,18 +50,17 @@ function LoginComponent() {
   return (
     <section>
       <Row className="m-0">
-        <Col md={6} className="p-0">
-          <img src={authLeftImage} alt="img" className="w-100 h-100vh" />
-        </Col>
-        {/* <Col md={6} className="bannerleft-bg-1">
+        <Col md={6} className="bannerleft-bg position-relative">
           <BannerComponent />
-        </Col> */}
+        </Col>
         <Col
           md={6}
-          className="bannerright-bg d-flex align-items-center justify-content-center"
+          className="bannerright-bg d-flex align-items-center justify-content-center bannerright-auth"
         >
           {formStateValue === "login" ? (
-            <LoginFormComponent loginSubmit={loginSubmit} loading={loading} />
+            <div className="authright-side">
+              <LoginFormComponent loginSubmit={loginSubmit} loading={loading} />
+            </div>
           ) : formStateValue === "otp" ? (
             <OtpFormComponent
               otpFormSubmit={otpFormSubmit}

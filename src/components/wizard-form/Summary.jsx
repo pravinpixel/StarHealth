@@ -32,37 +32,37 @@ function SummaryComponent({onBack, confirmSubmit, loading}) {
       <div className="mt-4">
         <div className="fs-28 fw-600 dark-blue mb-2">Personal Details</div>
         <Row className="row-gap-3 roboto-font">
-          <Col md={4}>
+          <Col xs={12} sm={6} md={6} lg={6} xl={4}>
             <div className="vstack gap-1">
               <div className="fs-12 grey-color">Name</div>
               <div className="fs-20">{summaryList?.employee_name}</div>
             </div>
           </Col>
-          <Col md={4}>
+          <Col xs={12} sm={6} md={6} lg={6} xl={4}>
             <div className="vstack gap-1">
               <div className="fs-12 grey-color">Phone Number</div>
               <div className="fs-20">+91 {summaryList?.mobile_number}</div>
             </div>
           </Col>
-          <Col md={4}>
+          <Col xs={12} sm={6} md={6} lg={6} xl={4}>
             <div className="vstack gap-1">
               <div className="fs-12 grey-color">Date of Birth</div>
               <div className="fs-20">{summaryList?.dob}</div>
             </div>
           </Col>
-          <Col md={4}>
+          <Col xs={12} sm={6} md={6} lg={6} xl={4}>
             <div className="vstack gap-1">
               <div className="fs-12 grey-color">Employee Code</div>
               <div className="fs-20">{summaryList?.employee_code}</div>
             </div>
           </Col>
-          <Col md={4}>
+          <Col xs={12} sm={6} md={6} lg={6} xl={4}>
             <div className="vstack gap-1">
               <div className="fs-12 grey-color">Department</div>
               <div className="fs-20">{summaryList?.department[0]?.label}</div>
             </div>
           </Col>
-          <Col md={4}>
+          <Col xs={12} sm={6} md={6} lg={6} xl={4}>
             <div className="vstack gap-1">
               <div className="fs-12 grey-color">Designation</div>
               <div className="fs-20">{summaryList?.designation}</div>
@@ -73,13 +73,13 @@ function SummaryComponent({onBack, confirmSubmit, loading}) {
       <div className="mt-4">
         <div className="fs-28 fw-600 dark-blue mb-2">Location Details</div>
         <Row className="row-gap-3 roboto-font">
-          <Col md={4}>
+          <Col xs={12} sm={6} md={6} lg={6} xl={4}>
             <div className="vstack gap-1">
               <div className="fs-12 grey-color">State</div>
               <div className="fs-20">{summaryList?.state[0]?.label}</div>
             </div>
           </Col>
-          <Col md={4}>
+          <Col xs={12} sm={6} md={6} lg={6} xl={4}>
             <div className="vstack gap-1">
               <div className="fs-12 grey-color">City</div>
               <div className="fs-20">{summaryList?.city[0]?.label}</div>
@@ -89,7 +89,7 @@ function SummaryComponent({onBack, confirmSubmit, loading}) {
       </div>
       <div className="mt-4">
         <div className="fs-28 fw-600 dark-blue mb-2">Uploaded Photos</div>
-        <div className="hstack uploadimages-ctr gap-3">
+        <div className="hstack uploadimages-ctr gap-3 flex-wrap">
           <div>
             <img src={summaryList?.passport_photo} alt="passport-size" />
           </div>

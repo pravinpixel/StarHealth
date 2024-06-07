@@ -4,16 +4,18 @@ import LanuchImage from "../../assets/images/lanuch.png";
 
 import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
+import SplashLoader from "../../components/loader/splashLoader";
 
 function SplashScreenComponent() {
   const navigate = useNavigate();
   return (
+    // <SplashLoader />
     <section className="splash-bg">
       <div
-        className="vstack align-items-center justify-content-center pb-5 h-100vh gap-30 
+        className="vstack align-items-center justify-content-center pb-5 h-100vh gap-30
       splash-position"
       >
-        <div>
+        <div className="welocme-logo">
           <img src={SplashLogo} alt="SplashLogo" width={164} />
         </div>
         <div className="text-center">

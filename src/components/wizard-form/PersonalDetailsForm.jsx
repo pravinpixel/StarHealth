@@ -18,7 +18,6 @@ function PersonalDetailsForm({
   departmentList,
   loading,
 }) {
-  console.log("defaultValues", defaultValues);
   const {
     handleSubmit,
     control,
@@ -65,7 +64,7 @@ function PersonalDetailsForm({
         <div>
           <div className="fs-22 fw-600 dark-blue my-3">Personal Details</div>
           <Row className="innerform-ctr loginform-ctr roboto-font row-gap-4">
-            <Col md={6}>
+            <Col xs={12} sm={12} md={12} lg={6}>
               <Form.Group>
                 <Controller
                   name="employee_name"
@@ -88,7 +87,7 @@ function PersonalDetailsForm({
                 )}
               </Form.Group>
             </Col>
-            <Col md={6}>
+            <Col xs={12} sm={12} md={12} lg={6}>
               <Controller
                 name="mobile_number"
                 control={control}
@@ -117,7 +116,7 @@ function PersonalDetailsForm({
                 </Form.Text>
               )}
             </Col>
-            <Col md={6}>
+            <Col xs={12} sm={12} md={12} lg={6}>
               <Controller
                 name="dob"
                 control={control}
@@ -146,7 +145,7 @@ function PersonalDetailsForm({
                 </Form.Text>
               )}
             </Col>
-            <Col md={6}>
+            <Col xs={12} sm={12} md={12} lg={6}>
               <Form.Group>
                 <Controller
                   name="employee_code"
@@ -169,7 +168,7 @@ function PersonalDetailsForm({
                 )}
               </Form.Group>
             </Col>
-            <Col md={6}>
+            <Col xs={12} sm={12} md={12} lg={6}>
               <Controller
                 name="department"
                 control={control}
@@ -197,7 +196,7 @@ function PersonalDetailsForm({
                 </Form.Text>
               )}
             </Col>
-            <Col md={6}>
+            <Col xs={12} sm={12} md={12} lg={6}>
               <Form.Group>
                 <Controller
                   name="designation"
@@ -223,7 +222,7 @@ function PersonalDetailsForm({
           </Row>
           <div className="fs-22 fw-600 dark-blue my-3">Location Details</div>
           <Row className="innerform-ctr loginform-ctr roboto-font row-gap-4">
-            <Col md={6}>
+            <Col xs={12} sm={12} md={12} lg={6}>
               <Controller
                 name="state"
                 control={control}
@@ -250,7 +249,7 @@ function PersonalDetailsForm({
                 </Form.Text>
               )}
             </Col>
-            <Col md={6}>
+            <Col xs={12} sm={12} md={12} lg={6}>
               <Controller
                 name="city"
                 control={control}

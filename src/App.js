@@ -2,6 +2,8 @@ import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './index.css';
 import './Global.css';
+import './responsive.css';
+import SplashLoader from "./components/loader/splashLoader";
 
 // auth pages
 const SplashComponent = lazy(() => import("./pages/auth/index"));
@@ -13,7 +15,7 @@ const ThankyouScreen = lazy(() => import("./pages/admin/thanks"));
 
 function App() {
   return (
-    <Suspense fallback={"Loading"}>
+    <Suspense fallback={<SplashLoader />}>
       <Router>
         <Routes>
           <Route

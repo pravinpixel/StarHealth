@@ -31,12 +31,14 @@ function PersonalDetails() {
 
   const [defaultValues, setDefaultValues] = useState([]);
   const [step, setStep] = useState(null);
+  const [updateApiStatus, setUpdateApiStaus] = useState(null);
 
   useEffect(() => {
     if (backStep) {
       setStep(backStep);
     } else {
       setStep(defaultValues?.status);
+      setUpdateApiStaus(defaultValues?.status);
     }
   }, [defaultValues]);
 
@@ -56,10 +58,11 @@ function PersonalDetails() {
     };
     try {
       const response = await dispatch(
-        step === "completed"
+        updateApiStatus === "completed"
           ? personalDetailsUpdateApi(firstStepData)
           : personalDetailsApi(firstStepData)
       ).unwrap();
+      updateApiStatus === "completed" && setUpdateApiStaus("completed");
       setStep("upload");
       setLoading(false);
       notify(response);
@@ -82,10 +85,11 @@ function PersonalDetails() {
     setLoading(true);
     try {
       const response = await dispatch(
-        step === "completed"
+        updateApiStatus === "completed"
           ? personalDetailsUpdateApi(secondStepData)
           : personalDetailsApi(secondStepData)
       ).unwrap();
+      updateApiStatus === "completed" && setUpdateApiStaus("completed");
       setStep("summary");
       setLoading(false);
       notify(response);
@@ -104,7 +108,7 @@ function PersonalDetails() {
     setLoading(true);
     try {
       const response = await dispatch(
-        step === "completed"
+        updateApiStatus === "completed"
           ? personalDetailsUpdateApi({status: "completed"})
           : personalDetailsApi({status: "completed"})
       ).unwrap();
@@ -147,12 +151,12 @@ function PersonalDetails() {
   return (
     <section>
       <Row className="m-0 overflow-auto h-100vh">
-        <Col md={6} className="bannerleft-bg-1">
+        <Col md={6} className="bannerleft-bg-1 position-relative">
           <BannerComponent
             type={step === "upload" ? "upload-image" : "personal-details"}
           />
         </Col>
-        <Col md={6} className="bannerright-bg">
+        <Col md={6} className="bannerright-bg banner-rightamin">
           <div className="m-5">
             <div className="hstack gap-1">
               <div>

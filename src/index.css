@@ -16,8 +16,8 @@ body {
 .bannerleft-bg {
   background-image: url("./assets/images/authLeft-1.png");
   background-repeat: no-repeat;
-  background-size: cover;
-  /* height: 100vh; */
+  background-size: 100% 100%;
+  height: 100vh;
   border-radius: 0px 20px 20px 0px;
 }
 
@@ -43,6 +43,18 @@ body {
 }
 
 /* login css */
+
+.authleftposition {
+  position: absolute;
+  bottom: 3%;
+  right: 10%;
+}
+
+.adminleftposition {
+  position: absolute;
+  /* top: 42%; */
+  display: none;
+}
 
 .loginform-ctr .input-group {
   width: 558px;
@@ -171,4 +183,10 @@ body {
   position: absolute;
   right: -7px;
   top: -10px;
+}
+
+.campaignRule-ctr {
+  background: linear-gradient(136.87deg, #010206 11.1%, #182261 66.61%, #3247C8 100%);
+  color: white;
+  border: none;
 }

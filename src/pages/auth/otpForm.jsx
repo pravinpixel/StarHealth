@@ -8,7 +8,7 @@ import {notify} from "helpers/global";
 
 function OtpFormComponent({otpFormSubmit, loading, emailValue}) {
   const dispatch = useDispatch();
-  const [minutes, setMinutes] = useState(1);
+  const [minutes, setMinutes] = useState(4);
   const [seconds, setSeconds] = useState(59);
   const [loadingOtp, setLoadingOtp] = useState(false);
 

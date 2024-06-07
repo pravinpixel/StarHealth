@@ -75,7 +75,7 @@ function LoginFormComponent({loginSubmit, loading}) {
               <img src={NotCheckedIcon} alt="icon" />
             )}
           </div>
-          <div className="cursor grey-color">
+          <div className="cursor grey-color terms-condition">
             By checking the box, you agree to our{" "}
             <span className="fw-500 text-decoration-underline">
               Terms & Conditions

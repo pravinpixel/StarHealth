@@ -30,3 +30,13 @@ export const resendOtp = createAsyncThunk("resend-otp", async (bodyParams, thunk
     return thunkAPI.rejectWithValue(error);
   }
 });
+
+// logout api
+export const logoutApi = createAsyncThunk("logoutApi", async (bodyParams, thunkAPI) => {
+  try {
+    const response = await API.post(`/employee/logout`, bodyParams);
+    return response;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error);
+  }
+});

@@ -12,7 +12,11 @@ const PersonalInformationSchema = yup.object().shape({
   mobile_number: yup.string().required("Required").matches(phoneRegExp, 'Phone number is not valid'),
   dob: yup.string().max(255).required("Required"),
   employee_code: yup.string().max(255).required("Required"),
-  designation: yup.string().max(255).required("Required"),
+  designation: yup.array().required("Required").typeError().test("validate", "Required", (value) => {
+    if (value?.length !== 0) {
+      return true
+    }
+  }),
   department: yup.array().required("Required").typeError().test("validate", "Required", (value) => {
     if (value?.length !== 0) {
       return true

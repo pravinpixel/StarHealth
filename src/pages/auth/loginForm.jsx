@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {useForm} from "react-hook-form";
-import {LoginSchema} from "../../helpers/validate";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {Button, Form, Modal} from "react-bootstrap";
+import {LoginSchema} from "../../helpers/validate";
 import EmailGroup from "../../assets/images/email-group.png";
 import CheckedIcon from "../../assets/images/checked.png";
 import NotCheckedIcon from "../../assets/images/not-checked.png";
@@ -51,7 +51,7 @@ function LoginFormComponent({loginSubmit, loading}) {
             <Form.Control
               type="text"
               className={errors.email ? "error-input" : ""}
-              placeholder="Enter Your Email"
+              placeholder="Enter Official Email Address"
               {...register("email", {required: true})}
             />
           </div>

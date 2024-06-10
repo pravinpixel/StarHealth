@@ -5,6 +5,8 @@ import UploadPhotosForm from "components/wizard-form/UploadPhotosForm";
 import SummaryComponent from "components/wizard-form/Summary";
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
+import {notify} from "helpers/global";
+import dayjs from "dayjs";
 import {essentialList} from "../../redux/Service/essentialService";
 import BannerComponent from "../../components/banner";
 import Step1Active from "../../assets/images/icons/step1-active.png";
@@ -14,8 +16,6 @@ import Step2Active from "../../assets/images/icons/step2-active.png";
 import Step2Filled from "../../assets/images/icons/step2-filled.png";
 import Step3 from "../../assets/images/icons/step3.png";
 import Step3Active from "../../assets/images/icons/step3-active.png";
-import {notify} from "helpers/global";
-import dayjs from "dayjs";
 import {
   personalDetailList,
   personalDetailsApi,
@@ -25,22 +25,13 @@ import {
 function PersonalDetails() {
   const [stateList, setStateList] = useState([]);
   const [departmentList, setDepartmentList] = useState([]);
+  const [desiginationList, setDesiginationList] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const [backStep, setBackStep] = useState(null);
-
   const [defaultValues, setDefaultValues] = useState([]);
   const [step, setStep] = useState(null);
   const [updateApiStatus, setUpdateApiStaus] = useState(null);
-
-  useEffect(() => {
-    if (backStep) {
-      setStep(backStep);
-    } else {
-      setStep(defaultValues?.status);
-      setUpdateApiStaus(defaultValues?.status);
-    }
-  }, [defaultValues]);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -52,6 +43,7 @@ function PersonalDetails() {
       city: data?.city[0]?.label,
       state: data?.state[0]?.label,
       department: data?.department[0]?.label,
+      designation: data?.designation[0]?.label,
       state_id: data?.state[0]?.id,
       dob: dayjs(data?.dob).format("YYYY/MM/DD"),
       status: "upload",
@@ -73,13 +65,11 @@ function PersonalDetails() {
   };
 
   const handleStep2Submit = async (data) => {
+    console.log("data", data);
     const secondStepData = {
-      ...data,
-      // city: data?.city ? data?.city[0]?.label : null,
-      // state: data?.state ? data?.state[0]?.label : null,
-      // department: data?.department ? data?.department[0]?.label : null,
-      // state_id: data?.state[0]?.id,
-      // dob: dayjs(data?.dob).format("YYYY/MM/DD"),
+      family_photo: data?.family_photo,
+      passport_photo: data?.passport_photo,
+      profile_photo: data?.profile_photo,
       status: "summary",
     };
     setLoading(true);
@@ -101,6 +91,7 @@ function PersonalDetails() {
 
   const handleBack = () => {
     personalDetailListApi();
+    essentialListApi();
     setBackStep(step === "summary" ? "upload" : "basic");
   };
 
@@ -127,6 +118,7 @@ function PersonalDetails() {
       const response = await dispatch(essentialList()).unwrap();
       setStateList(response?.data?.states);
       setDepartmentList(response?.data?.departments);
+      setDesiginationList(response?.data?.designations);
     } catch (error) {
       notify(error);
       console.log("error", error);
@@ -142,6 +134,15 @@ function PersonalDetails() {
       console.log("error", error);
     }
   };
+
+  useEffect(() => {
+    if (backStep) {
+      setStep(backStep);
+    } else {
+      setStep(defaultValues?.status);
+      setUpdateApiStaus(defaultValues?.status);
+    }
+  }, [defaultValues]);
 
   useEffect(() => {
     essentialListApi();
@@ -162,14 +163,18 @@ function PersonalDetails() {
               <div>
                 <div
                   className={
-                    step === "basic" || step === "completed"
+                    step === "basic"
+                      ? "active-cl round-cl"
+                      : step === "completed"
                       ? "active-cl round-cl"
                       : "filled-cl round-cl"
                   }
                 >
                   <img
                     src={
-                      step === "basic" || step === "completed"
+                      step === "basic"
+                        ? Step1Active
+                        : step === "completed"
                         ? Step1Active
                         : Step1Filled
                     }
@@ -179,7 +184,9 @@ function PersonalDetails() {
               </div>
               <div
                 className={`w-100 ${
-                  step !== "basic" || step !== "completed"
+                  step === "upload"
+                    ? "active-border-dotted"
+                    : step === "summary"
                     ? "active-border-dotted"
                     : "border-dotted"
                 }`}
@@ -187,7 +194,9 @@ function PersonalDetails() {
               <div>
                 <div
                   className={
-                    step === "basic" || step === "completed"
+                    step === "basic"
+                      ? "deactive-cl round-cl"
+                      : step === "completed"
                       ? "deactive-cl round-cl"
                       : step === "upload"
                       ? "active-cl round-cl"
@@ -196,7 +205,9 @@ function PersonalDetails() {
                 >
                   <img
                     src={
-                      step === "basic" || step === "completed"
+                      step === "basic"
+                        ? Step2
+                        : step === "completed"
                         ? Step2
                         : step === "upload"
                         ? Step2Active
@@ -214,18 +225,22 @@ function PersonalDetails() {
               <div>
                 <div
                   className={
-                    step === "basic" ||
-                    step === "completed" ||
-                    step === "upload"
+                    step === "basic"
+                      ? "deactive-cl round-cl"
+                      : step === "completed"
+                      ? "deactive-cl round-cl"
+                      : step === "upload"
                       ? "deactive-cl round-cl"
                       : "active-cl round-cl"
                   }
                 >
                   <img
                     src={
-                      step === "basic" ||
-                      step === "completed" ||
-                      step === "upload"
+                      step === "basic"
+                        ? Step3
+                        : step === "completed"
+                        ? Step3
+                        : step === "upload"
                         ? Step3
                         : Step3Active
                     }
@@ -261,6 +276,7 @@ function PersonalDetails() {
                   defaultValues={defaultValues}
                   stateList={stateList}
                   departmentList={departmentList}
+                  desiginationList={desiginationList}
                   loading={loading}
                 />
               )}
@@ -270,6 +286,7 @@ function PersonalDetails() {
                   defaultValues={defaultValues}
                   stateList={stateList}
                   departmentList={departmentList}
+                  desiginationList={desiginationList}
                   loading={loading}
                 />
               )}

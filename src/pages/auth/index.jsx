@@ -1,8 +1,8 @@
 import React from "react";
-import SplashLogo from "../../assets/images/logo-splash.png";
-import LanuchImage from "../../assets/images/lanuch.png";
 import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
+import SplashLogo from "../../assets/images/logo-splash.png";
+import LanuchImage from "../../assets/images/lanuch.png";
 
 function SplashScreenComponent() {
   const navigate = useNavigate();

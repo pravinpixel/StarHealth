@@ -6,6 +6,26 @@ body {
   color: #000000;
 }
 
+.otpCtr>div {
+  font-family: "Poppins", sans-serif !important;
+  color: #2B3984 !important;
+  font-weight: 500;
+}
+
+.otpCtr button {
+  font-family: "Poppins", sans-serif !important;
+  color: #2B3984 !important;
+  font-weight: 500;
+  background: transparent !important;
+  text-decoration: underline;
+  letter-spacing: 1px;
+}
+
+.otpCtr button:active {
+  background: transparent !important;
+  color: #2B3984 !important;
+}
+
 .splash-bg {
   background-image: url("./assets/images/welcome-banner.png");
   background-repeat: no-repeat;
@@ -149,6 +169,7 @@ body {
   height: 97px;
   border-radius: 6px;
   border: 1px solid #E6E6E6;
+  object-fit: cover;
 }
 
 .dropzone {
@@ -171,6 +192,7 @@ body {
   height: 190px;
   border: 1px solid #E6E6E6;
   border-radius: 6px;
+  object-fit: cover;
 }
 
 .closeIcon-img img {

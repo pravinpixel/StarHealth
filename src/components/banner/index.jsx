@@ -5,6 +5,8 @@ import Logo from "../../assets/images/logo-small.png";
 import Lanuch from "../../assets/images/lanuch.png";
 import CloseIcon from "../../assets/images/close-icon.png";
 import HeadShotImage from "../../assets/images/head-shot.png";
+import FullsizeImage from "../../assets/images/full-size.png";
+import FamilyImage from "../../assets/images/family.png";
 
 function BannerComponent({type}) {
   const [campaignRule, setCampaignRule] = useState(false);
@@ -121,14 +123,14 @@ function BannerComponent({type}) {
                   </div>
                 </div>
                 <div className="text-center">
-                  <img src={HeadShotImage} alt="headshot" />
+                  <img src={FullsizeImage} alt="fullimage" />
                   <div className="vstack fs-14 text-white roboto-font mt-2">
                     <div>A full-sized photo </div>
                     <div>of yourself*</div>
                   </div>
                 </div>
                 <div className="text-center">
-                  <img src={HeadShotImage} alt="headshot" />
+                  <img src={FamilyImage} alt="family" />
                   <div className="vstack fs-14 text-white roboto-font mt-2">
                     <div>A lovely photo with your</div>
                     <div>family (Optional).</div>

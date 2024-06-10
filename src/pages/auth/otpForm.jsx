@@ -1,15 +1,14 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {MuiOtpInput} from "mui-one-time-password-input";
 import {Controller, useForm} from "react-hook-form";
 import {Button, Form} from "react-bootstrap";
 import {useDispatch} from "react-redux";
-import {resendOtp} from "../../redux/Service/authService";
 import {notify} from "helpers/global";
+import OtpTimer from "otp-timer";
+import {resendOtp} from "../../redux/Service/authService";
 
 function OtpFormComponent({otpFormSubmit, loading, emailValue}) {
   const dispatch = useDispatch();
-  const [minutes, setMinutes] = useState(4);
-  const [seconds, setSeconds] = useState(59);
   const [loadingOtp, setLoadingOtp] = useState(false);
 
   const {control, handleSubmit} = useForm({
@@ -38,25 +37,6 @@ function OtpFormComponent({otpFormSubmit, loading, emailValue}) {
     otpFormSubmit(data);
   };
 
-  useEffect(() => {
-    let myInterval = setInterval(() => {
-      if (seconds > 0) {
-        setSeconds(seconds - 1);
-      }
-      if (seconds === 0) {
-        if (minutes === 0) {
-          clearInterval(myInterval);
-        } else {
-          setMinutes(minutes - 1);
-          setSeconds(59);
-        }
-      }
-    }, 1000);
-    return () => {
-      clearInterval(myInterval);
-    };
-  });
-
   return (
     <div>
       <div className="dark-blue fw-600 fs-26 text-center mb-4">
@@ -80,18 +60,25 @@ function OtpFormComponent({otpFormSubmit, loading, emailValue}) {
             )}
             name="otp"
           />
-          {minutes === 0 && seconds === 0 ? (
-            <div
-              className="letter-space-1 dark-blue fw-16 mt-4 text-end fw-500 text-decoration-underline cursor"
-              onClick={() => resendOtpFn()}
-            >
-              Resend OTP
-            </div>
-          ) : (
-            <div className="letter-space-3 dark-blue fw-16 mt-4 text-end fw-500">
-              {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-            </div>
-          )}
+
+          <div className="letter-space-3 dark-blue fw-16 mt-4 text-end fw-500 otpCtr">
+            {loadingOtp ? (
+              <div
+                className="letter-space-1 dark-blue fw-16 mt-4 text-end fw-500 text-decoration-underline cursor"
+                onClick={() => resendOtpFn()}
+              >
+                Resend OTP
+              </div>
+            ) : (
+              <OtpTimer
+                seconds={59}
+                minutes={4}
+                text={" "}
+                ButtonText="Resend OTP"
+                resend={() => resendOtpFn()}
+              />
+            )}
+          </div>
           <div className="mt-4">
             <Button type="submit" className="primary-button" disabled={loading}>
               {loading ? "Loading..." : "Verify"}

@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import {Row, Col} from "react-bootstrap";
-import LoginFormComponent from "./loginForm";
-import OtpFormComponent from "./otpForm";
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {authLogin, authOtpVerify} from "../../redux/Service/authService";
 import {notify} from "helpers/global";
+import LoginFormComponent from "./loginForm";
+import OtpFormComponent from "./otpForm";
+import {authLogin, authOtpVerify} from "../../redux/Service/authService";
 import BannerComponent from "../../components/banner";
 
 function LoginComponent() {

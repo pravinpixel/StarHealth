@@ -4,12 +4,12 @@ import {Controller, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {PersonalInformationSchema} from "helpers/validate";
 import DatePicker from "react-datepicker";
+import {useDispatch} from "react-redux";
+import {notify} from "helpers/global";
 import {Typeahead} from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import "react-datepicker/dist/react-datepicker.css";
-import {useDispatch} from "react-redux";
 import {cityListByID} from "../../redux/Service/essentialService";
-import {notify} from "helpers/global";
 
 function PersonalDetailsForm({
   onSubmit,
@@ -23,6 +23,7 @@ function PersonalDetailsForm({
     control,
     watch,
     reset,
+    setValue,
     formState: {errors},
   } = useForm({
     resolver: yupResolver(PersonalInformationSchema),
@@ -45,7 +46,13 @@ function PersonalDetailsForm({
   };
 
   useEffect(() => {
-    if (stateValue) essentialListApi();
+    if (stateValue?.length === 0) {
+      setValue("city", []);
+    }
+
+    if (stateValue) {
+      essentialListApi();
+    }
   }, [stateValue]);
 
   useEffect(() => {
@@ -74,7 +81,7 @@ function PersonalDetailsForm({
                       <Form.Control
                         type="text"
                         className={errors.employee_name ? "error-input" : ""}
-                        placeholder="Enter Your Employee Code"
+                        placeholder="Enter Your Name"
                         {...field}
                       />
                     );
@@ -135,6 +142,7 @@ function PersonalDetailsForm({
                       showMonthDropdown
                       showYearDropdown
                       dropdownMode="select"
+                      maxDate={new Date()}
                     />
                   );
                 }}
@@ -197,7 +205,33 @@ function PersonalDetailsForm({
               )}
             </Col>
             <Col xs={12} sm={12} md={12} lg={6}>
-              <Form.Group>
+              <Controller
+                name="designation"
+                control={control}
+                render={({field}) => {
+                  return (
+                    <Form.Group className="w-100" controlId="department">
+                      <Typeahead
+                        id="department"
+                        labelKey="label"
+                        allowNew
+                        placeholder="Select Your Designation"
+                        options={departmentList}
+                        selected={field.value}
+                        onChange={(e) => {
+                          field.onChange(e);
+                        }}
+                      />
+                    </Form.Group>
+                  );
+                }}
+              />
+              {errors.department && (
+                <Form.Text className="text-danger">
+                  {errors.department.message}
+                </Form.Text>
+              )}
+              {/* <Form.Group>
                 <Controller
                   name="designation"
                   control={control}
@@ -217,7 +251,7 @@ function PersonalDetailsForm({
                     {errors.designation.message}
                   </Form.Text>
                 )}
-              </Form.Group>
+              </Form.Group> */}
             </Col>
           </Row>
           <div className="fs-22 fw-600 dark-blue my-3">Location Details</div>
@@ -232,7 +266,7 @@ function PersonalDetailsForm({
                       <Typeahead
                         id="state"
                         labelKey="label"
-                        placeholder="Select Your State"
+                        placeholder="Enter State"
                         options={stateList}
                         selected={field.value}
                         onChange={(e) => {
@@ -259,7 +293,7 @@ function PersonalDetailsForm({
                       <Typeahead
                         id="city"
                         labelKey="label"
-                        placeholder="Select Your City"
+                        placeholder="Enter City"
                         options={cityList}
                         selected={field.value}
                         onChange={(e) => {

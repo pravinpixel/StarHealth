@@ -44,7 +44,9 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
         );
       }
     },
-    accept: "image/*",
+    accept: {
+      "image/*": [".jpeg", ".png", ".jpg", ".svg", ".webp"],
+    },
     maxFiles: 1,
   });
 
@@ -65,7 +67,9 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
         );
       }
     },
-    accept: "image/*",
+    accept: {
+      "image/*": [".jpeg", ".png", ".jpg", ".svg", ".webp"],
+    },
     maxFiles: 1,
   });
 
@@ -86,7 +90,9 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
         );
       }
     },
-    accept: "image/*",
+    accept: {
+      "image/*": [".jpeg", ".png", ".jpg", ".svg", ".webp"],
+    },
     maxFiles: 1,
   });
 
@@ -103,7 +109,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
       <div className="vstack gap-2 mb-4">
         <div className="fs-28 fw-600 dark-blue">Upload Your Photos</div>
       </div>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
         <div className="hstack gap-2 flex-wrap uploadphoto-wrap">
           <div>
             <div className="fs-16 roboto-font mb-2">

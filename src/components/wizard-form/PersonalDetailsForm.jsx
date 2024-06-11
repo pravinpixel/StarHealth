@@ -16,6 +16,7 @@ function PersonalDetailsForm({
   defaultValues,
   stateList,
   departmentList,
+  desiginationList,
   loading,
 }) {
   const {
@@ -67,7 +68,7 @@ function PersonalDetailsForm({
           To get started, please enter the following details.
         </div>
       </div>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <div className="fs-22 fw-600 dark-blue my-3">Personal Details</div>
           <Row className="innerform-ctr loginform-ctr roboto-font row-gap-4">
@@ -189,6 +190,7 @@ function PersonalDetailsForm({
                         allowNew
                         placeholder="Select Your Department"
                         options={departmentList}
+                        newSelectionPrefix=""
                         selected={field.value}
                         onChange={(e) => {
                           field.onChange(e);
@@ -210,14 +212,15 @@ function PersonalDetailsForm({
                 control={control}
                 render={({field}) => {
                   return (
-                    <Form.Group className="w-100" controlId="department">
+                    <Form.Group className="w-100" controlId="designation">
                       <Typeahead
-                        id="department"
+                        id="designation"
                         labelKey="label"
                         allowNew
                         placeholder="Select Your Designation"
-                        options={departmentList}
+                        options={desiginationList}
                         selected={field.value}
+                        newSelectionPrefix=""
                         onChange={(e) => {
                           field.onChange(e);
                         }}
@@ -226,32 +229,11 @@ function PersonalDetailsForm({
                   );
                 }}
               />
-              {errors.department && (
+              {errors.designation && (
                 <Form.Text className="text-danger">
-                  {errors.department.message}
+                  {errors.designation.message}
                 </Form.Text>
               )}
-              {/* <Form.Group>
-                <Controller
-                  name="designation"
-                  control={control}
-                  render={({field}) => {
-                    return (
-                      <Form.Control
-                        type="text"
-                        className={errors.designation ? "error-input" : ""}
-                        placeholder="Enter Your Designation"
-                        {...field}
-                      />
-                    );
-                  }}
-                />
-                {errors.designation && (
-                  <Form.Text className="text-danger">
-                    {errors.designation.message}
-                  </Form.Text>
-                )}
-              </Form.Group> */}
             </Col>
           </Row>
           <div className="fs-22 fw-600 dark-blue my-3">Location Details</div>

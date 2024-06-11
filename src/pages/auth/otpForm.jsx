@@ -46,7 +46,7 @@ function OtpFormComponent({otpFormSubmit, loading, emailValue}) {
         Please enter the OTP you have received in your email
       </div>
       <div className="optform-ctr text-center d-flex justify-content-center mt-3">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <Form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
           <Controller
             control={control}
             rules={{validate: (value) => value.length === 4}}
@@ -84,7 +84,7 @@ function OtpFormComponent({otpFormSubmit, loading, emailValue}) {
               {loading ? "Loading..." : "Verify"}
             </Button>
           </div>
-        </form>
+        </Form>
       </div>
     </div>
   );

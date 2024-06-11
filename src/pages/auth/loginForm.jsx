@@ -40,6 +40,7 @@ function LoginFormComponent({loginSubmit, loading}) {
         Login Using your Email Address
       </div>
       <Form
+        autoComplete="off"
         onSubmit={handleSubmit(onFormSubmit)}
         className="loginform-ctr mt-5 roboto-font"
       >
@@ -63,7 +64,7 @@ function LoginFormComponent({loginSubmit, loading}) {
         </Form.Group>
 
         <div
-          className="hstack gap-2"
+          className="hstack gap-2 ps-1"
           onClick={() => {
             handleShow();
           }}

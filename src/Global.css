@@ -273,3 +273,16 @@ input[type=number] {
 .react-datepicker__navigation {
   top: 8px;
 }
+
+/* scroll bar */
+
+/* Styling the scrollbar in Chrome and Safari */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #D9D9D9;
+  border-radius: 1250px;
+  /* Set thumb color for Chrome and Safari */
+}

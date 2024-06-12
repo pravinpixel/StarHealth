@@ -72,7 +72,7 @@ function OtpFormComponent({otpFormSubmit, loading, emailValue}) {
             ) : (
               <OtpTimer
                 seconds={59}
-                minutes={4}
+                minutes={0}
                 text={" "}
                 ButtonText="Resend OTP"
                 resend={() => resendOtpFn()}

@@ -4,7 +4,7 @@ import { personalDetailList, personalDetailsApi, personalDetailsUpdateApi } from
 const adminCases = [
   { api: personalDetailsApi, name: "personalDetailsApi" },
   { api: personalDetailList, name: "personalDetailList" },
-  { api: personalDetailsUpdateApi, name: "personalDetailsUpdateApi" }
+  { api: personalDetailsUpdateApi, name: "personalDetailsUpdateApi" },
 ];
 
 const initialState = {};

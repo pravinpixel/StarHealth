@@ -6,6 +6,10 @@ import LanuchImage from "../../assets/images/lanuch.png";
 
 function SplashScreenComponent() {
   const navigate = useNavigate();
+  const welcomeScreen = async () => {
+    navigate("/auth/login");
+  };
+
   return (
     <section className="splash-bg">
       <div
@@ -16,7 +20,7 @@ function SplashScreenComponent() {
           <img src={SplashLogo} alt="spalsh-logo" width={164} />
         </div>
         <div className="text-center">
-          <img src={LanuchImage} alt="launch-image" />
+          <img src={LanuchImage} alt="launch" />
           <div className="text-white fs-22 fw-500 mt-3">
             Ready to be the face of STAR?
           </div>
@@ -25,7 +29,8 @@ function SplashScreenComponent() {
           <Button
             className="splash-btn"
             onClick={() => {
-              navigate("/auth/login");
+              welcomeScreen();
+              // navigate("/auth/login");
             }}
           >
             I Wish to Participate

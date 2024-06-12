@@ -6,6 +6,8 @@ import {LoginSchema} from "../../helpers/validate";
 import EmailGroup from "../../assets/images/email-group.png";
 import CheckedIcon from "../../assets/images/checked.png";
 import NotCheckedIcon from "../../assets/images/not-checked.png";
+import {Link} from "react-router-dom";
+import {toast} from "react-toastify";
 
 function LoginFormComponent({loginSubmit, loading}) {
   const {
@@ -21,7 +23,6 @@ function LoginFormComponent({loginSubmit, loading}) {
   const [show, setShow] = useState(false);
 
   const [termsShow, setTermsShow] = useState(false);
-  const [termsShowCondition, setTermsShowCondition] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -30,7 +31,16 @@ function LoginFormComponent({loginSubmit, loading}) {
     if (termsShow) {
       loginSubmit(formData);
     } else {
-      setTermsShowCondition(true);
+      toast.error("Enable Your Terms & Conditions", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
 
@@ -84,12 +94,6 @@ function LoginFormComponent({loginSubmit, loading}) {
           </div>
         </div>
 
-        {termsShowCondition && (
-          <Form.Text className="text-danger mt-3">
-            You must accept the terms
-          </Form.Text>
-        )}
-
         <div className="text-center my-4">
           <Button className="primary-button" type="submit" disabled={loading}>
             {loading ? "Loading..." : "Generate OTP"}
@@ -110,53 +114,50 @@ function LoginFormComponent({loginSubmit, loading}) {
               Terms & Conditions
             </div>
             <div className="fs-18 roboto-font grey-color mt-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-              magna libero, posuere a purus eget, rutrum aliquam lorem. Vivamus
-              ac dolor sit amet dui malesuada fermentum. Fusce vitae justo sit
-              amet lectus volutpat eleifend. Nam fermentum felis a gravida
-              semper. Sed lacus felis, ullamcorper sit amet lectus vitae,
-              tincidunt mollis lacus. Duis lacus purus, finibus ut pulvinar sed,
-              egestas et dui. Donec sollicitudin tortor non lectus faucibus
-              commodo. Phasellus eleifend tortor nec turpis luctus faucibus.
-              Nulla nec feugiat turpis. Cras scelerisque, dolor non auctor
-              venenatis, sem diam egestas risus, fringilla vehicula mauris urna
-              vestibulum ipsum. Etiam auctor hendrerit purus quis elementum.
+              In consideration of my voluntary participation in the production
+              of a video, film, audio recording or still photographs in
+              connection with my employment, I, the undersigned employee, hereby
+              consent to my image being photographed, filmed or videotaped
+              and/or my voice or sounds being recorded. I hereby authorized Star
+              Health (“The Company’) to use or cause to be used still
+              photographs or motion picture footage, recordings of my voice and
+              my name for advertising, publicity, commercial or other business
+              purposes. I authorize the Company to print, reproduce, or cause to
+              be reproduced and used, my name, photograph, film or video
+              containing my image and/or audio recordings of my voice or sounds.
             </div>
             <div className="fs-18 roboto-font grey-color mt-2">
-              Sed rhoncus laoreet ante eget rhoncus. Aliquam diam quam, semper
-              et maximus in, cursus vel quam. Fusce id porta quam. Pellentesque
-              habitant morbi tristique senectus et netus et malesuada fames ac
-              turpis egestas. Aliquam et urna vitae sem egestas ultricies quis
-              non nunc. Integer sit amet facilisis ex, non placerat augue. Donec
-              ut ullamcorper neque.
+              Further, I hereby release the Company, their respective directors,
+              officers, agents, employees, and customers from all claims,
+              judgments, fees, damages or actions of any kind on account of such
+              use, including, without limitation, any claim for additional
+              compensation related to such use. I waive and relinquish all
+              rights, if any, that I have in any photographs, motion picture
+              footage or audio recordings produced by me, or containing my image
+              or voice in connection with my voluntary participation in the
+              production and agree that they shall constitute “works for hire.”
+              I further agree that all rights, title and interest in and to such
+              material shall be solely and exclusively owned by the Company, and
+              I shall neither have, nor claim any rights, title or interest
+              therein. I have read and understand this consent and release.
             </div>
             <div className="fs-18 roboto-font grey-color mt-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-              magna libero, posuere a purus eget, rutrum aliquam lorem. Vivamus
-              ac dolor sit amet dui malesuada fermentum. Fusce vitae justo sit
-              amet lectus volutpat eleifend. Nam fermentum felis a gravida
-              semper. Sed lacus felis, ullamcorper sit amet lectus vitae,
-              tincidunt mollis lacus. Duis lacus purus, finibus ut pulvinar sed,
-              egestas et dui. Donec sollicitudin tortor non lectus faucibus
-              commodo. Phasellus eleifend tortor nec turpis luctus faucibus.
-              Nulla nec feugiat turpis. Cras scelerisque, dolor non auctor
-              venenatis, sem diam egestas risus, fringilla vehicula mauris urna
-              vestibulum ipsum. Etiam auctor hendrerit purus quis elementum.
-            </div>
-            <div className="fs-18 roboto-font grey-color mt-2">
-              Sed rhoncus laoreet ante eget rhoncus. Aliquam diam quam, semper
-              et maximus in, cursus vel quam. Fusce id porta quam. Pellentesque
-              habitant morbi tristique senectus et netus et malesuada fames ac
-              turpis egestas. Aliquam et urna vitae sem egestas ultricies quis
-              non nunc. Integer sit amet facilisis ex, non placerat augue. Donec
-              ut ullamcorper neque.
+              This consent is valid for 10 years and can be revoked at any time
+              by the employee, if he wishes to do so, through a written request
+              sent to{" "}
+              <Link
+                to="mailto:corpcomm@starhealth.in"
+                target="_blank"
+                className="dark-blue"
+              >
+                corpcomm@starhealth.in.
+              </Link>
             </div>
             <div className="hstack gap-3 justify-content-center mt-4">
               <Button
                 className="primary-button"
                 onClick={() => {
                   setTermsShow(true);
-                  setTermsShowCondition(false);
                   handleClose();
                 }}
               >
@@ -166,7 +167,6 @@ function LoginFormComponent({loginSubmit, loading}) {
                 className="secondary-button"
                 onClick={() => {
                   setTermsShow(false);
-                  setTermsShowCondition(false);
                   handleClose();
                 }}
               >

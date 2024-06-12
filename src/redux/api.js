@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://127.0.0.1:8000/api"
-  // baseURL: "https://cf2b-103-104-48-68.ngrok-free.app/api",
+  baseURL: process.env.REACT_APP_BASE_URL
 });
 const TOKEN_PAYLOAD_KEY = "authorization";
 

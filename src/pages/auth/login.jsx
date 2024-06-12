@@ -1,11 +1,15 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Row, Col} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {notify} from "helpers/global";
 import LoginFormComponent from "./loginForm";
 import OtpFormComponent from "./otpForm";
-import {authLogin, authOtpVerify} from "../../redux/Service/authService";
+import {
+  authLogin,
+  authOtpVerify,
+  createRandomToken,
+} from "../../redux/Service/authService";
 import BannerComponent from "../../components/banner";
 
 function LoginComponent() {
@@ -14,11 +18,16 @@ function LoginComponent() {
   const [formStateValue, setFormStateValue] = useState("login");
   const [emailValue, setEmailValue] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [sessionToken, setSessionToken] = useState(null);
 
   const loginSubmit = async (formdata) => {
+    const formValues = {
+      ...formdata,
+      token: sessionToken,
+    };
     setLoading(true);
     try {
-      const response = await dispatch(authLogin(formdata)).unwrap();
+      const response = await dispatch(authLogin(formValues)).unwrap();
       setEmailValue(formdata?.email);
       setLoading(false);
       setFormStateValue("otp");
@@ -33,6 +42,7 @@ function LoginComponent() {
     const formData = {
       ...data,
       email: emailValue,
+      token: sessionToken,
     };
     setLoading(true);
     try {
@@ -46,6 +56,19 @@ function LoginComponent() {
       notify(error);
     }
   };
+
+  const sessionTokenGet = async () => {
+    try {
+      const response = await dispatch(createRandomToken()).unwrap();
+      setSessionToken(response?.data?.access_token);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    sessionTokenGet();
+  }, []);
 
   return (
     <section>

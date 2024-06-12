@@ -45,7 +45,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
       }
     },
     accept: {
-      "image/*": [".jpeg", ".png", ".jpg", ".svg", ".webp"],
+      "image/*": [".jpeg", ".png", ".jpg"],
     },
     maxFiles: 1,
   });
@@ -68,7 +68,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
       }
     },
     accept: {
-      "image/*": [".jpeg", ".png", ".jpg", ".svg", ".webp"],
+      "image/*": [".jpeg", ".png", ".jpg"],
     },
     maxFiles: 1,
   });
@@ -91,7 +91,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
       }
     },
     accept: {
-      "image/*": [".jpeg", ".png", ".jpg", ".svg", ".webp"],
+      "image/*": [".jpeg", ".png", ".jpg"],
     },
     maxFiles: 1,
   });
@@ -124,7 +124,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                   <div {...getRootPassportPhotoProps({className: "dropzone"})}>
                     <input {...getInputPassportPhotoProps()} />
                     <div>
-                      <img src={DragImage} alt="drag-image" />
+                      <img src={DragImage} alt="drag" />
                     </div>
                   </div>
                 )
@@ -167,7 +167,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                   <div {...getRootFullSizePhotoProps({className: "dropzone"})}>
                     <input {...getInputFullSizePhotoProps()} />
                     <div>
-                      <img src={DragImage} alt="drag-image" />
+                      <img src={DragImage} alt="drag1" />
                     </div>
                   </div>
                 )
@@ -210,7 +210,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                   <div {...getRootFamilyPhotoProps({className: "dropzone"})}>
                     <input {...getInputFamilyPhotoProps()} />
                     <div>
-                      <img src={DragImage} alt="drag-image" />
+                      <img src={DragImage} alt="drag2" />
                     </div>
                   </div>
                 )

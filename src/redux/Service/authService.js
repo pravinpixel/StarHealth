@@ -1,6 +1,17 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import API from "../api";
 
+// createRandomToken
+export const createRandomToken = createAsyncThunk("createRandomToken", async (bodyParams, thunkAPI) => {
+  try {
+    const response = await API.get(`/createRandomToken`, bodyParams);
+    return response;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error);
+  }
+});
+
+
 // auth email verify
 export const authLogin = createAsyncThunk("login", async (bodyParams, thunkAPI) => {
   try {

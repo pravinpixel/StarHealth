@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { authLogin, authOtpVerify, logoutApi, resendOtp } from "../Service/authService";
+import { authLogin, authOtpVerify, createRandomToken, logoutApi, resendOtp } from "../Service/authService";
 
 const authCases = [
   { api: authLogin, name: "authLogin" },
   { api: authOtpVerify, name: "authOtpVerify" },
   { api: resendOtp, name: "resendOtp" },
-  { api: logoutApi, name: "logoutApi" }
+  { api: logoutApi, name: "logoutApi" },
+  { api: createRandomToken, name: "createRandomToken" }
 ];
 
 const initialState = {};

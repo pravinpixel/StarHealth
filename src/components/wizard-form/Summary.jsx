@@ -98,7 +98,7 @@ function SummaryComponent({onBack, confirmSubmit, loading}) {
           </div>
           {summaryList?.family_photo && (
             <div>
-              <img src={summaryList?.family_photo} alt="family-image" />
+              <img src={summaryList?.family_photo} alt="family" />
             </div>
           )}
         </div>

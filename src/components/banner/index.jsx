@@ -121,7 +121,7 @@ function BannerComponent({type}) {
             <div className="fs-18 fw-600 text-white">#theFacesOfStarHealth</div>
 
             <div className="fs-14 text-white roboto-font">
-              <div className="mb-2">
+              <div className="mb-2 text-justify">
                 The Faces of STAR Health is an exciting initiative designed to
                 celebrate and highlight the people behind India’s largest health
                 insurance company, Star Health Insurance. This contest offers
@@ -218,10 +218,10 @@ function BannerComponent({type}) {
                 </li>
               </ul>
             </div>
-            <div className="fs-20 fw-600 text-white text-center">
+            <div className="fs-20 fw-600 text-white text-center mb-4">
               Give us your best shot, don’t forget to smile
             </div>
-            <div className="mt-5 my-3">
+            <div className="mt-5 my-5">
               <Button className="whiteBorder-desktop" onClick={handleShow}>
                 View FAQs
               </Button>
@@ -267,7 +267,7 @@ function BannerComponent({type}) {
           <div className="fs-16 fw-600 faq-header-content mt-2">
             #theFacesOfStarHealth
           </div>
-          <div className="fs-12 mt-3">
+          <div className="fs-12 mt-3 text-justify">
             The Faces of STAR Health is an exciting initiative designed to
             celebrate and highlight the people behind India’s largest health
             insurance company, Star Health Insurance. This contest offers our

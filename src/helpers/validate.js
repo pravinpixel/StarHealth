@@ -33,25 +33,68 @@ const PersonalInformationSchema = yup.object().shape({
 });
 
 const UploadImagesSchema = yup.object().shape({
-  passport_photo: yup.mixed().required("Upload Headshot image").test(
-    'fileSize',
-    'File size is too large. Maximum size is 5MB.',
-    value => value && value.size <= FILE_SIZE
-  )
-    .test(
+  passport_photo: yup.mixed().required("Upload Headshot image").test('fileSize',
+    'File too large, it should be less than 5MB',
+    (value) => {
+      if (typeof value === "string") {
+        return true
+      }
+      if (typeof value === "object" && value && value.size <= FILE_SIZE) {
+        return true
+      }
+    }).test(
       'fileFormat',
       'Unsupported Format. Only PNG, JPEG, and JPG are allowed.',
-      value => value && SUPPORTED_FORMATS.includes(value.type)
+      (value) => {
+        if (typeof value === "string") {
+          return true
+        }
+        if (typeof value === "object" && value && SUPPORTED_FORMATS.includes(value.type)) {
+          return true
+        }
+      }
     ),
-  profile_photo: yup.mixed().required("upload Full sized photo").test(
-    'fileSize-1',
-    'File size is too large. Maximum size is 5MB.',
-    value => value && value.size <= FILE_SIZE
-  )
-    .test(
+  profile_photo: yup.mixed().required("upload Full sized photo").test('fileSize',
+    'File too large, it should be less than 5MB',
+    (value) => {
+      if (typeof value === "string") {
+        return true
+      }
+      if (typeof value === "object" && value && value.size <= FILE_SIZE) {
+        return true
+      }
+    }).test(
       'fileFormat',
       'Unsupported Format. Only PNG, JPEG, and JPG are allowed.',
-      value => value && SUPPORTED_FORMATS.includes(value.type)
+      (value) => {
+        if (typeof value === "string") {
+          return true
+        }
+        if (typeof value === "object" && value && SUPPORTED_FORMATS.includes(value.type)) {
+          return true
+        }
+      }
+    ),
+  family_photo: yup.mixed().test('fileSize',
+    'File too large, it should be less than 5MB',
+    (value) => {
+      if (typeof value === "string") {
+        return true
+      }
+      if (typeof value === "object" && value && value.size <= FILE_SIZE) {
+        return true
+      }
+    }).test(
+      'fileFormat',
+      'Unsupported Format. Only PNG, JPEG, and JPG are allowed.',
+      (value) => {
+        if (typeof value === "string") {
+          return true
+        }
+        if (typeof value === "object" && value && SUPPORTED_FORMATS.includes(value.type)) {
+          return true
+        }
+      }
     ),
 })
 

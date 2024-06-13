@@ -236,9 +236,14 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
               </div>
             )}
             <div style={{height: "60px"}} className="error-image">
-              <Form.Text className="text-danger">
+              {errors.family_photo && (
+                <Form.Text className="error-image text-danger">
+                  {errors.family_photo.message}
+                </Form.Text>
+              )}
+              <div className="text-danger">
                 The file size of the photo should be less than 5MB
-              </Form.Text>
+              </div>
             </div>
           </div>
         </div>

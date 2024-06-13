@@ -33,7 +33,7 @@ function LoginFormComponent({loginSubmit, loading}) {
     } else {
       toast.error("Enable Your Terms & Conditions", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -113,7 +113,7 @@ function LoginFormComponent({loginSubmit, loading}) {
             <div className="fs-26 dark-blue text-center fw-600 mb-3">
               Terms & Conditions
             </div>
-            <div className="fs-18 roboto-font grey-color mt-2">
+            <div className="fs-18 roboto-font grey-color mt-2 text-justify">
               In consideration of my voluntary participation in the production
               of a video, film, audio recording or still photographs in
               connection with my employment, I, the undersigned employee, hereby
@@ -126,7 +126,7 @@ function LoginFormComponent({loginSubmit, loading}) {
               be reproduced and used, my name, photograph, film or video
               containing my image and/or audio recordings of my voice or sounds.
             </div>
-            <div className="fs-18 roboto-font grey-color mt-2">
+            <div className="fs-18 roboto-font grey-color mt-2 text-justify">
               Further, I hereby release the Company, their respective directors,
               officers, agents, employees, and customers from all claims,
               judgments, fees, damages or actions of any kind on account of such
@@ -141,7 +141,7 @@ function LoginFormComponent({loginSubmit, loading}) {
               I shall neither have, nor claim any rights, title or interest
               therein. I have read and understand this consent and release.
             </div>
-            <div className="fs-18 roboto-font grey-color mt-2">
+            <div className="fs-18 roboto-font grey-color mt-2 text-justify">
               This consent is valid for 10 years and can be revoked at any time
               by the employee, if he wishes to do so, through a written request
               sent to{" "}

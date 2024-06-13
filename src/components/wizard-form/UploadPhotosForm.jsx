@@ -146,12 +146,15 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                 </div>
               </div>
             )}
-            <div style={{height: "20px"}}>
+            <div style={{height: "60px"}} className="error-image">
               {errors.passport_photo && (
-                <Form.Text className="text-danger">
+                <Form.Text className="error-image text-danger">
                   {errors.passport_photo.message}
                 </Form.Text>
               )}
+              <div className="text-danger">
+                The file size of the photo should be less than 5MB
+              </div>
             </div>
           </div>
           <div>
@@ -189,12 +192,15 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                 </div>
               </div>
             )}
-            <div style={{height: "20px"}}>
+            <div style={{height: "60px"}} className="error-image">
               {errors.profile_photo && (
-                <Form.Text className="text-danger">
+                <Form.Text className="error-image text-danger">
                   {errors.profile_photo.message}
                 </Form.Text>
               )}
+              <div className="text-danger">
+                The file size of the photo should be less than 5MB
+              </div>
             </div>
           </div>
           <div>
@@ -229,11 +235,24 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                 </div>
               </div>
             )}
-            <div style={{height: "20px"}}></div>
+            <div style={{height: "60px"}} className="error-image">
+              <Form.Text className="text-danger">
+                The file size of the photo should be less than 5MB
+              </Form.Text>
+            </div>
           </div>
         </div>
         <div className="my-5 hstack gap-4 justify-content-between">
-          <Button onClick={() => onBack()} className="secondary-button">
+          <Button
+            onClick={() =>
+              onBack({
+                passport_photo: passportPhoto,
+                profile_photo: fullSizePhoto,
+                family_photo: familyPhoto,
+              })
+            }
+            className="secondary-button"
+          >
             Edit Information
           </Button>
           <Button className="primary-button" type="submit" disabled={loading}>

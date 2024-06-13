@@ -3,6 +3,7 @@ import {Button, Col, Row} from "react-bootstrap";
 import {useDispatch} from "react-redux";
 import {personalDetailList} from "../../redux/Service/adminService";
 import {notify} from "helpers/global";
+import dayjs from "dayjs";
 
 function SummaryComponent({onBack, confirmSubmit, loading}) {
   const [summaryList, setSummaryList] = useState(null);
@@ -47,7 +48,9 @@ function SummaryComponent({onBack, confirmSubmit, loading}) {
           <Col xs={6} sm={6} md={6} lg={6} xl={4}>
             <div className="vstack gap-1">
               <div className="fs-12 grey-color">Date of Birth</div>
-              <div className="fs-20">{summaryList?.dob}</div>
+              <div className="fs-20">
+                {dayjs(summaryList?.dob).format("DD-MM-YYYY")}
+              </div>
             </div>
           </Col>
           <Col xs={6} sm={6} md={6} lg={6} xl={4}>
@@ -59,13 +62,13 @@ function SummaryComponent({onBack, confirmSubmit, loading}) {
           <Col xs={6} sm={6} md={6} lg={6} xl={4}>
             <div className="vstack gap-1">
               <div className="fs-12 grey-color">Department</div>
-              <div className="fs-20">{summaryList?.department[0]?.label}</div>
+              <div className="fs-20">{summaryList?.department}</div>
             </div>
           </Col>
           <Col xs={6} sm={6} md={6} lg={6} xl={4}>
             <div className="vstack gap-1">
               <div className="fs-12 grey-color">Designation</div>
-              <div className="fs-20">{summaryList?.designation[0]?.label}</div>
+              <div className="fs-20">{summaryList?.designation}</div>
             </div>
           </Col>
         </Row>
@@ -82,7 +85,7 @@ function SummaryComponent({onBack, confirmSubmit, loading}) {
           <Col xs={6} sm={6} md={6} lg={6} xl={4}>
             <div className="vstack gap-1">
               <div className="fs-12 grey-color">City</div>
-              <div className="fs-20">{summaryList?.city[0]?.label}</div>
+              <div className="fs-20">{summaryList?.city}</div>
             </div>
           </Col>
         </Row>
@@ -93,9 +96,11 @@ function SummaryComponent({onBack, confirmSubmit, loading}) {
           <div>
             <img src={summaryList?.passport_photo} alt="passport-size" />
           </div>
-          <div>
-            <img src={summaryList?.profile_photo} alt="full-size" />
-          </div>
+          {summaryList?.profile_photo && (
+            <div>
+              <img src={summaryList?.profile_photo} alt="full-size" />
+            </div>
+          )}
           {summaryList?.family_photo && (
             <div>
               <img src={summaryList?.family_photo} alt="family" />

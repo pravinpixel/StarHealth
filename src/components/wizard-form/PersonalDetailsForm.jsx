@@ -4,12 +4,12 @@ import {Controller, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {PersonalInformationSchema} from "helpers/validate";
 import DatePicker from "react-datepicker";
-import {useDispatch} from "react-redux";
-import {notify} from "helpers/global";
+// import {useDispatch} from "react-redux";
+// import {notify} from "helpers/global";
 import {Typeahead} from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import "react-datepicker/dist/react-datepicker.css";
-import {cityListByID} from "../../redux/Service/essentialService";
+// import {cityListByID} from "../../redux/Service/essentialService";
 
 function PersonalDetailsForm({
   onSubmit,
@@ -32,29 +32,29 @@ function PersonalDetailsForm({
     reValidateMode: "onSubmit",
     defaultValues: {defaultValues},
   });
-  const dispatch = useDispatch();
-  const stateValue = watch("state");
-  const [cityList, setCityList] = useState([]);
+  // const dispatch = useDispatch();
+  // const stateValue = watch("state");
+  // const [cityList, setCityList] = useState([]);
 
-  const essentialListApi = async () => {
-    try {
-      const response = await dispatch(cityListByID(stateValue[0]?.id)).unwrap();
-      setCityList(response?.data?.cites);
-    } catch (error) {
-      notify(error);
-      console.log("error", error);
-    }
-  };
+  // const essentialListApi = async () => {
+  //   try {
+  //     const response = await dispatch(cityListByID(stateValue[0]?.id)).unwrap();
+  //     setCityList(response?.data?.cites);
+  //   } catch (error) {
+  //     notify(error);
+  //     console.log("error", error);
+  //   }
+  // };
 
-  useEffect(() => {
-    if (stateValue?.length === 0) {
-      setValue("city", []);
-    }
+  // useEffect(() => {
+  //   if (stateValue?.length === 0) {
+  //     setValue("city", []);
+  //   }
 
-    if (stateValue) {
-      essentialListApi();
-    }
-  }, [stateValue]);
+  //   if (stateValue) {
+  //     essentialListApi();
+  //   }
+  // }, [stateValue]);
 
   useEffect(() => {
     reset(defaultValues);
@@ -183,6 +183,20 @@ function PersonalDetailsForm({
                 control={control}
                 render={({field}) => {
                   return (
+                    <Form.Control
+                      type="text"
+                      className={errors.employee_name ? "error-input" : ""}
+                      placeholder="Enter Your Department"
+                      {...field}
+                    />
+                  );
+                }}
+              />
+              {/* <Controller
+                name="department"
+                control={control}
+                render={({field}) => {
+                  return (
                     <Form.Group className="w-100" controlId="department">
                       <Typeahead
                         id="department"
@@ -192,6 +206,7 @@ function PersonalDetailsForm({
                         options={departmentList}
                         newSelectionPrefix=""
                         selected={field.value}
+                        positionFixed={true}
                         onChange={(e) => {
                           field.onChange(e);
                         }}
@@ -199,7 +214,7 @@ function PersonalDetailsForm({
                     </Form.Group>
                   );
                 }}
-              />
+              /> */}
               {errors.department && (
                 <Form.Text className="text-danger">
                   {errors.department.message}
@@ -208,6 +223,20 @@ function PersonalDetailsForm({
             </Col>
             <Col xs={12} sm={12} md={12} lg={6}>
               <Controller
+                name="designation"
+                control={control}
+                render={({field}) => {
+                  return (
+                    <Form.Control
+                      type="text"
+                      className={errors.employee_name ? "error-input" : ""}
+                      placeholder="Enter Your Designation"
+                      {...field}
+                    />
+                  );
+                }}
+              />
+              {/* <Controller
                 name="designation"
                 control={control}
                 render={({field}) => {
@@ -221,6 +250,7 @@ function PersonalDetailsForm({
                         options={desiginationList}
                         selected={field.value}
                         newSelectionPrefix=""
+                        positionFixed={true}
                         onChange={(e) => {
                           field.onChange(e);
                         }}
@@ -228,7 +258,7 @@ function PersonalDetailsForm({
                     </Form.Group>
                   );
                 }}
-              />
+              /> */}
               {errors.designation && (
                 <Form.Text className="text-danger">
                   {errors.designation.message}
@@ -248,12 +278,13 @@ function PersonalDetailsForm({
                       <Typeahead
                         id="state"
                         labelKey="label"
-                        placeholder="Enter State"
+                        placeholder="Select State"
                         options={stateList}
                         selected={field.value}
                         onChange={(e) => {
                           field.onChange(e);
                         }}
+                        positionFixed={true}
                       />
                     </Form.Group>
                   );
@@ -271,6 +302,20 @@ function PersonalDetailsForm({
                 control={control}
                 render={({field}) => {
                   return (
+                    <Form.Control
+                      type="text"
+                      className={errors.employee_name ? "error-input" : ""}
+                      placeholder="Enter Your City"
+                      {...field}
+                    />
+                  );
+                }}
+              />
+              {/* <Controller
+                name="city"
+                control={control}
+                render={({field}) => {
+                  return (
                     <Form.Group className="w-100" controlId="city">
                       <Typeahead
                         id="city"
@@ -281,11 +326,12 @@ function PersonalDetailsForm({
                         onChange={(e) => {
                           field.onChange(e);
                         }}
+                        positionFixed={true}
                       />
                     </Form.Group>
                   );
                 }}
-              />
+              /> */}
               {errors.city && (
                 <Form.Text className="text-danger">
                   {errors.city.message}

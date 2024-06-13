@@ -7,7 +7,7 @@ import {notify} from "helpers/global";
 import OtpTimer from "otp-timer";
 import {resendOtp} from "../../redux/Service/authService";
 
-function OtpFormComponent({otpFormSubmit, loading, emailValue}) {
+function OtpFormComponent({otpFormSubmit, loading, emailValue, sessionToken}) {
   const dispatch = useDispatch();
   const [loadingOtp, setLoadingOtp] = useState(false);
 
@@ -23,6 +23,7 @@ function OtpFormComponent({otpFormSubmit, loading, emailValue}) {
       const response = await dispatch(
         resendOtp({
           email: emailValue,
+          token: sessionToken,
         })
       ).unwrap();
       setLoadingOtp(false);

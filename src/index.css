@@ -27,14 +27,14 @@ body {
 }
 
 .splash-bg {
-  background-image: url("./assets/images/welcome-banner.png");
+  background-image: url("./assets/images/welcome-banner.jpeg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   height: 100vh;
 }
 
 .bannerleft-bg {
-  background-image: url("./assets/images/authLeft-1.png");
+  background-image: url("./assets/images/authLeft-1.jpeg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   height: 100vh;
@@ -42,7 +42,7 @@ body {
 }
 
 .bannerleft-bg-1 {
-  background-image: url("./assets/images/bg-plain.png");
+  background-image: url("./assets/images/bg-plain.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   /* height: 100vh; */
@@ -211,4 +211,64 @@ body {
   background: linear-gradient(136.87deg, #010206 11.1%, #182261 66.61%, #3247C8 100%);
   color: white;
   border: none;
+}
+
+/* faqmodal-ctr */
+
+.modal-closectr {
+  position: absolute;
+  right: -20px;
+  top: -15px;
+}
+
+.modalfaq-ctr {
+  width: 636px;
+  max-width: 636px;
+}
+
+.faqmodal-ctr .modal-content {
+  /* width: 636px; */
+  border-radius: 20px;
+  padding: 5px 20px;
+  overflow: visible;
+}
+
+.faqmodal-ctr .accordion-item {
+  border: none;
+  border-bottom: 1px solid black !important;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.faqmodal-ctr .accordion-header button:active {
+  background: transparent !important;
+  color: black !important;
+}
+
+.faqmodal-ctr .accordion-header button:focus {
+  box-shadow: none;
+}
+
+.accordion-collapse:visited {
+  border: none !important;
+}
+
+.faqmodal-ctr .accordion-header button {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  background: transparent;
+  color: black;
+}
+
+.faqmodal-ctr .accordion-header button {
+  box-shadow: unset;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.faqmodal-ctr .accordion-body {
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
 }

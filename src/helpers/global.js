@@ -7,7 +7,7 @@ export const notify = (props) => {
     case true:
       toast.success(props?.message, {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -21,7 +21,7 @@ export const notify = (props) => {
         for (const key in errorObj) {
           toast.error(errorObj[key][0], {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -33,7 +33,7 @@ export const notify = (props) => {
       } else if (typeof errorObj === "string") {
         toast.error(errorObj, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -44,7 +44,7 @@ export const notify = (props) => {
       } else {
         toast.error(errorObj, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -57,7 +57,7 @@ export const notify = (props) => {
     default:
       toast.warning("Something went wrong", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

@@ -2,12 +2,34 @@
   height: 100vh;
 }
 
+.w-90 {
+  width: 90%;
+}
+
 .overflow-auto {
   overflow: auto;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
+.error-image {
+  font-size: 12px;
+  width: 140px;
+  margin-top: 5px;
+}
+
+.text-danger {
+  font-size: 10px;
+}
+
 .h-80vh {
   height: 83vh;
+}
+
+.fs-10 {
+  font-size: 10px;
 }
 
 .fs-12 {
@@ -120,6 +142,24 @@ button {
   border-radius: 5000px;
   line-height: 12px;
   height: 36px;
+}
+
+.whiteBorder-desktop {
+  background: transparent;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 5000px;
+  height: 35px;
+  line-height: 0px;
+}
+
+.whiteBorder-desktop:hover,
+.whiteBorder-desktop:active {
+  background: transparent !important;
+  border-color: #FFFFFF !important;
 }
 
 .whiteBorder-mobilebutton {

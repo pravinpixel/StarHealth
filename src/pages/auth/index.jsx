@@ -7,7 +7,7 @@ import LanuchImage from "../../assets/images/lanuch.png";
 function SplashScreenComponent() {
   const navigate = useNavigate();
   const welcomeScreen = async () => {
-    navigate("/auth/login");
+    navigate("/login");
   };
 
   return (

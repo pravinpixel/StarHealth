@@ -25,7 +25,11 @@
 
 @media screen and (max-width: 575px) {
   .splash-bg {
-    background-image: url("./assets/images/responsive/welcome-bg.png");
+    background-image: url("./assets/images/responsive/welcome-bg.jpeg");
+  }
+
+  .display-block-mobile {
+    display: block !important;
   }
 
   .banner-logo img {
@@ -54,7 +58,7 @@
   }
 
   .bannerleft-bg-1 {
-    background-image: url("./assets/images/responsive/admin-left.png");
+    background-image: url("./assets/images/responsive/admin-left.jpeg");
     border-radius: unset;
     height: 390px;
     background-size: 100% 100%;
@@ -168,11 +172,57 @@
     font-size: 34px;
   }
 
+  .modalfaq-ctr {
+    width: auto;
+    max-width: auto;
+  }
+
+  .faq-header-content {
+    font-size: 18px;
+    color: #000000;
+    text-align: left !important;
+  }
+
+  .faqmodal-ctr .accordion-header button {
+    font-size: 14px;
+  }
+
+  .faqmodal-ctr .modal-body {
+    max-height: 466px;
+    padding: 0px;
+  }
+
+  .modalfaq-ctr {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .modal-closectr {
+    right: -10px;
+  }
+
+  .modal-closectr img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .modal-header {
+    justify-content: start !important;
+    padding-left: 0px;
+  }
 }
 
 @media screen and (min-width:576px) and (max-width:767px) {
   .welocme-logo img {
     width: 99px;
+  }
+
+  .modal-header {
+    justify-content: start !important;
+  }
+
+  .display-block-mobile {
+    display: block !important;
   }
 
   .dnone-sm {
@@ -240,7 +290,7 @@
   }
 
   .bannerleft-bg-1 {
-    background-image: url("./assets/images/responsive/admin-left.png");
+    background-image: url("./assets/images/responsive/admin-left.jpeg");
     border-radius: unset;
     height: 390px;
     background-size: 100% 100%;
@@ -313,11 +363,53 @@
     line-height: 0;
   }
 
+  .modalfaq-ctr {
+    width: auto;
+    max-width: auto;
+  }
+
+  .modalfaq-ctr {
+    width: auto;
+    max-width: auto;
+  }
+
+  .faq-header-content {
+    font-size: 18px;
+    color: #000000;
+    text-align: left !important;
+  }
+
+  .faqmodal-ctr .accordion-header button {
+    font-size: 14px;
+  }
+
+  .faqmodal-ctr .modal-body {
+    max-height: 466px;
+  }
+
+  .modalfaq-ctr {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .modal-closectr {
+    right: -10px;
+  }
+
+  .modal-closectr img {
+    width: 32px;
+    height: 32px;
+  }
+
 }
 
 @media screen and (min-width:768px) and (max-width:995px) {
   .welocme-logo img {
     width: 99px;
+  }
+
+  .photoguide-ctr {
+    gap: 10px !important;
   }
 
   .splash-position {
@@ -372,7 +464,8 @@
   }
 
   .banner-rightamin {
-    height: 100vh;
+    /* height: 100vh; */
+    /* overflow: auto; */
   }
 
   .launch-img-ctr img {
@@ -384,8 +477,17 @@
   }
 
   .photoguide-ctr-web img {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .logoinnerbanner {
+    width: auto !important;
+  }
+
+  .bannerleft-bg-1 .px-5 {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
   }
 
   .uploadphoto-wrap .dropzone,
@@ -419,6 +521,19 @@
 @media screen and (min-width:996px) and (max-width:1200px) {
   .welocme-logo img {
     width: 99px;
+  }
+
+  .photoguide-ctr {
+    gap: 10px !important;
+  }
+
+  .logoinnerbanner {
+    width: auto !important;
+  }
+
+  .bannerleft-bg-1 .px-5 {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
   }
 
   .splash-position {
@@ -457,7 +572,8 @@
   }
 
   .banner-rightamin {
-    height: 100vh;
+    /* height: 100vh; */
+    /* overflow: auto; */
   }
 
   .uploadphoto-wrap .dropzone,
@@ -491,4 +607,8 @@
     height: 90px;
   }
 
+}
+
+.display-block-mobile {
+  display: none;
 }

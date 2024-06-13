@@ -49,7 +49,7 @@ function LoginComponent() {
       const response = await dispatch(authOtpVerify(formData)).unwrap();
       setLoading(false);
       sessionStorage.setItem("token", response?.data?.access_token);
-      navigate("/admin/personal-details");
+      navigate("/personal-details");
       notify(response);
     } catch (error) {
       setLoading(false);
@@ -89,6 +89,7 @@ function LoginComponent() {
               otpFormSubmit={otpFormSubmit}
               loading={loading}
               emailValue={emailValue}
+              sessionToken={sessionToken}
             />
           ) : null}
         </Col>

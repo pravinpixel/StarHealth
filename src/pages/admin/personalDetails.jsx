@@ -40,10 +40,7 @@ function PersonalDetails() {
     setLoading(true);
     const firstStepData = {
       ...data,
-      city: data?.city[0]?.label,
       state: data?.state[0]?.label,
-      department: data?.department[0]?.label,
-      designation: data?.designation[0]?.label,
       state_id: data?.state[0]?.id,
       dob: dayjs(data?.dob).format("YYYY/MM/DD"),
       status: "upload",
@@ -58,6 +55,7 @@ function PersonalDetails() {
       setStep("upload");
       setLoading(false);
       notify(response);
+      navigate("/upload-images");
     } catch (error) {
       setLoading(false);
       notify(error);
@@ -65,7 +63,6 @@ function PersonalDetails() {
   };
 
   const handleStep2Submit = async (data) => {
-    console.log("data", data);
     const secondStepData = {
       family_photo: data?.family_photo,
       passport_photo: data?.passport_photo,
@@ -83,17 +80,46 @@ function PersonalDetails() {
       setStep("summary");
       setLoading(false);
       notify(response);
+      navigate("/summary");
     } catch (error) {
       setLoading(false);
       notify(error);
     }
   };
 
-  const handleBack = () => {
+  const handleStep2BackSubmit = async (data) => {
+    const secondStepData = {
+      ...data,
+      status: "summary",
+    };
+    try {
+      await dispatch(
+        updateApiStatus === "completed"
+          ? personalDetailsUpdateApi(secondStepData)
+          : personalDetailsApi(secondStepData)
+      ).unwrap();
+      updateApiStatus === "completed" && setUpdateApiStaus("completed");
+      setLoading(false);
+    } catch (error) {
+      notify(error);
+    }
+  };
+
+  const handleBack = (values) => {
+    console.log("values", values);
+    console.log("step", step);
+    handleStep2BackSubmit(values);
     personalDetailListApi();
     essentialListApi();
     setBackStep(step === "summary" ? "upload" : "basic");
+    step === "summary"
+      ? navigate("/upload-images")
+      : navigate("/personal-details");
   };
+
+  useEffect(() => {
+    navigate("/personal-details");
+  }, []);
 
   const confirmSubmit = async () => {
     setLoading(true);
@@ -104,7 +130,7 @@ function PersonalDetails() {
           : personalDetailsApi({status: "completed"})
       ).unwrap();
       sessionStorage.clear();
-      navigate("/admin/thank-you");
+      navigate("/thank-you");
       setLoading(false);
       notify(response);
     } catch (error) {
@@ -117,8 +143,8 @@ function PersonalDetails() {
     try {
       const response = await dispatch(essentialList()).unwrap();
       setStateList(response?.data?.states);
-      setDepartmentList(response?.data?.departments);
-      setDesiginationList(response?.data?.designations);
+      // setDepartmentList(response?.data?.departments);
+      // setDesiginationList(response?.data?.designations);
     } catch (error) {
       notify(error);
       console.log("error", error);

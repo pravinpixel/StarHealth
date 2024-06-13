@@ -23,15 +23,23 @@ function App() {
             element={<SplashComponent />}
           />
           <Route
-            path="/auth/login"
+            path="/login"
             element={<LoginComponent />}
           />
           <Route
-            path="/admin/personal-details"
+            path="/personal-details"
             element={<PersonalDetailsComponent />}
           />
           <Route
-            path="/admin/thank-you"
+            path="/upload-images"
+            element={<PersonalDetailsComponent />}
+          />
+          <Route
+            path="/summary"
+            element={<PersonalDetailsComponent />}
+          />
+          <Route
+            path="/thank-you"
             element={<ThankyouScreen />}
           />
         </Routes>

@@ -242,9 +242,7 @@ function BannerComponent({type}) {
           </div>
         </div>
       )}
-
       {/* campaigin rules */}
-
       <Modal
         show={campaignRule}
         onHide={campaignRuleClose}
@@ -280,7 +278,6 @@ function BannerComponent({type}) {
           </div>
         </Modal.Body>
       </Modal>
-
       {/* photo guide lines */}
       <Modal
         show={photoGuideline}
@@ -355,7 +352,6 @@ function BannerComponent({type}) {
           </div>
         </Modal.Body>
       </Modal>
-
       {/* view faq modal */}
       <Modal
         show={show}

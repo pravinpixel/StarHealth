@@ -326,3 +326,217 @@ input[type=number] {
   border-radius: 1250px;
   /* Set thumb color for Chrome and Safari */
 }
+
+/*  */
+.splashbannerSection h1 {
+  font-family: "Poppins", sans-serif;
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 400;
+  text-align: center;
+  margin: 40px 0px 0px 0px;
+}
+
+.splashbannerSection h2 {
+  font-family: "Poppins", sans-serif;
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 52px;
+  font-weight: 600;
+  text-align: center;
+}
+
+p {
+  color: #FFF;
+  font-size: 22px;
+  font-weight: 400;
+  text-align: center;
+  padding: 20px 0px;
+}
+
+.splashbannerSection span {
+  display: inline-block;
+  padding: 7px 30px;
+  background: #FFF;
+  color: rgba(1, 2, 6, 1);
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+img.star1 {
+  position: absolute;
+  left: 5%;
+  top: 10%;
+  animation: star-animation-2 7s ease infinite;
+}
+
+img.star2 {
+  position: absolute;
+  left: 20%;
+  top: 10px;
+  max-width: 15px;
+  animation: star-animation-1 5s ease infinite;
+  animation-delay: 1s;
+}
+
+img.star3 {
+  position: absolute;
+  left: 40%;
+  top: 10%;
+  animation: star-animation-2 10s ease infinite;
+  animation-delay: 2s;
+}
+
+img.star4 {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  max-width: 15px;
+  animation: star-animation-1 10s ease infinite;
+  animation-delay: 2s;
+}
+
+img.star5 {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  max-width: 20px;
+  animation: star-animation-2 7s ease infinite;
+  animation-delay: 1s;
+}
+
+img.star6 {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  max-width: 15px;
+  animation: star-animation-1 5s ease infinite;
+  animation-delay: 2s;
+}
+
+img.star7 {
+  position: absolute;
+  left: 45%;
+  top: 55%;
+  max-width: 30px;
+  animation: star-animation-2 4s ease infinite;
+  animation-delay: 1s;
+}
+
+img.star8 {
+  position: absolute;
+  left: 5%;
+  top: 70%;
+  max-width: 20px;
+  animation: star-animation-2 7s ease infinite;
+  animation-delay: 1s;
+}
+
+img.star9 {
+  position: absolute;
+  left: 20%;
+  top: 65%;
+  animation: star-animation-2 5s ease infinite;
+  animation-delay: 3s;
+}
+
+img.star10 {
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  max-width: 15px;
+  animation: star-animation-1 10s ease infinite;
+  animation-delay: 1s;
+}
+
+img.star11 {
+  position: absolute;
+  left: 30%;
+  bottom: 5%;
+  max-width: 10px;
+  animation: star-animation-1 7s ease infinite;
+  animation-delay: 2s;
+}
+
+img.star12 {
+  position: absolute;
+  left: 50%;
+  bottom: 15%;
+  max-width: 30px;
+  animation: star-animation-2 5s ease infinite;
+  animation-delay: 3s;
+}
+
+@keyframes star-animation-1 {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes star-animation-2 {
+  0% {
+    transform: scale(0);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@media (max-width: 1400px) {
+  body {
+    display: block;
+  }
+
+  img.image2 {
+    max-width: 130px;
+  }
+
+  .splashbannerSection p {
+    font-size: 18px;
+    padding: 10px 0px;
+  }
+}
+
+@media (max-width: 660px) {
+
+  img.image1 {
+    margin-left: -20%;
+    margin-bottom: -90px;
+  }
+
+  img.image2 {
+    max-width: 100px;
+  }
+
+  .splashbannerSection h1 {
+    font-size: 24px;
+  }
+
+  .splashbannerSection h2 {
+    font-size: 32px;
+  }
+
+  .splashbannerSection span {
+    font-size: 16px;
+  }
+
+  img.star12 {
+    bottom: 10%;
+    max-width: 20px;
+  }
+}

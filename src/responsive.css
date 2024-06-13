@@ -21,12 +21,18 @@
     font-size: 14px;
     padding: revert !important;
   }
+
+  .splash-bg {
+    height: auto;
+  }
+
+  .splash-bg-1 {
+    height: 100vh !important;
+  }
 }
 
 @media screen and (max-width: 575px) {
-  .splash-bg {
-    background-image: url("./assets/images/responsive/welcome-bg.jpeg");
-  }
+
 
   .display-block-mobile {
     display: block !important;
@@ -215,6 +221,10 @@
 @media screen and (min-width:576px) and (max-width:767px) {
   .welocme-logo img {
     width: 99px;
+  }
+
+  .splash-bg {
+    height: auto;
   }
 
   .modal-header {
@@ -406,6 +416,11 @@
 @media screen and (min-width:768px) and (max-width:995px) {
   .welocme-logo img {
     width: 99px;
+  }
+
+  .splash-bg {
+    /* background-image: url("./assets/images/responsive/welcome-bg.jpeg"); */
+    height: auto;
   }
 
   .photoguide-ctr {

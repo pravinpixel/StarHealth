@@ -75,19 +75,25 @@ const UploadImagesSchema = yup.object().shape({
         }
       }
     ),
-  family_photo: yup.mixed().test('fileSize',
+  family_photo: yup.mixed().nullable(true).test('fileSize',
     'File too large, it should be less than 5MB',
     (value) => {
+      if (value === null) {
+        return true
+      }
       if (typeof value === "string") {
         return true
       }
       if (typeof value === "object" && value && value.size <= FILE_SIZE) {
-        return true
+        return
       }
     }).test(
       'fileFormat',
       'Unsupported Format. Only PNG, JPEG, and JPG are allowed.',
       (value) => {
+        if (value === null) {
+          return true
+        }
         if (typeof value === "string") {
           return true
         }

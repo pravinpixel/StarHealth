@@ -80,7 +80,17 @@ function OtpFormComponent({otpFormSubmit, loading, emailValue, sessionToken}) {
             rules={{validate: (value) => value.length === 4}}
             render={({field, fieldState}) => (
               <div>
-                <MuiOtpInput {...field} length={4} />
+                <MuiOtpInput
+                  {...field}
+                  length={4}
+                  TextFieldsProps={{
+                    type: "number",
+                    inputProps: {
+                      inputMode: "numeric",
+                      pattern: "[0-9]*",
+                    },
+                  }}
+                />
                 {fieldState.invalid ? (
                   <Form.Text className="text-danger t-3">
                     Enter the OTP which is recieved in your Inbox

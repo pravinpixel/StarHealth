@@ -116,7 +116,7 @@ function UploadPhotosForm({
         <div className="fs-28 fw-600 dark-blue">Upload Your Photos</div>
       </div>
       <Form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-        <div className="hstack gap-2 flex-wrap uploadphoto-wrap align-items-start">
+        <div className="hstack gap-3 flex-wrap uploadphoto-wrap align-items-start">
           <div>
             <div className="fs-16 roboto-font mb-2">
               Headshot photo<span className="text-danger">*</span>
@@ -130,7 +130,11 @@ function UploadPhotosForm({
                   <div {...getRootPassportPhotoProps({className: "dropzone"})}>
                     <input {...getInputPassportPhotoProps()} />
                     <div>
-                      <img src={DragImage} alt="drag" width={191} />
+                      <img
+                        src={DragImage}
+                        alt="drag"
+                        className="dragImageCtr"
+                      />
                     </div>
                   </div>
                 )
@@ -173,7 +177,11 @@ function UploadPhotosForm({
                   <div {...getRootFullSizePhotoProps({className: "dropzone"})}>
                     <input {...getInputFullSizePhotoProps()} />
                     <div>
-                      <img src={DragImage} alt="drag1" width={191} />
+                      <img
+                        src={DragImage}
+                        alt="drag1"
+                        className="dragImageCtr"
+                      />
                     </div>
                   </div>
                 )
@@ -216,7 +224,11 @@ function UploadPhotosForm({
                   <div {...getRootFamilyPhotoProps({className: "dropzone"})}>
                     <input {...getInputFamilyPhotoProps()} />
                     <div>
-                      <img src={DragImage} alt="drag2" width={191} />
+                      <img
+                        src={DragImage}
+                        alt="drag2"
+                        className="dragImageCtr"
+                      />
                     </div>
                   </div>
                 )

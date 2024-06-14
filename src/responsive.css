@@ -22,6 +22,10 @@
     padding: revert !important;
   }
 
+  .dragImageCtr {
+    width: 138px !important;
+  }
+
 }
 
 @media screen and (max-width: 575px) {
@@ -42,6 +46,10 @@
     width: 99px;
   }
 
+  .bannerleft-bg-1 section>div {
+    padding: 25px 10px !important;
+  }
+
   .splash-position {
     left: 50%;
     transform: translate(-50%, 0%);
@@ -59,7 +67,8 @@
     background-image: url("./assets/images/responsive/admin-left.jpeg");
     border-radius: unset;
     height: 390px;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: right;
   }
 
   .authleftposition>div {
@@ -144,6 +153,10 @@
     height: 173px;
   }
 
+  .dragImageCtr {
+    width: 173px;
+  }
+
   .uploadphoto-wrap {
     gap: 10px !important;
   }
@@ -213,6 +226,10 @@
 @media screen and (min-width:576px) and (max-width:767px) {
   .welocme-logo img {
     width: 99px;
+  }
+
+  .bannerleft-bg-1 section>div {
+    padding: 25px 10px !important;
   }
 
   .modal-header {
@@ -291,7 +308,8 @@
     background-image: url("./assets/images/responsive/admin-left.jpeg");
     border-radius: unset;
     height: 390px;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: right;
   }
 
   .adminleftposition {
@@ -341,6 +359,10 @@
   .uploadphoto-wrap .preview {
     width: 173px;
     height: 173px;
+  }
+
+  .dragImageCtr {
+    width: 173px;
   }
 
   .uploadphoto-wrap {
@@ -496,6 +518,10 @@
     height: 128px !important;
   }
 
+  .dragImageCtr {
+    width: 128px;
+  }
+
   .uploadphoto-wrap {
     gap: 10px !important;
   }
@@ -580,6 +606,10 @@
   .uploadphoto-wrap .preview {
     width: 128px !important;
     height: 128px !important;
+  }
+
+  .dragImageCtr {
+    width: 128px;
   }
 
   .uploadphoto-wrap {

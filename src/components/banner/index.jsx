@@ -30,7 +30,7 @@ function BannerComponent({type}) {
       heading:
         "I have already submitted an image but would like to add another one. Can I exchange images?",
       sub_head:
-        "YNo. Once an image has been submitted, it is final and may not be replaced by another image.",
+        "No. Once an image has been submitted, it is final and may not be replaced by another image.",
     },
     {
       id: 4,

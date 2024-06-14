@@ -28,10 +28,10 @@ function SplashScreenComponent() {
       </div>
       <Container className="pb-4 splashbannerSection">
         <div className="row justify-content-between align-items-center">
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
             <img src={Image1} alt="" className="img-fluid image1" />
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 text-center">
+          <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 text-center">
             <img src={Image2} alt="" className="img-fluid image2" />
             <h1>Launch Your</h1>
             <h2>Stardom!</h2>

@@ -41,7 +41,7 @@ function ThanksScreen() {
                 </div>
                 <div className="text-white fs-22 fw-500 mt-3">
                   <div>Stay tuned to be a part of the legacy!</div>
-                  <div className="mt-1">#FaceOfSTAR</div>
+                  <div className="mt-1">#thefaceofstarhealth</div>
                 </div>
                 <div className="mt-4">
                   <Button className="splash-btn" onClick={() => goHomeFn()}>

@@ -3,13 +3,16 @@ import {Button, Col, Form, Row} from "react-bootstrap";
 import {Controller, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {PersonalInformationSchema} from "helpers/validate";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 // import {useDispatch} from "react-redux";
 // import {notify} from "helpers/global";
 import {Typeahead} from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
-import "react-datepicker/dist/react-datepicker.css";
+// import "react-datepicker/dist/react-datepicker.css";
 // import {cityListByID} from "../../redux/Service/essentialService";
+import DatePicker from "react-multi-date-picker";
+import InputIcon from "react-multi-date-picker/components/input_icon";
+import CalenderIcon from "../../assets/images/calendar.png";
 
 function PersonalDetailsForm({
   onSubmit,
@@ -55,6 +58,22 @@ function PersonalDetailsForm({
   //     essentialListApi();
   //   }
   // }, [stateValue]);
+
+  function CustomInput({onFocus, value, onChange, openCalendar}) {
+    return (
+      <div className="hstack calenderInput">
+        <input
+          onFocus={onFocus}
+          value={value}
+          onChange={onChange}
+          placeholder="YYYY/MM/DD"
+        />
+        <div onClick={openCalendar} className="cursor">
+          <img src={CalenderIcon} alt="c" width={20} />
+        </div>
+      </div>
+    );
+  }
 
   useEffect(() => {
     reset(defaultValues);
@@ -128,23 +147,42 @@ function PersonalDetailsForm({
               <Controller
                 name="dob"
                 control={control}
+                className="customeDateField"
                 render={({field}) => {
                   return (
                     <DatePicker
-                      onChange={field.onChange}
-                      onBlur={field.onBlur}
-                      name={field.name}
-                      ref={field.ref}
-                      selected={field.value}
-                      dateFormat="dd-MM-yyyy"
-                      placeholderText="Select Your Date of Birth"
-                      className={`form-control`}
-                      autoComplete="off"
-                      showMonthDropdown
-                      showYearDropdown
-                      dropdownMode="select"
-                      maxDate={new Date()}
+                      {...field}
+                      render={<CustomInput />}
+                      // placeholder="YYYY/MM/DD"
+                      // {...field}
+                      // maxDate={new Date()}
+                      // render={() => {
+                      //   <div>
+                      //     <input />
+                      //   </div>;
+                      // }}
                     />
+                    // <DatePicker
+                    //   render={<InputIcon />}
+                    //   maxDate={new Date()}
+                    //   placeholder="sajhfhsf"
+                    //   {...field}
+                    // />
+                    // <DatePicker
+                    //   onChange={field.onChange}
+                    //   onBlur={field.onBlur}
+                    //   name={field.name}
+                    //   ref={field.ref}
+                    //   selected={field.value}
+                    //   dateFormat="dd-MM-yyyy"
+                    //   placeholderText="Select Your Date of Birth"
+                    //   className={`form-control`}
+                    //   autoComplete="off"
+                    //   showMonthDropdown
+                    //   showYearDropdown
+                    //   dropdownMode="select"
+                    //   maxDate={new Date()}
+                    // />
                   );
                 }}
               />

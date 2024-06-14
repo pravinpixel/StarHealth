@@ -4,7 +4,7 @@ import PersonalDetailsForm from "components/wizard-form/PersonalDetailsForm";
 import UploadPhotosForm from "components/wizard-form/UploadPhotosForm";
 import SummaryComponent from "components/wizard-form/Summary";
 import {useNavigate} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {notify} from "helpers/global";
 import dayjs from "dayjs";
 import {essentialList} from "../../redux/Service/essentialService";
@@ -27,6 +27,7 @@ function PersonalDetails() {
   const [departmentList, setDepartmentList] = useState([]);
   const [desiginationList, setDesiginationList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [imageLoading, setImageLoading] = useState(false);
 
   const [backStep, setBackStep] = useState(null);
   const [defaultValues, setDefaultValues] = useState([]);
@@ -88,6 +89,7 @@ function PersonalDetails() {
   };
 
   const handleStep2BackSubmit = async (data) => {
+    setImageLoading(true);
     const secondStepData = {
       ...data,
       status: "summary",
@@ -99,22 +101,26 @@ function PersonalDetails() {
           : personalDetailsApi(secondStepData)
       ).unwrap();
       updateApiStatus === "completed" && setUpdateApiStaus("completed");
-      setLoading(false);
+      setImageLoading(false);
+      personalDetailListApi();
+      setBackStep(step === "summary" ? "upload" : "basic");
     } catch (error) {
       notify(error);
+      setImageLoading(false);
     }
   };
 
   const handleBack = (values) => {
-    console.log("values", values);
-    console.log("step", step);
-    handleStep2BackSubmit(values);
-    personalDetailListApi();
-    essentialListApi();
-    setBackStep(step === "summary" ? "upload" : "basic");
-    step === "summary"
-      ? navigate("/upload-images")
-      : navigate("/personal-details");
+    if (step === "upload") {
+      handleStep2BackSubmit(values);
+    } else {
+      personalDetailListApi();
+      essentialListApi();
+      setBackStep(step === "summary" ? "upload" : "basic");
+      step === "summary"
+        ? navigate("/upload-images")
+        : navigate("/personal-details");
+    }
   };
 
   useEffect(() => {
@@ -322,6 +328,7 @@ function PersonalDetails() {
                   onBack={handleBack}
                   defaultValues={defaultValues}
                   loading={loading}
+                  imageLoading={imageLoading}
                 />
               )}
               {step === "summary" && (

@@ -22,17 +22,9 @@
     padding: revert !important;
   }
 
-  .splash-bg {
-    height: auto;
-  }
-
-  .splash-bg-1 {
-    height: 100vh !important;
-  }
 }
 
 @media screen and (max-width: 575px) {
-
 
   .display-block-mobile {
     display: block !important;
@@ -160,14 +152,14 @@
     font-size: 14px;
     height: 30px;
     padding: 10px 15px;
-    line-height: 0;
+    /* line-height: 0; */
   }
 
   .secondary-button {
     font-size: 14px;
     height: 30px;
     padding: 10px 15px;
-    line-height: 0;
+    /* line-height: 0; */
   }
 
   .fs-20 {
@@ -221,10 +213,6 @@
 @media screen and (min-width:576px) and (max-width:767px) {
   .welocme-logo img {
     width: 99px;
-  }
-
-  .splash-bg {
-    height: auto;
   }
 
   .modal-header {
@@ -418,11 +406,6 @@
     width: 99px;
   }
 
-  .splash-bg {
-    /* background-image: url("./assets/images/responsive/welcome-bg.jpeg"); */
-    height: auto;
-  }
-
   .photoguide-ctr {
     gap: 10px !important;
   }
@@ -478,10 +461,10 @@
     font-size: 20px;
   }
 
-  .banner-rightamin {
-    /* height: 100vh; */
-    /* overflow: auto; */
-  }
+  /* .banner-rightamin {
+    height: 100vh;
+    overflow: auto;
+  } */
 
   .launch-img-ctr img {
     width: 120px;
@@ -586,10 +569,10 @@
     width: auto;
   }
 
-  .banner-rightamin {
-    /* height: 100vh; */
-    /* overflow: auto; */
-  }
+  /* .banner-rightamin {
+    height: 100vh;
+    overflow: auto;
+  } */
 
   .uploadphoto-wrap .dropzone,
   .uploadphoto-wrap .image-item,

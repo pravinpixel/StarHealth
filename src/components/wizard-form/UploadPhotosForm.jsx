@@ -7,7 +7,13 @@ import DragImage from "../../assets/images/drag-img.png";
 import CloseIcon from "../../assets/images/close.png";
 import {UploadImagesSchema} from "helpers/validate";
 
-function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
+function UploadPhotosForm({
+  onSubmit,
+  onBack,
+  defaultValues,
+  loading,
+  imageLoading,
+}) {
   const {
     control,
     handleSubmit,
@@ -18,7 +24,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
     formState: {errors},
   } = useForm({
     resolver: yupResolver(UploadImagesSchema),
-    mode: "all",
+    mode: "onTouched",
     reValidateMode: "onSubmit",
     defaultValues,
   });
@@ -110,7 +116,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
         <div className="fs-28 fw-600 dark-blue">Upload Your Photos</div>
       </div>
       <Form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-        <div className="hstack gap-2 flex-wrap uploadphoto-wrap">
+        <div className="hstack gap-2 flex-wrap uploadphoto-wrap align-items-start">
           <div>
             <div className="fs-16 roboto-font mb-2">
               Headshot photo<span className="text-danger">*</span>
@@ -124,7 +130,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                   <div {...getRootPassportPhotoProps({className: "dropzone"})}>
                     <input {...getInputPassportPhotoProps()} />
                     <div>
-                      <img src={DragImage} alt="drag" />
+                      <img src={DragImage} alt="drag" width={191} />
                     </div>
                   </div>
                 )
@@ -146,15 +152,12 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                 </div>
               </div>
             )}
-            <div style={{height: "60px"}} className="error-image">
+            <div className="error-image">
               {errors.passport_photo && (
                 <Form.Text className="error-image text-danger">
                   {errors.passport_photo.message}
                 </Form.Text>
               )}
-              <div className="text-danger">
-                The file size of the photo should be less than 5MB
-              </div>
             </div>
           </div>
           <div>
@@ -170,7 +173,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                   <div {...getRootFullSizePhotoProps({className: "dropzone"})}>
                     <input {...getInputFullSizePhotoProps()} />
                     <div>
-                      <img src={DragImage} alt="drag1" />
+                      <img src={DragImage} alt="drag1" width={191} />
                     </div>
                   </div>
                 )
@@ -192,15 +195,12 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                 </div>
               </div>
             )}
-            <div style={{height: "60px"}} className="error-image">
+            <div className="error-image">
               {errors.profile_photo && (
                 <Form.Text className="error-image text-danger">
                   {errors.profile_photo.message}
                 </Form.Text>
               )}
-              <div className="text-danger">
-                The file size of the photo should be less than 5MB
-              </div>
             </div>
           </div>
           <div>
@@ -216,7 +216,7 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                   <div {...getRootFamilyPhotoProps({className: "dropzone"})}>
                     <input {...getInputFamilyPhotoProps()} />
                     <div>
-                      <img src={DragImage} alt="drag2" />
+                      <img src={DragImage} alt="drag2" width={191} />
                     </div>
                   </div>
                 )
@@ -235,15 +235,12 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
                 </div>
               </div>
             )}
-            <div style={{height: "60px"}} className="error-image">
+            <div className="error-image">
               {errors.family_photo && (
                 <Form.Text className="error-image text-danger">
                   {errors.family_photo.message}
                 </Form.Text>
               )}
-              <div className="text-danger">
-                The file size of the photo should be less than 5MB
-              </div>
             </div>
           </div>
         </div>
@@ -257,8 +254,9 @@ function UploadPhotosForm({onSubmit, onBack, defaultValues, loading}) {
               })
             }
             className="secondary-button"
+            disabled={imageLoading}
           >
-            Edit Information
+            {imageLoading ? "Loading..." : "Edit Information"}
           </Button>
           <Button className="primary-button" type="submit" disabled={loading}>
             {loading ? "Loading..." : "Upload Images"}

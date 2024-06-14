@@ -21,7 +21,7 @@
 }
 
 .text-danger {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .h-80vh {
@@ -118,6 +118,10 @@
 
 .grey-color-2 {
   color: #BEBEBE;
+}
+
+.grey-color-3 {
+  color: #B0B0B0;
 }
 
 .bg-transparent {
@@ -319,6 +323,7 @@ input[type=number] {
 /* Styling the scrollbar in Chrome and Safari */
 ::-webkit-scrollbar {
   width: 7px;
+  background-color: white;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -539,4 +544,23 @@ img.star12 {
     bottom: 10%;
     max-width: 20px;
   }
+}
+
+.rmdp-container {
+  width: 100%;
+}
+
+.rmdp-container svg {
+  right: 15px !important;
+}
+
+.rmdp-container input {
+  width: 100%;
+  padding-left: 15px;
+}
+
+.rmdp-day,
+.rmdp-week-day {
+  height: 35px !important;
+  width: 35px !important;
 }

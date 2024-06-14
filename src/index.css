@@ -15,6 +15,25 @@ body {
   font-weight: 500;
 }
 
+.calenderInput {
+  border: 1px solid #E6E6E6;
+  border-radius: 6px;
+  background: white;
+  padding-right: 15px;
+}
+
+.calenderInput input:focus-visible {
+  outline: none !important;
+}
+
+.calenderInput input {
+  border: none !important;
+}
+
+.rmdp-calendar {
+  font-family: "Poppins", sans-serif !important;
+}
+
 .otpCtr button {
   font-family: "Poppins", sans-serif !important;
   color: #2B3984 !important;
@@ -237,6 +256,7 @@ body {
   border-radius: 20px;
   padding: 5px 20px;
   overflow: visible;
+  padding-right: 0px;
 }
 
 .faqmodal-ctr .accordion-item {
@@ -277,4 +297,8 @@ body {
   padding-top: 0px;
   padding-left: 0px;
   padding-right: 0px;
+}
+
+.faqmodal-ctr .modal-body>div {
+  padding-right: 20px;
 }

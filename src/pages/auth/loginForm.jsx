@@ -6,7 +6,7 @@ import {LoginSchema} from "../../helpers/validate";
 import EmailGroup from "../../assets/images/email-group.png";
 import CheckedIcon from "../../assets/images/checked.png";
 import NotCheckedIcon from "../../assets/images/not-checked.png";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 
 function LoginFormComponent({loginSubmit, loading}) {
@@ -16,11 +16,12 @@ function LoginFormComponent({loginSubmit, loading}) {
     formState: {errors},
   } = useForm({
     resolver: yupResolver(LoginSchema),
-    mode: "all",
+    mode: "onTouched",
     reValidateMode: "onSubmit",
   });
 
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
 
   const [termsShow, setTermsShow] = useState(false);
 
@@ -166,6 +167,7 @@ function LoginFormComponent({loginSubmit, loading}) {
               <Button
                 className="secondary-button"
                 onClick={() => {
+                  navigate("/");
                   setTermsShow(false);
                   handleClose();
                 }}

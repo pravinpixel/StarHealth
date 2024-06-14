@@ -23,53 +23,52 @@ function BannerComponent({type}) {
       id: 2,
       heading: "How many images can I enter?",
       sub_head:
-        "Yes, all imagery must be submitted on or before June 24, 2024.",
+        "You can submit two images of yourself (mandatory) and one with your family (optional).",
     },
     {
       id: 3,
       heading:
         "I have already submitted an image but would like to add another one. Can I exchange images?",
       sub_head:
-        "Yes, all imagery must be submitted on or before June 24, 2024.",
+        "YNo. Once an image has been submitted, it is final and may not be replaced by another image.",
     },
     {
       id: 4,
       heading: "Can I submit images under more than one account?",
       sub_head:
-        "Yes, all imagery must be submitted on or before June 24, 2024.",
+        "No. It is against the rules and will lead to disqualification.",
     },
     {
       id: 5,
       heading:
         "If my images get disqualified, will I be able to submit a replacement?",
       sub_head:
-        "Yes, all imagery must be submitted on or before June 24, 2024.",
+        "No. You may submit images per category, and these cannot be replaced after submission. Please choose your images carefully and consider the rules and requirements for submission before you hit the submit button.",
     },
     {
       id: 6,
       heading:
         "Is image editing allowed? Can I edit images I have shot on a smartphone?",
       sub_head:
-        "Yes, all imagery must be submitted on or before June 24, 2024.",
+        "Basic image editing, and color corrections are allowed, i.e. brightness, contrast, sharpening, mood and white balance. The decision to accept your image will be at the discretion of the judges. Their decision is final.",
     },
     {
       id: 7,
       heading:
         "Will I get notified when my image makes it into the next round?",
-      sub_head:
-        "Yes, all imagery must be submitted on or before June 24, 2024.",
+      sub_head: "Yes, all contestants will be informed by email.",
     },
     {
       id: 8,
       heading: "How can you be sure that judges aren’t partial or unfair?",
       sub_head:
-        "Yes, all imagery must be submitted on or before June 24, 2024.",
+        "In order to maintain impartiality, all images will be made anonymous before the judges receive them.",
     },
     {
       id: 9,
       heading: "Will my images be used for Star Health’s advertising?",
       sub_head:
-        "Yes, all imagery must be submitted on or before June 24, 2024.",
+        "Yes. The submitted images can be used for advertising purposes, or in our product brochures, flayers or on our social media pages. By participating and submitting your images, you consent to the use of your images, royalty free/ without compensation, for Star Health’s promotional material.",
     },
   ];
 
@@ -95,7 +94,7 @@ function BannerComponent({type}) {
   return (
     <section>
       {type === "personal-details" ? (
-        <div className="p-4">
+        <div className="p-5">
           <div className="banner-logo">
             <img src={Logo} alt="logo" />
           </div>
@@ -367,7 +366,7 @@ function BannerComponent({type}) {
           <img src={CloseIconModal} alt="close-icon" />
         </div>
         <Modal.Header className="border-0 pb-0 justify-content-center">
-          <div className="faq-header-content fw-600 fs-26 dark-blue">Faq</div>
+          <div className="faq-header-content fw-600 fs-26 dark-blue">FAQs</div>
         </Modal.Header>
         <Modal.Body className="pt-0">
           <div>

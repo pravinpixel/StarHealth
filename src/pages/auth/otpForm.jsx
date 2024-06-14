@@ -116,24 +116,6 @@ function OtpFormComponent({otpFormSubmit, loading, emailValue, sessionToken}) {
             )}
           </div>
 
-          {/* <div className="letter-space-3 dark-blue fw-16 mt-4 text-end fw-500 otpCtr">
-            {loadingOtp ? (
-              <div
-                className="letter-space-1 dark-blue fw-16 mt-4 text-end fw-500 text-decoration-underline cursor"
-                onClick={() => resendOtpFn()}
-              >
-                Resend OTP
-              </div>
-            ) : (
-              <OtpTimer
-                seconds={59}
-                minutes={0}
-                text={" "}
-                ButtonText="Resend OTP"
-                resend={() => resendOtpFn()}
-              />
-            )}
-          </div> */}
           <div className="mt-4">
             <Button type="submit" className="primary-button" disabled={loading}>
               {loading ? "Loading..." : "Verify"}

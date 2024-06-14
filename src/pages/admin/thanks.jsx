@@ -3,7 +3,6 @@ import {Button, Container} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import StarIcon from "../../assets/images/star-icon.png";
 import Image1 from "../../assets/images/image1.webp";
-import Image2 from "../../assets/images/image2.png";
 
 function ThanksScreen() {
   const navigate = useNavigate();
@@ -53,26 +52,6 @@ function ThanksScreen() {
           </div>
         </div>
       </Container>
-      {/* <div
-        className="vstack align-items-center justify-content-center pb-5 h-100vh gap-30 
-      splash-position"
-      >
-        <div className="text-center">
-          <div className="text-white fw-bold fs-40 text-uppercase">
-            <div>Thanks for</div>
-            <div>Participating!</div>
-          </div>
-          <div className="text-white fs-22 fw-500 mt-3">
-            <div>Stay tuned to be a part of the legacy!</div>
-            <div className="mt-1">#FaceOfSTAR</div>
-          </div>
-        </div>
-        <div>
-          <Button className="splash-btn" onClick={() => goHomeFn()}>
-            Go Home
-          </Button>
-        </div>
-      </div> */}
     </div>
   );
 }

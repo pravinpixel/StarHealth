@@ -1,33 +1,18 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {Button, Col, Form, Row} from "react-bootstrap";
 import {Controller, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {PersonalInformationSchema} from "helpers/validate";
-// import DatePicker from "react-datepicker";
-// import {useDispatch} from "react-redux";
-// import {notify} from "helpers/global";
 import {Typeahead} from "react-bootstrap-typeahead";
-import "react-bootstrap-typeahead/css/Typeahead.css";
-// import "react-datepicker/dist/react-datepicker.css";
-// import {cityListByID} from "../../redux/Service/essentialService";
 import DatePicker from "react-multi-date-picker";
-import InputIcon from "react-multi-date-picker/components/input_icon";
 import CalenderIcon from "../../assets/images/calendar.png";
+import "react-bootstrap-typeahead/css/Typeahead.css";
 
-function PersonalDetailsForm({
-  onSubmit,
-  defaultValues,
-  stateList,
-  departmentList,
-  desiginationList,
-  loading,
-}) {
+function PersonalDetailsForm({onSubmit, defaultValues, stateList, loading}) {
   const {
     handleSubmit,
     control,
-    watch,
     reset,
-    setValue,
     formState: {errors},
   } = useForm({
     resolver: yupResolver(PersonalInformationSchema),
@@ -35,29 +20,6 @@ function PersonalDetailsForm({
     reValidateMode: "onSubmit",
     defaultValues: {defaultValues},
   });
-  // const dispatch = useDispatch();
-  // const stateValue = watch("state");
-  // const [cityList, setCityList] = useState([]);
-
-  // const essentialListApi = async () => {
-  //   try {
-  //     const response = await dispatch(cityListByID(stateValue[0]?.id)).unwrap();
-  //     setCityList(response?.data?.cites);
-  //   } catch (error) {
-  //     notify(error);
-  //     console.log("error", error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (stateValue?.length === 0) {
-  //     setValue("city", []);
-  //   }
-
-  //   if (stateValue) {
-  //     essentialListApi();
-  //   }
-  // }, [stateValue]);
 
   function CustomInput({onFocus, value, onChange, openCalendar}) {
     return (
@@ -152,37 +114,9 @@ function PersonalDetailsForm({
                   return (
                     <DatePicker
                       {...field}
+                      maxDate={new Date()}
                       render={<CustomInput />}
-                      // placeholder="YYYY/MM/DD"
-                      // {...field}
-                      // maxDate={new Date()}
-                      // render={() => {
-                      //   <div>
-                      //     <input />
-                      //   </div>;
-                      // }}
                     />
-                    // <DatePicker
-                    //   render={<InputIcon />}
-                    //   maxDate={new Date()}
-                    //   placeholder="sajhfhsf"
-                    //   {...field}
-                    // />
-                    // <DatePicker
-                    //   onChange={field.onChange}
-                    //   onBlur={field.onBlur}
-                    //   name={field.name}
-                    //   ref={field.ref}
-                    //   selected={field.value}
-                    //   dateFormat="dd-MM-yyyy"
-                    //   placeholderText="Select Your Date of Birth"
-                    //   className={`form-control`}
-                    //   autoComplete="off"
-                    //   showMonthDropdown
-                    //   showYearDropdown
-                    //   dropdownMode="select"
-                    //   maxDate={new Date()}
-                    // />
                   );
                 }}
               />
@@ -230,29 +164,6 @@ function PersonalDetailsForm({
                   );
                 }}
               />
-              {/* <Controller
-                name="department"
-                control={control}
-                render={({field}) => {
-                  return (
-                    <Form.Group className="w-100" controlId="department">
-                      <Typeahead
-                        id="department"
-                        labelKey="label"
-                        allowNew
-                        placeholder="Select Your Department"
-                        options={departmentList}
-                        newSelectionPrefix=""
-                        selected={field.value}
-                        positionFixed={true}
-                        onChange={(e) => {
-                          field.onChange(e);
-                        }}
-                      />
-                    </Form.Group>
-                  );
-                }}
-              /> */}
               {errors.department && (
                 <Form.Text className="text-danger">
                   {errors.department.message}
@@ -274,29 +185,6 @@ function PersonalDetailsForm({
                   );
                 }}
               />
-              {/* <Controller
-                name="designation"
-                control={control}
-                render={({field}) => {
-                  return (
-                    <Form.Group className="w-100" controlId="designation">
-                      <Typeahead
-                        id="designation"
-                        labelKey="label"
-                        allowNew
-                        placeholder="Select Your Designation"
-                        options={desiginationList}
-                        selected={field.value}
-                        newSelectionPrefix=""
-                        positionFixed={true}
-                        onChange={(e) => {
-                          field.onChange(e);
-                        }}
-                      />
-                    </Form.Group>
-                  );
-                }}
-              /> */}
               {errors.designation && (
                 <Form.Text className="text-danger">
                   {errors.designation.message}
@@ -349,27 +237,6 @@ function PersonalDetailsForm({
                   );
                 }}
               />
-              {/* <Controller
-                name="city"
-                control={control}
-                render={({field}) => {
-                  return (
-                    <Form.Group className="w-100" controlId="city">
-                      <Typeahead
-                        id="city"
-                        labelKey="label"
-                        placeholder="Enter City"
-                        options={cityList}
-                        selected={field.value}
-                        onChange={(e) => {
-                          field.onChange(e);
-                        }}
-                        positionFixed={true}
-                      />
-                    </Form.Group>
-                  );
-                }}
-              /> */}
               {errors.city && (
                 <Form.Text className="text-danger">
                   {errors.city.message}

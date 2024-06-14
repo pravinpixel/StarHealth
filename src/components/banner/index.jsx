@@ -1,11 +1,9 @@
 import React, {useState} from "react";
 import Button from "react-bootstrap/Button";
-import Offcanvas from "react-bootstrap/Offcanvas";
 import Modal from "react-bootstrap/Modal";
 import Accordion from "react-bootstrap/Accordion";
 import Logo from "../../assets/images/logo-small.png";
 import Lanuch from "../../assets/images/lanuch.png";
-import CloseIcon from "../../assets/images/close-icon.png";
 import HeadShotImage from "../../assets/images/head-shot.png";
 import FullsizeImage from "../../assets/images/full-size.png";
 import FamilyImage from "../../assets/images/family.png";

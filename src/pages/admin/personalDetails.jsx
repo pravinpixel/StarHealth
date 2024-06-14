@@ -4,7 +4,7 @@ import PersonalDetailsForm from "components/wizard-form/PersonalDetailsForm";
 import UploadPhotosForm from "components/wizard-form/UploadPhotosForm";
 import SummaryComponent from "components/wizard-form/Summary";
 import {useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {notify} from "helpers/global";
 import dayjs from "dayjs";
 import {essentialList} from "../../redux/Service/essentialService";
@@ -24,8 +24,6 @@ import {
 
 function PersonalDetails() {
   const [stateList, setStateList] = useState([]);
-  const [departmentList, setDepartmentList] = useState([]);
-  const [desiginationList, setDesiginationList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [imageLoading, setImageLoading] = useState(false);
 
@@ -149,8 +147,6 @@ function PersonalDetails() {
     try {
       const response = await dispatch(essentialList()).unwrap();
       setStateList(response?.data?.states);
-      // setDepartmentList(response?.data?.departments);
-      // setDesiginationList(response?.data?.designations);
     } catch (error) {
       notify(error);
       console.log("error", error);
@@ -307,8 +303,6 @@ function PersonalDetails() {
                   onSubmit={handleStep1Submit}
                   defaultValues={defaultValues}
                   stateList={stateList}
-                  departmentList={departmentList}
-                  desiginationList={desiginationList}
                   loading={loading}
                 />
               )}
@@ -317,8 +311,6 @@ function PersonalDetails() {
                   onSubmit={handleStep1Submit}
                   defaultValues={defaultValues}
                   stateList={stateList}
-                  departmentList={departmentList}
-                  desiginationList={desiginationList}
                   loading={loading}
                 />
               )}

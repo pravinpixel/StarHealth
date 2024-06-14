@@ -1,8 +1,6 @@
 import React from "react";
-import {Button, Col, Container, Row} from "react-bootstrap";
+import {Button, Container} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-// import SplashLogo from "../../assets/images/logo-splash.png";
-// import LanuchImage from "../../assets/images/lanuch.png";
 import StarIcon from "../../assets/images/star-icon.png";
 import Image1 from "../../assets/images/image1.webp";
 import Image2 from "../../assets/images/image2.png";
@@ -49,41 +47,6 @@ function SplashScreenComponent() {
           </div>
         </div>
       </Container>
-      {/* <Container>
-        <Row>
-          <Col>
-            <div>
-              <img src={Image1} alt="" className="img-fluid image1" />
-            </div>
-          </Col>
-          <Col>
-            <div
-              className="vstack align-items-center justify-content-center pb-5 h-100vh gap-30
-      splash-position"
-            >
-              <div className="welocme-logo">
-                <img src={SplashLogo} alt="spalsh-logo" width={164} />
-              </div>
-              <div className="text-center">
-                <img src={LanuchImage} alt="launch" />
-                <div className="text-white fs-22 fw-500 mt-3">
-                  Ready to be the face of STAR?
-                </div>
-              </div>
-              <div>
-                <Button
-                  className="splash-btn"
-                  onClick={() => {
-                    navigate("/login");
-                  }}
-                >
-                  I Wish to Participate
-                </Button>
-              </div>
-            </div>
-          </Col>
-        </Row>
-      </Container> */}
     </div>
   );
 }

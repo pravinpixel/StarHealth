@@ -92,7 +92,7 @@ function PersonalDetailsForm({onSubmit, defaultValues, stateList, loading}) {
                       <Form.Control
                         type="number"
                         className={errors.mobile_number ? "error-input" : ""}
-                        placeholder="Enter Your Phone Number"
+                        placeholder="Enter Your Mobile Number"
                         {...field}
                       />
                     </div>

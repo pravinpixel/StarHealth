@@ -39,9 +39,14 @@ function UploadPhotosForm({
     getInputProps: getInputPassportPhotoProps,
   } = useDropzone({
     onDrop: (acceptedFile) => {
-      setError("passport_photo");
-      if (acceptedFile.length > 0) {
+      if (acceptedFile.length === 0) {
+        setError("passport_photo", {
+          type: "custom",
+          message: "Unsupported Format. Only PNG, JPEG, and JPG are allowed.",
+        });
+      } else if (acceptedFile.length > 0) {
         const file = acceptedFile[0];
+        setError("passport_photo", null);
         setValue(
           "passport_photo",
           Object.assign(file, {
@@ -62,9 +67,14 @@ function UploadPhotosForm({
     getInputProps: getInputFullSizePhotoProps,
   } = useDropzone({
     onDrop: (acceptedFile) => {
-      setError("profile_photo");
-      if (acceptedFile.length > 0) {
+      if (acceptedFile.length === 0) {
+        setError("profile_photo", {
+          type: "custom",
+          message: "Unsupported Format. Only PNG, JPEG, and JPG are allowed.",
+        });
+      } else if (acceptedFile.length > 0) {
         const file = acceptedFile[0];
+        setError("profile_photo", null);
         setValue(
           "profile_photo",
           Object.assign(file, {
@@ -86,8 +96,14 @@ function UploadPhotosForm({
     getInputProps: getInputFamilyPhotoProps,
   } = useDropzone({
     onDrop: (acceptedFile) => {
-      if (acceptedFile.length > 0) {
+      if (acceptedFile.length === 0) {
+        setError("family_photo", {
+          type: "custom",
+          message: "Unsupported Format. Only PNG, JPEG, and JPG are allowed.",
+        });
+      } else if (acceptedFile.length > 0) {
         const file = acceptedFile[0];
+        setError("family_photo", null);
         setValue(
           "family_photo",
           Object.assign(file, {

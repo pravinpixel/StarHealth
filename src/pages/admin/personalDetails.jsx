@@ -3,7 +3,7 @@ import {Col, Row} from "react-bootstrap";
 import PersonalDetailsForm from "components/wizard-form/PersonalDetailsForm";
 import UploadPhotosForm from "components/wizard-form/UploadPhotosForm";
 import SummaryComponent from "components/wizard-form/Summary";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {notify} from "helpers/global";
 import dayjs from "dayjs";
@@ -26,7 +26,7 @@ function PersonalDetails() {
   const [stateList, setStateList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [imageLoading, setImageLoading] = useState(false);
-
+  const location = useLocation();
   const [backStep, setBackStep] = useState(null);
   const [defaultValues, setDefaultValues] = useState([]);
   const [step, setStep] = useState(null);
@@ -111,6 +111,10 @@ function PersonalDetails() {
   const handleBack = (values) => {
     if (step === "upload") {
       handleStep2BackSubmit(values);
+      setBackStep(step === "summary" ? "upload" : "basic");
+      step === "summary"
+        ? navigate("/upload-images")
+        : navigate("/personal-details");
     } else {
       personalDetailListApi();
       essentialListApi();
@@ -122,8 +126,17 @@ function PersonalDetails() {
   };
 
   useEffect(() => {
-    navigate("/personal-details");
-  }, []);
+    if (location.pathname === "/personal-details") {
+      navigate("/personal-details");
+      setBackStep("basic");
+    } else if (location.pathname === "/upload-images") {
+      navigate("/upload-images");
+      setBackStep("upload");
+    } else if (location.pathname === "/summary") {
+      navigate("/summary");
+      setBackStep("summary");
+    }
+  }, [location.pathname]);
 
   const confirmSubmit = async () => {
     setLoading(true);
@@ -298,15 +311,7 @@ function PersonalDetails() {
               </div>
             </div>
             <section className="my-3">
-              {step === "basic" && (
-                <PersonalDetailsForm
-                  onSubmit={handleStep1Submit}
-                  defaultValues={defaultValues}
-                  stateList={stateList}
-                  loading={loading}
-                />
-              )}
-              {step === "completed" && (
+              {(step === "basic" || step === "completed") && (
                 <PersonalDetailsForm
                   onSubmit={handleStep1Submit}
                   defaultValues={defaultValues}

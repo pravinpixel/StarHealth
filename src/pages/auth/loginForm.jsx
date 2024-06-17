@@ -17,7 +17,7 @@ function LoginFormComponent({loginSubmit, loading}) {
   } = useForm({
     resolver: yupResolver(LoginSchema),
     mode: "onTouched",
-    reValidateMode: "onSubmit",
+    reValidateMode: "onChange",
   });
 
   const [show, setShow] = useState(false);

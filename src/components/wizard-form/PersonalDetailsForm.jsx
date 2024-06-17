@@ -16,8 +16,8 @@ function PersonalDetailsForm({onSubmit, defaultValues, stateList, loading}) {
     formState: {errors},
   } = useForm({
     resolver: yupResolver(PersonalInformationSchema),
-    mode: "all",
-    reValidateMode: "onSubmit",
+    mode: "onTouched",
+    reValidateMode: "onChange",
     defaultValues: {defaultValues},
   });
 
@@ -36,6 +36,13 @@ function PersonalDetailsForm({onSubmit, defaultValues, stateList, loading}) {
       </div>
     );
   }
+
+  const handleKeyDown = (e) => {
+    // Allow numbers, backspace, delete, and arrow keys
+    if (!/[\d\b]/.test(e.key) && e.key.length === 1) {
+      e.preventDefault();
+    }
+  };
 
   useEffect(() => {
     reset(defaultValues);
@@ -90,10 +97,12 @@ function PersonalDetailsForm({onSubmit, defaultValues, stateList, loading}) {
                         + 91
                       </span>
                       <Form.Control
-                        type="number"
+                        type="text"
                         className={errors.mobile_number ? "error-input" : ""}
                         placeholder="Enter Your Mobile Number"
                         {...field}
+                        maxLength="10"
+                        onKeyDown={handleKeyDown}
                       />
                     </div>
                   );

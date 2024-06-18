@@ -31,9 +31,31 @@ function SplashScreenComponent() {
           </div>
           <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 text-center">
             <img src={Image2} alt="" className="img-fluid image2" />
-            <h1>Launch Your</h1>
-            <h2>Stardom!</h2>
-            <p>Ready to be the face of STAR?</p>
+            <div className="vstack gap-3 my-3">
+              <div className="fw-bold text-white fs-24 text-uppercase">
+                <div>Introducing The Faces of</div>
+                <div>Star Health!</div>
+              </div>
+              <div className="text-white fs-18">
+                This is a remarkable opportunity to become The Face of Star
+                Health in all our branding initiatives. Join us and be a part of
+                the enduring legacy of Star Health.
+              </div>
+              <div className="text-white fs-18">
+                Seize this opportunity to shine!
+              </div>
+            </div>
+            {/* <p className="pb-0">Introducing The Faces of Star Health! </p>
+            <p className="pb-0">
+              This is a remarkable opportunity to become The Face of Star Health
+              in all our branding initiatives. Join us and be a part of the
+              enduring legacy of Star Health.
+            </p>
+            <p>Seize this opportunity to shine!</p> */}
+
+            {/* <h1>Launch Your</h1>
+            <h2>Stardom!</h2> */}
+            {/* <p>Ready to be the face of STAR?</p> */}
             <div>
               <Button
                 className="splash-btn"

@@ -16,7 +16,7 @@ const PersonalInformationSchema = yup.object().shape({
   employee_name: yup.string().max(255).required("Enter Your Name").matches(nameRegExp, 'Enter Alpha and special characters'),
   mobile_number: yup.string().required("Enter your Mobile Number").matches(phoneRegExp, 'Enter 10 Digit Mobile Number'),
   dob: yup.string().max(255).required("Select Your DOB"),
-  employee_code: yup.string().max(255).required("Enter Employee code"),
+  employee_code: yup.string().max(255).required("Enter Employee code").matches(/^[a-zA-Z0-9]+$/, "Enter only alpha characters"),
   designation: yup.string(255).required("Enter your Designation").matches(/^[aA-zZ\s]+$/, "Enter only alpha characters"),
   department: yup.string(255).required("Enter your Department").matches(/^[aA-zZ\s]+$/, "Enter only alpha characters"),
   state: yup.array().required("Enter your state").typeError().test("validate", "Enter your state", (value) => {

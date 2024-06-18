@@ -21,6 +21,7 @@ import {
   personalDetailsApi,
   personalDetailsUpdateApi,
 } from "../../redux/Service/adminService";
+import {logoutApi} from "../../redux/Service/authService";
 
 function PersonalDetails() {
   const [stateList, setStateList] = useState([]);
@@ -138,6 +139,16 @@ function PersonalDetails() {
     }
   }, [location.pathname]);
 
+  const logoutFn = async () => {
+    try {
+      await dispatch(logoutApi()).unwrap();
+      sessionStorage.clear();
+    } catch (error) {
+      notify(error);
+      console.log("error", error);
+    }
+  };
+
   const confirmSubmit = async () => {
     setLoading(true);
     try {
@@ -146,10 +157,10 @@ function PersonalDetails() {
           ? personalDetailsUpdateApi({status: "completed"})
           : personalDetailsApi({status: "completed"})
       ).unwrap();
-      sessionStorage.clear();
       navigate("/thank-you");
       setLoading(false);
       notify(response);
+      logoutFn();
     } catch (error) {
       setLoading(false);
       notify(error);
@@ -195,7 +206,13 @@ function PersonalDetails() {
       <Row className="m-0 overflow-auto h-100vh">
         <Col md={6} className="bannerleft-bg-1 position-relative">
           <BannerComponent
-            type={step === "upload" ? "upload-image" : "personal-details"}
+            type={
+              step === "upload"
+                ? "upload-image"
+                : step === "summary"
+                ? "summary"
+                : "personal-details"
+            }
           />
         </Col>
         <Col md={6} className="bannerright-bg banner-rightamin">

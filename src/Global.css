@@ -40,6 +40,10 @@
   font-size: 14px;
 }
 
+.fs-18 {
+  font-size: 18px;
+}
+
 .fs-20 {
   font-size: 20px;
 }
@@ -503,13 +507,17 @@ img.star12 {
   }
 }
 
+img.image2 {
+  max-width: 130px;
+}
+
 @media (max-width: 1400px) {
   body {
     display: block;
   }
 
   img.image2 {
-    max-width: 130px;
+    max-width: 80px;
   }
 
   .splashbannerSection p {

@@ -306,3 +306,52 @@ body {
 .dragImageCtr {
   width: 191px;
 }
+
+.faqpage-ctr .accordion-item {
+  border: none;
+  border-bottom: 1px solid white !important;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background: transparent;
+  color: white;
+}
+
+.faqpage-ctr .accordion-header button {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  background: transparent;
+  color: white;
+}
+
+.faqpage-ctr .accordion-header button {
+  box-shadow: unset;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.faqpage-ctr .accordion-body {
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.faqpage-ctr .accordion-button:not(.collapsed)::after {
+  background-image: url("./assets/images/icons/accordian-top.png");
+  transform: none;
+  background-size: auto;
+}
+
+.faqpage-ctr .accordion-button::after {
+  background-image: url("./assets/images/icons/accordian-bottom.png");
+  background-size: auto;
+}
+
+.faqpage-ctr .accordion-header button:focus {
+  box-shadow: none;
+}
+
+.faqpage-ctr .accordion-header button:active {
+  background: transparent !important;
+  color: white !important;
+}

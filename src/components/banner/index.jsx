@@ -225,6 +225,40 @@ function BannerComponent({type}) {
             </div>
           </div>
         </div>
+      ) : type === "summary" ? (
+        <div className="px-5">
+          <div className="display-block-mobile pt-4">
+            <img src={Logo} alt="logo" />
+          </div>
+          <div className="adminleftposition">
+            <img src={Lanuch} alt="lanuch" className="mt-3" />
+            <div className="hstack mt-3 gap-3">
+              <Button className="whiteBorder-mobilebutton" onClick={handleShow}>
+                View FAQs
+              </Button>
+            </div>
+          </div>
+          <div className="hstack mt-5 mb-2 dnone-xs dnone-sm launch-img-ctr justify-content-between">
+            <img src={Logo} alt="logo" className="logoinnerbanner" />
+            <img src={Lanuch} alt="launch" />
+          </div>
+          <div className="faqpage-ctr dnone-xs dnone-sm ">
+            <div className="fs-26 fw-600 text-white text-center">FAQs</div>
+            <Accordion defaultActiveKey={["0"]}>
+              {faqContent?.map((faq, index) => (
+                <Accordion.Item eventKey={faq?.id} key={index}>
+                  <Accordion.Header>
+                    <div className="w-90">{faq?.heading}</div>
+                    <div></div>
+                  </Accordion.Header>
+                  <Accordion.Body className="roboto-font fs-14">
+                    {faq?.sub_head}
+                  </Accordion.Body>
+                </Accordion.Item>
+              ))}
+            </Accordion>
+          </div>
+        </div>
       ) : (
         <div className="p-4">
           <div>

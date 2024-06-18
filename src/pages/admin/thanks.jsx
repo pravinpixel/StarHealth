@@ -7,7 +7,6 @@ import Image1 from "../../assets/images/image1.webp";
 function ThanksScreen() {
   const navigate = useNavigate();
   const goHomeFn = () => {
-    sessionStorage.clear();
     navigate("/");
   };
   return (

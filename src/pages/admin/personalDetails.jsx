@@ -185,21 +185,26 @@ function PersonalDetails() {
     }
   };
 
-  const logoutFnModal = async () => {
-    setLogoutLoading(true);
+  const logoutFnModal = async (val) => {
+    !val && setLogoutLoading(true);
     try {
       const response = await dispatch(logoutApi()).unwrap();
       sessionStorage.clear();
       setLogoutModal(false);
-      navigate("/");
-      notify(response);
+      !val && navigate("/");
+      !val && notify(response);
     } catch (error) {
-      notify(error);
+      !val && notify(error);
       console.log("error", error);
     } finally {
-      setLogoutLoading(false);
+      !val && setLogoutLoading(false);
     }
   };
+
+  window.addEventListener("popstate", () => {
+    sessionStorage.clear();
+    logoutFnModal(true);
+  });
 
   useEffect(() => {
     if (location.pathname === "/personal-details") {

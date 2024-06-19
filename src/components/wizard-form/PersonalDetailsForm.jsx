@@ -50,25 +50,6 @@ function PersonalDetailsForm({onSubmit, defaultValues, stateList, loading}) {
     }
   };
 
-  const logoutFn = async () => {
-    try {
-      await dispatch(logoutApi()).unwrap();
-      sessionStorage.clear();
-    } catch (error) {
-      // notify(error);
-      console.log("error", error);
-    }
-  };
-
-  window.addEventListener("popstate", (e) => {
-    console.log("e", e);
-    if (e.state.idx === 2) {
-      sessionStorage.clear();
-      navigate("/");
-      logoutFn();
-    }
-  });
-
   useEffect(() => {
     reset(defaultValues);
   }, [defaultValues]);

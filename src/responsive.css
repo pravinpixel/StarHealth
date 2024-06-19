@@ -38,6 +38,10 @@
     width: 34px;
   }
 
+  .logout-modal .modal-ctr-logout {
+    padding: 20px;
+  }
+
   .dnone-xs {
     display: none;
   }
@@ -221,11 +225,19 @@
     justify-content: start !important;
     padding-left: 0px;
   }
+
+  .d-block-xs {
+    display: block !important;
+  }
 }
 
 @media screen and (min-width:576px) and (max-width:767px) {
   .welocme-logo img {
     width: 99px;
+  }
+
+  .d-block-xs {
+    display: block !important;
   }
 
   .bannerleft-bg-1 section>div {

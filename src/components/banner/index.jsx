@@ -7,7 +7,12 @@ import Lanuch from "../../assets/images/lanuch.png";
 import HeadShotImage from "../../assets/images/head-shot.png";
 import FullsizeImage from "../../assets/images/full-size.png";
 import FamilyImage from "../../assets/images/family.png";
+import LogoutMobile from "../../assets/images/icons/mobile-logout.png";
 import CloseIconModal from "../../assets/images/close-modal.png";
+import {useDispatch} from "react-redux";
+import {notify} from "helpers/global";
+import {logoutApi} from "../../redux/Service/authService";
+import {useNavigate} from "react-router-dom";
 
 function BannerComponent({type}) {
   const faqContent = [
@@ -69,14 +74,24 @@ function BannerComponent({type}) {
         "Yes. The submitted images can be used for advertising purposes, or in our product brochures, flayers or on our social media pages. By participating and submitting your images, you consent to the use of your images, royalty free/ without compensation, for Star Health’s promotional material.",
     },
   ];
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [campaignRule, setCampaignRule] = useState(false);
   const [photoGuideline, setPhotoGuideline] = useState(false);
-
+  const [logoutLoading, setLogoutLoading] = useState(false);
+  const [logoutModal, setLogoutModal] = useState(false);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const logoutBtn = () => {
+    setLogoutModal(true);
+  };
+
+  const logoutBtnClose = () => {
+    setLogoutModal(false);
+  };
 
   const campaignRuleClose = () => setCampaignRule(false);
   const photoGuidelineClose = () => setPhotoGuideline(false);
@@ -89,12 +104,36 @@ function BannerComponent({type}) {
     setPhotoGuideline((photoGuideline) => !photoGuideline);
   };
 
+  const logoutFnModal = async () => {
+    setLogoutLoading(true);
+    try {
+      const response = await dispatch(logoutApi()).unwrap();
+      sessionStorage.clear();
+      setLogoutModal(false);
+      navigate("/");
+      notify(response);
+    } catch (error) {
+      notify(error);
+      console.log("error", error);
+    } finally {
+      setLogoutLoading(false);
+    }
+  };
+
   return (
     <section>
       {type === "personal-details" ? (
         <div className="p-5">
-          <div className="banner-logo">
-            <img src={Logo} alt="logo" />
+          <div className="hstack gap-4 justify-content-between">
+            <div className="banner-logo">
+              <img src={Logo} alt="logo" />
+            </div>
+            <div
+              className="cursor d-block-xs d-block-md d-none"
+              onClick={() => logoutBtn()}
+            >
+              <img src={LogoutMobile} alt="LogoutMobile" />
+            </div>
           </div>
           <div className="adminleftposition">
             <img src={Lanuch} alt="lanuch" className="mt-4" />
@@ -140,8 +179,16 @@ function BannerComponent({type}) {
         </div>
       ) : type === "upload-image" ? (
         <div className="px-5">
-          <div className="display-block-mobile pt-4">
-            <img src={Logo} alt="logo" />
+          <div className="hstack gap-4 justify-content-between">
+            <div className="display-block-mobile pt-4">
+              <img src={Logo} alt="logo" />
+            </div>
+            <div
+              className="cursor d-block-xs d-block-md d-none"
+              onClick={() => logoutBtn()}
+            >
+              <img src={LogoutMobile} alt="LogoutMobile" />
+            </div>
           </div>
           <div className="adminleftposition">
             <img src={Lanuch} alt="lanuch" className="mt-3" />
@@ -227,8 +274,16 @@ function BannerComponent({type}) {
         </div>
       ) : type === "summary" ? (
         <div className="px-5">
-          <div className="display-block-mobile pt-4">
-            <img src={Logo} alt="logo" />
+          <div className="hstack gap-4 justify-content-between">
+            <div className="display-block-mobile pt-4">
+              <img src={Logo} alt="logo" />
+            </div>
+            <div
+              className="cursor d-block-xs d-block-md d-none"
+              onClick={() => logoutBtn()}
+            >
+              <img src={LogoutMobile} alt="LogoutMobile" />
+            </div>
           </div>
           <div className="adminleftposition">
             <img src={Lanuch} alt="lanuch" className="mt-3" />
@@ -417,6 +472,41 @@ function BannerComponent({type}) {
             </Accordion>
           </div>
         </Modal.Body>
+      </Modal>
+
+      <Modal
+        show={logoutModal}
+        onHide={logoutBtnClose}
+        backdrop="static"
+        keyboard={false}
+        centered
+        dialogClassName="logout-modal"
+      >
+        <div className="vstack gap-4 modal-ctr-logout">
+          <div className="text-center">
+            <div className="fs-20 fw-600">
+              Are you sure you want to sign out?
+            </div>
+            <div className="fs-20 fw-600">
+              Your information will not be saved
+            </div>
+          </div>
+          <div className="hstack align-items-center justify-content-center gap-4">
+            <Button
+              className="secondary-button"
+              onClick={() => logoutBtnClose()}
+            >
+              Go Back
+            </Button>
+            <Button
+              className="primary-button"
+              disabled={logoutLoading}
+              onClick={() => logoutFnModal()}
+            >
+              {logoutLoading ? "Loading..." : " Yes, Sign Out"}
+            </Button>
+          </div>
+        </div>
       </Modal>
     </section>
   );

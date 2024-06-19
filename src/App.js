@@ -13,6 +13,7 @@ const LoginComponent = lazy(() => import("./pages/auth/login"));
 const PersonalDetailsComponent = lazy(() => import("./pages/admin/personalDetails"));
 const ThankyouScreen = lazy(() => import("./pages/admin/thanks"));
 
+
 function App() {
   return (
     <Suspense fallback={<SplashLoader />}>

@@ -355,3 +355,19 @@ body {
   background: transparent !important;
   color: white !important;
 }
+
+.logout-modal {
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-modal .modal-content {
+  width: 435px;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-modal .modal-ctr-logout {
+  padding: 40px;
+}

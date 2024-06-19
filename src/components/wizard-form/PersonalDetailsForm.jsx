@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Col, Form, Row} from "react-bootstrap";
 import {Controller, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
@@ -7,6 +7,10 @@ import {Typeahead} from "react-bootstrap-typeahead";
 import DatePicker from "react-multi-date-picker";
 import CalenderIcon from "../../assets/images/calendar.png";
 import "react-bootstrap-typeahead/css/Typeahead.css";
+import {useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {logoutApi} from "../../redux/Service/authService";
+import {notify} from "helpers/global";
 
 function PersonalDetailsForm({onSubmit, defaultValues, stateList, loading}) {
   const {
@@ -20,6 +24,8 @@ function PersonalDetailsForm({onSubmit, defaultValues, stateList, loading}) {
     reValidateMode: "onChange",
     defaultValues: {defaultValues},
   });
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function CustomInput({onFocus, value, onChange, openCalendar}) {
     return (
@@ -43,6 +49,25 @@ function PersonalDetailsForm({onSubmit, defaultValues, stateList, loading}) {
       e.preventDefault();
     }
   };
+
+  const logoutFn = async () => {
+    try {
+      await dispatch(logoutApi()).unwrap();
+      sessionStorage.clear();
+    } catch (error) {
+      // notify(error);
+      console.log("error", error);
+    }
+  };
+
+  window.addEventListener("popstate", (e) => {
+    console.log("e", e);
+    if (e.state.idx === 2) {
+      sessionStorage.clear();
+      navigate("/");
+      logoutFn();
+    }
+  });
 
   useEffect(() => {
     reset(defaultValues);

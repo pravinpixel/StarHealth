@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Col, Row} from "react-bootstrap";
+import {Button, Col, Modal, Row} from "react-bootstrap";
 import PersonalDetailsForm from "components/wizard-form/PersonalDetailsForm";
 import UploadPhotosForm from "components/wizard-form/UploadPhotosForm";
 import SummaryComponent from "components/wizard-form/Summary";
@@ -9,6 +9,7 @@ import {notify} from "helpers/global";
 import dayjs from "dayjs";
 import {essentialList} from "../../redux/Service/essentialService";
 import BannerComponent from "../../components/banner";
+import LogoutIcon from "../../assets/images/icons/logout.png";
 import Step1Active from "../../assets/images/icons/step1-active.png";
 import Step1Filled from "../../assets/images/icons/step1-filled.png";
 import Step2 from "../../assets/images/icons/step2.png";
@@ -32,9 +33,19 @@ function PersonalDetails() {
   const [defaultValues, setDefaultValues] = useState([]);
   const [step, setStep] = useState(null);
   const [updateApiStatus, setUpdateApiStaus] = useState(null);
+  const [logoutLoading, setLogoutLoading] = useState(false);
+  const [logoutModal, setLogoutModal] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const logoutBtn = () => {
+    setLogoutModal(true);
+  };
+
+  const logoutBtnClose = () => {
+    setLogoutModal(false);
+  };
 
   const handleStep1Submit = async (data) => {
     setLoading(true);
@@ -126,19 +137,6 @@ function PersonalDetails() {
     }
   };
 
-  useEffect(() => {
-    if (location.pathname === "/personal-details") {
-      navigate("/personal-details");
-      setBackStep("basic");
-    } else if (location.pathname === "/upload-images") {
-      navigate("/upload-images");
-      setBackStep("upload");
-    } else if (location.pathname === "/summary") {
-      navigate("/summary");
-      setBackStep("summary");
-    }
-  }, [location.pathname]);
-
   const logoutFn = async () => {
     try {
       await dispatch(logoutApi()).unwrap();
@@ -187,6 +185,35 @@ function PersonalDetails() {
     }
   };
 
+  const logoutFnModal = async () => {
+    setLogoutLoading(true);
+    try {
+      const response = await dispatch(logoutApi()).unwrap();
+      sessionStorage.clear();
+      setLogoutModal(false);
+      navigate("/");
+      notify(response);
+    } catch (error) {
+      notify(error);
+      console.log("error", error);
+    } finally {
+      setLogoutLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (location.pathname === "/personal-details") {
+      navigate("/personal-details");
+      setBackStep("basic");
+    } else if (location.pathname === "/upload-images") {
+      navigate("/upload-images");
+      setBackStep("upload");
+    } else if (location.pathname === "/summary") {
+      navigate("/summary");
+      setBackStep("summary");
+    }
+  }, [location.pathname]);
+
   useEffect(() => {
     if (backStep) {
       setStep(backStep);
@@ -216,7 +243,16 @@ function PersonalDetails() {
           />
         </Col>
         <Col md={6} className="bannerright-bg banner-rightamin">
-          <div className="m-5">
+          <div className="my-3 m-5">
+            <div
+              className="hstack gap-3 mb-2 justify-content-end cursor dnone-xs dnone-sm"
+              onClick={() => logoutBtn()}
+            >
+              <div>
+                <img src={LogoutIcon} alt="logout" />
+              </div>
+              <div className="roboto-font grey-color fs-14">Logout</div>
+            </div>
             <div className="hstack gap-1">
               <div>
                 <div
@@ -356,6 +392,41 @@ function PersonalDetails() {
           </div>
         </Col>
       </Row>
+
+      <Modal
+        show={logoutModal}
+        onHide={logoutBtnClose}
+        backdrop="static"
+        keyboard={false}
+        centered
+        dialogClassName="logout-modal"
+      >
+        <div className="vstack gap-4 modal-ctr-logout">
+          <div className="text-center">
+            <div className="fs-20 fw-600">
+              Are you sure you want to sign out?
+            </div>
+            <div className="fs-20 fw-600">
+              Your information will not be saved
+            </div>
+          </div>
+          <div className="hstack align-items-center justify-content-center gap-4">
+            <Button
+              className="secondary-button"
+              onClick={() => logoutBtnClose()}
+            >
+              Go Back
+            </Button>
+            <Button
+              className="primary-button"
+              disabled={logoutLoading}
+              onClick={() => logoutFnModal()}
+            >
+              {logoutLoading ? "Loading..." : " Yes, Sign Out"}
+            </Button>
+          </div>
+        </div>
+      </Modal>
     </section>
   );
 }

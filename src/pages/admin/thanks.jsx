@@ -3,6 +3,8 @@ import {Button, Container} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import StarIcon from "../../assets/images/star-icon.png";
 import Image1 from "../../assets/images/image1.webp";
+import StarHealthLogo from "../../assets/images/starhealth-logo.png";
+import Logo from "../../assets/images/logo-small.png";
 
 function ThanksScreen() {
   const navigate = useNavigate();
@@ -24,6 +26,10 @@ function ThanksScreen() {
         <img src={StarIcon} alt="" className="star10" />
         <img src={StarIcon} alt="" className="star11" />
         <img src={StarIcon} alt="" className="star12" />
+      </div>
+      <div className="thanks-shi-logo hstack justify-content-between w-100">
+        <img src={Logo} alt="Logo" />
+        <img src={StarHealthLogo} alt="StarHealthLogo" />
       </div>
       <Container className="pb-4 splashbannerSection">
         <div className="row justify-content-between align-items-center">

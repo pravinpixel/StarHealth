@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import StarIcon from "../../assets/images/star-icon.png";
 import Image1 from "../../assets/images/image1.webp";
 import Image2 from "../../assets/images/image2.png";
+import StarHealthLogo from "../../assets/images/starhealth-logo.png";
 
 function SplashScreenComponent() {
   const navigate = useNavigate();
@@ -23,6 +24,9 @@ function SplashScreenComponent() {
         <img src={StarIcon} alt="" className="star10" />
         <img src={StarIcon} alt="" className="star11" />
         <img src={StarIcon} alt="" className="star12" />
+      </div>
+      <div className="welcome-shi-logo">
+        <img src={StarHealthLogo} alt="StarHealthLogo" />
       </div>
       <Container className="pb-4 splashbannerSection">
         <div className="row justify-content-between align-items-center">

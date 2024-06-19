@@ -34,8 +34,13 @@
     display: block !important;
   }
 
-  .banner-logo img {
+  /* .banner-logo img {
     width: 34px;
+  } */
+
+  .welcome-shi-logo {
+    left: auto;
+    right: 30px;
   }
 
   .logout-modal .modal-ctr-logout {

@@ -9,6 +9,8 @@ import FullsizeImage from "../../assets/images/full-size.png";
 import FamilyImage from "../../assets/images/family.png";
 import LogoutMobile from "../../assets/images/icons/mobile-logout.png";
 import CloseIconModal from "../../assets/images/close-modal.png";
+import StarHealthLogo from "../../assets/images/starhealth-logo.png";
+
 import {useDispatch} from "react-redux";
 import {notify} from "helpers/global";
 import {logoutApi} from "../../redux/Service/authService";
@@ -128,11 +130,14 @@ function BannerComponent({type}) {
             <div className="banner-logo">
               <img src={Logo} alt="logo" />
             </div>
-            <div
-              className="cursor d-block-xs d-block-md d-none"
-              onClick={() => logoutBtn()}
-            >
-              <img src={LogoutMobile} alt="LogoutMobile" />
+            <div className="vstack gap-3 align-items-end justify-content-center">
+              <img src={StarHealthLogo} alt="StarHealthLogo" />
+              <div
+                className="cursor d-block-xs d-block-md d-none"
+                onClick={() => logoutBtn()}
+              >
+                <img src={LogoutMobile} alt="LogoutMobile" />
+              </div>
             </div>
           </div>
           <div className="adminleftposition">
@@ -180,14 +185,19 @@ function BannerComponent({type}) {
       ) : type === "upload-image" ? (
         <div className="px-5">
           <div className="hstack gap-4 justify-content-between">
-            <div className="display-block-mobile pt-4">
+            <div className="display-block-mobile">
               <img src={Logo} alt="logo" />
             </div>
-            <div
-              className="cursor d-block-xs d-block-md d-none"
-              onClick={() => logoutBtn()}
-            >
-              <img src={LogoutMobile} alt="LogoutMobile" />
+            <div className="display-block-mobile">
+              <div className="vstack gap-3 align-items-end justify-content-center">
+                <img src={StarHealthLogo} alt="StarHealthLogo" />
+                <div
+                  className="cursor d-block-xs d-block-md d-none"
+                  onClick={() => logoutBtn()}
+                >
+                  <img src={LogoutMobile} alt="LogoutMobile" />
+                </div>
+              </div>
             </div>
           </div>
           <div className="adminleftposition">
@@ -204,8 +214,11 @@ function BannerComponent({type}) {
               </Button>
             </div>
           </div>
-          <div className="hstack my-5 dnone-xs dnone-sm launch-img-ctr justify-content-between">
+          <div className="hstack mt-5 mb-2 dnone-xs dnone-sm launch-img-ctr justify-content-between">
             <img src={Logo} alt="logo" className="logoinnerbanner" />
+            <img src={StarHealthLogo} alt="StarHealthLogo" />
+          </div>
+          <div className="text-center mb-2 dnone-xs dnone-sm">
             <img src={Lanuch} alt="launch" />
           </div>
           <div className="vstack dnone-xs dnone-sm photoguide-ctr-web">
@@ -275,14 +288,19 @@ function BannerComponent({type}) {
       ) : type === "summary" ? (
         <div className="px-5">
           <div className="hstack gap-4 justify-content-between">
-            <div className="display-block-mobile pt-4">
+            <div className="display-block-mobile">
               <img src={Logo} alt="logo" />
             </div>
-            <div
-              className="cursor d-block-xs d-block-md d-none"
-              onClick={() => logoutBtn()}
-            >
-              <img src={LogoutMobile} alt="LogoutMobile" />
+            <div className="display-block-mobile">
+              <div className="vstack gap-3 align-items-end justify-content-center">
+                <img src={StarHealthLogo} alt="StarHealthLogo" />
+                <div
+                  className="cursor d-block-xs d-block-md d-none"
+                  onClick={() => logoutBtn()}
+                >
+                  <img src={LogoutMobile} alt="LogoutMobile" />
+                </div>
+              </div>
             </div>
           </div>
           <div className="adminleftposition">
@@ -295,7 +313,8 @@ function BannerComponent({type}) {
           </div>
           <div className="hstack mt-5 mb-2 dnone-xs dnone-sm launch-img-ctr justify-content-between">
             <img src={Logo} alt="logo" className="logoinnerbanner" />
-            <img src={Lanuch} alt="launch" />
+            <img src={StarHealthLogo} alt="StarHealthLogo" />
+            {/* <img src={Lanuch} alt="launch" /> */}
           </div>
           <div className="faqpage-ctr dnone-xs dnone-sm ">
             <div className="fs-26 fw-600 text-white text-center">FAQs</div>
@@ -316,9 +335,11 @@ function BannerComponent({type}) {
         </div>
       ) : (
         <div className="p-4">
-          <div>
+          <div className="hstack align-items-center gap-4 justify-content-between">
             <img src={Logo} alt="logo" />
+            <img src={StarHealthLogo} alt="StarHealthLogo" />
           </div>
+          {/* StarHealthLogo */}
           <div className="authleftposition my-5">
             <div className="fs-22 fw-500 text-white">
               Let the star in you stand

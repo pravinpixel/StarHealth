@@ -37,7 +37,7 @@ function ThanksScreen() {
             <img src={Image1} alt="" className="img-fluid image1" />
           </div>
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 text-center">
-            <div className="vstack align-items-end justify-content-center">
+            <div className="vstack align-items-center justify-content-center">
               <div className="text-center">
                 <div className="text-white fw-bold fs-40 text-uppercase">
                   <div>Thanks for</div>

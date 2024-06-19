@@ -24,6 +24,10 @@ API.interceptors.response.use(
         sessionStorage.clear();
         window.location.href = "/";
         return Promise.reject(error.response);
+      } else if (error.response.status === 403) {
+        sessionStorage.clear();
+        window.location.href = "/";
+        return Promise.reject(error.response);
       } else {
         return Promise.reject(error?.response?.data);
       }

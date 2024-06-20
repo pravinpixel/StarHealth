@@ -93,17 +93,19 @@ function SummaryComponent({onBack, confirmSubmit, loading}) {
       <div className="mt-4">
         <div className="fs-28 fw-600 dark-blue mb-2">Uploaded Photos</div>
         <div className="hstack uploadimages-ctr gap-3 flex-wrap">
-          <div>
-            <img src={summaryList?.passport_photo} alt="passport-size" />
-          </div>
-          {summaryList?.profile_photo && (
+          {summaryList?.passport && (
             <div>
-              <img src={summaryList?.profile_photo} alt="full-size" />
+              <img src={summaryList?.passport} alt="passport-size" />
             </div>
           )}
-          {summaryList?.family_photo && (
+          {summaryList?.profile && (
             <div>
-              <img src={summaryList?.family_photo} alt="family" />
+              <img src={summaryList?.profile} alt="full-size" />
+            </div>
+          )}
+          {summaryList?.family && (
+            <div>
+              <img src={summaryList?.family} alt="family" />
             </div>
           )}
         </div>

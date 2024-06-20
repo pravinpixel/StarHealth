@@ -30,6 +30,11 @@ function UploadPhotosForm({
   });
 
   const passportPhoto = watch("passport_photo", null);
+
+  const passportImage = watch("passport", null);
+  const profielImage = watch("profile", null);
+  const familyImage = watch("family", null);
+
   const fullSizePhoto = watch("profile_photo", null);
   const familyPhoto = watch("family_photo", null);
 
@@ -161,7 +166,7 @@ function UploadPhotosForm({
               <div className="preview position-relative">
                 <div className="image-item">
                   <img
-                    src={passportPhoto.preview || passportPhoto}
+                    src={passportPhoto.preview || passportImage}
                     alt="preview"
                   />
                   <div
@@ -209,7 +214,8 @@ function UploadPhotosForm({
               <div className="preview position-relative">
                 <div className="image-item">
                   <img
-                    src={fullSizePhoto.preview || fullSizePhoto}
+                    src={fullSizePhoto.preview || profielImage}
+                    // src={fullSizePhoto.preview || fullSizePhoto}
                     alt="preview"
                   />
                   <div
@@ -255,7 +261,11 @@ function UploadPhotosForm({
             {familyPhoto && (
               <div className="preview position-relative">
                 <div className="image-item">
-                  <img src={familyPhoto.preview || familyPhoto} alt="preview" />
+                  <img
+                    src={familyPhoto.preview || familyImage}
+                    // src={familyPhoto.preview || familyPhoto}
+                    alt="preview"
+                  />
                   <div
                     className="closeIcon-img cursor"
                     onClick={() => onDelete("family_photo")}

@@ -49,7 +49,7 @@ function ThanksScreen() {
                 </div>
                 <div className="mt-4">
                   <Button className="splash-btn" onClick={() => goHomeFn()}>
-                    Go Home
+                    Go to Homescreen
                   </Button>
                 </div>
               </div>

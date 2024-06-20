@@ -135,7 +135,8 @@ function UploadPhotosForm({
         <div className="hstack gap-3 flex-wrap uploadphoto-wrap align-items-start">
           <div>
             <div className="fs-16 roboto-font mb-2">
-              Headshot photo<span className="text-danger">*</span>
+              Headshot photo{" "}
+              <span className="text-danger fs-10">(Manditory)</span>
             </div>
             <Controller
               name="passport_photo"
@@ -182,7 +183,8 @@ function UploadPhotosForm({
           </div>
           <div>
             <div className="fs-16 roboto-font mb-2">
-              Full sized photo<span className="text-danger">*</span>
+              Full sized photo{" "}
+              <span className="text-danger fs-10">(Manditory)</span>
             </div>
             <Controller
               name="profile_photo"
@@ -229,7 +231,7 @@ function UploadPhotosForm({
           </div>
           <div>
             <div className="fs-16 roboto-font mb-2">
-              Family photo (Optional)
+              Family photo <span className="fs-10">(Non-manditory)</span>
             </div>
             <Controller
               name="family_photo"

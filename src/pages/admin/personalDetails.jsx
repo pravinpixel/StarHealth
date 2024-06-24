@@ -35,6 +35,7 @@ function PersonalDetails() {
   const [updateApiStatus, setUpdateApiStaus] = useState(null);
   const [logoutLoading, setLogoutLoading] = useState(false);
   const [logoutModal, setLogoutModal] = useState(false);
+  const [finalSumbitModal, setFinalSubmitModal] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -147,7 +148,11 @@ function PersonalDetails() {
     }
   };
 
-  const confirmSubmit = async () => {
+  const confirmSubmit = () => {
+    setFinalSubmitModal(true);
+  };
+
+  const confirmSubmitFn = async () => {
     setLoading(true);
     try {
       const response = await dispatch(
@@ -157,10 +162,12 @@ function PersonalDetails() {
       ).unwrap();
       navigate("/thank-you");
       setLoading(false);
+      setFinalSubmitModal(false);
       notify(response);
       logoutFn();
     } catch (error) {
       setLoading(false);
+      setFinalSubmitModal(false);
       notify(error);
     }
   };
@@ -390,7 +397,7 @@ function PersonalDetails() {
                 <SummaryComponent
                   onBack={handleBack}
                   confirmSubmit={confirmSubmit}
-                  loading={loading}
+                  // loading={loading}
                 />
               )}
             </section>
@@ -428,6 +435,41 @@ function PersonalDetails() {
               onClick={() => logoutFnModal()}
             >
               {logoutLoading ? "Loading..." : " Yes, Sign Out"}
+            </Button>
+          </div>
+        </div>
+      </Modal>
+
+      {/* final submit modal */}
+
+      <Modal
+        show={finalSumbitModal}
+        onHide={() => setFinalSubmitModal(false)}
+        backdrop="static"
+        keyboard={false}
+        centered
+        dialogClassName="logout-modal"
+      >
+        <div className="vstack gap-4 modal-ctr-logout">
+          <div className="text-center">
+            <div className="fs-20 fw-600">Are you sure you want to submit?</div>
+            <div className="fs-20 fw-600">
+              Once submitted, you will not be able to edit or resubmit.
+            </div>
+          </div>
+          <div className="hstack align-items-center justify-content-center gap-4">
+            <Button
+              className="secondary-button"
+              onClick={() => setFinalSubmitModal(false)}
+            >
+              No
+            </Button>
+            <Button
+              className="primary-button"
+              disabled={loading}
+              onClick={() => confirmSubmitFn()}
+            >
+              {loading ? "Loading..." : "Yes"}
             </Button>
           </div>
         </div>

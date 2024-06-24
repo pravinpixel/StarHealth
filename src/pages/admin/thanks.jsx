@@ -1,6 +1,6 @@
 import React from "react";
 import {Button, Container} from "react-bootstrap";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useSearchParams} from "react-router-dom";
 import StarIcon from "../../assets/images/star-icon.png";
 import Image1 from "../../assets/images/image1.webp";
 import StarHealthLogo from "../../assets/images/starhealth-logo.png";
@@ -8,6 +8,10 @@ import Logo from "../../assets/images/logo-small.png";
 
 function ThanksScreen() {
   const navigate = useNavigate();
+  let [searchParams] = useSearchParams();
+
+  // console.log("searchParams", searchParams.size);
+
   const goHomeFn = () => {
     navigate("/");
   };
@@ -36,13 +40,23 @@ function ThanksScreen() {
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
             <img src={Image1} alt="" className="img-fluid image1" />
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 text-center">
+          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-5 text-center">
             <div className="vstack align-items-center justify-content-center">
               <div className="text-center">
                 <div className="text-white fw-bold fs-40 text-uppercase">
                   <div>Thanks for</div>
                   <div>Participating!</div>
                 </div>
+                {/* <div className="text-white fw-bold fs-37 text-uppercase">
+                    <div>We had already received your entry</div>
+                    <div>and it is in review now.</div>
+                  </div> */}
+                {searchParams.size !== 0 && (
+                  <div className="text-white fs-24 fw-500  mt-3">
+                    <div>We have already received your entry</div>
+                    <div>and it is in review now.</div>
+                  </div>
+                )}
                 <div className="text-white fs-22 fw-500 mt-3">
                   <div>Stay tuned to be a part of the legacy!</div>
                   <div className="mt-1">#thefaceofstarhealth</div>

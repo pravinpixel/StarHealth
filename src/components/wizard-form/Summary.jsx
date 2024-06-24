@@ -5,7 +5,7 @@ import {personalDetailList} from "../../redux/Service/adminService";
 import {notify} from "helpers/global";
 import dayjs from "dayjs";
 
-function SummaryComponent({onBack, confirmSubmit, loading}) {
+function SummaryComponent({onBack, confirmSubmit}) {
   const [summaryList, setSummaryList] = useState(null);
   const dispatch = useDispatch();
   const personalDetailListApi = async () => {
@@ -114,12 +114,8 @@ function SummaryComponent({onBack, confirmSubmit, loading}) {
         <Button onClick={() => onBack()} className="secondary-button">
           Edit Information
         </Button>
-        <Button
-          className="primary-button"
-          onClick={() => confirmSubmit()}
-          disabled={loading}
-        >
-          {loading ? "Loading..." : "Confirm & Submit"}
+        <Button className="primary-button" onClick={() => confirmSubmit()}>
+          Confirm & Submit
         </Button>
       </div>
     </section>

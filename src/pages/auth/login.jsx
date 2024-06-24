@@ -33,8 +33,13 @@ function LoginComponent() {
       setFormStateValue("otp");
       notify(response);
     } catch (error) {
-      setLoading(false);
-      notify(error);
+      if (error?.statuscode === 400) {
+        setLoading(false);
+        navigate("/thank-you?relogin");
+      } else {
+        setLoading(false);
+        notify(error);
+      }
     }
   };
 

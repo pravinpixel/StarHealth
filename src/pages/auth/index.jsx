@@ -67,8 +67,11 @@ function SplashScreenComponent() {
                   navigate("/login");
                 }}
               >
-                I Wish to Participate
+                Click to Participate
               </Button>
+            </div>
+            <div className="text-white fs-18 fw-bold mt-3">
+              Campaign Duration 24th June 2024 to 3rd July 2024
             </div>
           </div>
         </div>

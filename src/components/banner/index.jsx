@@ -21,8 +21,7 @@ function BannerComponent({type}) {
     {
       id: 1,
       heading: "Is there a specific time window to submit pictures?",
-      sub_head:
-        "Yes, all imagery must be submitted on or before June 24, 2024.",
+      sub_head: "Yes, all imagery must be submitted on or before July 3, 2024.",
     },
     {
       id: 2,
@@ -175,7 +174,10 @@ function BannerComponent({type}) {
                 STAR Health!
               </div>
             </div>
-            <div className="mt-3">
+            <div className="text-white fs-18 fw-bold">
+              Campaign Duration 24th June 2024 to 3rd July 2024
+            </div>
+            <div className="mt-2">
               <Button className="whiteBorder-desktop" onClick={handleShow}>
                 View FAQs
               </Button>
@@ -382,6 +384,9 @@ function BannerComponent({type}) {
             become an integral part of our company's legacy, stepping into the
             spotlight to represent the heart and soul of STAR Health Insurance.
             Join us and shine bright as the face of STAR Health!
+          </div>
+          <div className="fs-12 fw-bold my-2">
+            Campaign Duration 24th June 2024 to 3rd July 2024
           </div>
         </Modal.Body>
       </Modal>

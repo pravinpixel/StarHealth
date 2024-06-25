@@ -119,7 +119,7 @@ function LoginFormComponent({loginSubmit, loading}) {
               of a video, film, audio recording or still photographs in
               connection with my employment, I, the undersigned employee, hereby
               consent to my image being photographed, filmed or videotaped
-              and/or my voice or sounds being recorded. I hereby authorized Star
+              and/or my voice or sounds being recorded. I hereby authorize Star
               Health (“The Company’) to use or cause to be used still
               photographs or motion picture footage, recordings of my voice and
               my name for advertising, publicity, commercial or other business
@@ -140,18 +140,18 @@ function LoginFormComponent({loginSubmit, loading}) {
               I further agree that all rights, title and interest in and to such
               material shall be solely and exclusively owned by the Company, and
               I shall neither have, nor claim any rights, title or interest
-              therein. I have read and understand this consent and release.
+              therein. I have read and understood this consent and release.
             </div>
-            <div className="fs-18 roboto-font grey-color mt-2 text-justify">
-              This consent is valid for 10 years and can be revoked at any time
-              by the employee, if he wishes to do so, through a written request
-              sent to{" "}
+            <div className="fs-18 roboto-font grey-color mt-2">
+              This consent is in perpetuity and can be revoked at any time for
+              future campaigns and not in retrospect by the employee, if he/she
+              wishes to do so, through a written request sent to{" "}
               <Link
                 to="mailto:corpcomm@starhealth.in"
                 target="_blank"
                 className="dark-blue"
               >
-                corpcomm@starhealth.in.
+                corpcomm@starhealth.in
               </Link>
             </div>
             <div className="hstack gap-3 justify-content-center mt-4">

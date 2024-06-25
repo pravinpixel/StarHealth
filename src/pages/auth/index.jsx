@@ -42,8 +42,8 @@ function SplashScreenComponent() {
               </div>
               <div className="text-white fs-18">
                 This is a remarkable opportunity to become The Face of Star
-                Health in all our branding initiatives. Join us and be a part of
-                the enduring legacy of Star Health.
+                Health in our brand and communication initiatives. Join us and
+                be a part of the enduring legacy of Star Health.
               </div>
               <div className="text-white fs-18">
                 Seize this opportunity to shine!
@@ -71,7 +71,10 @@ function SplashScreenComponent() {
               </Button>
             </div>
             <div className="text-white fs-18 fw-bold mt-3">
-              Campaign Duration : 25th June 2024 to 3rd July 2024
+              Campaign Duration : 25<sup>th</sup> June 2024 to <br />5
+              <sup>th</sup>
+              {"  "}
+              July 2024
             </div>
           </div>
         </div>

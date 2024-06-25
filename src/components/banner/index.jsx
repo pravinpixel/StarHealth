@@ -21,7 +21,7 @@ function BannerComponent({type}) {
     {
       id: 1,
       heading: "Is there a specific time window to submit pictures?",
-      sub_head: "Yes, all imagery must be submitted on or before July 3, 2024.",
+      sub_head: "Yes, all imagery must be submitted on or before July 5, 2024.",
     },
     {
       id: 2,
@@ -175,7 +175,8 @@ function BannerComponent({type}) {
               </div>
             </div>
             <div className="text-white fs-18 fw-bold">
-              Campaign Duration : 25th June 2024 to 3rd July 2024
+              Campaign Duration : 25<sup>th</sup> June 2024 to 5<sup>th</sup>{" "}
+              July 2024
             </div>
             <div className="mt-2">
               <Button className="whiteBorder-desktop" onClick={handleShow}>
@@ -261,9 +262,6 @@ function BannerComponent({type}) {
                   Look straight into the camera
                 </li>
                 <li className="fs-14 text-white mb-3">
-                  No half profiles will be accepted
-                </li>
-                <li className="fs-14 text-white mb-3">
                   No sunglasses, caps allowed
                 </li>
                 <li className="fs-14 text-white mb-3">
@@ -346,7 +344,7 @@ function BannerComponent({type}) {
             <div className="fs-22 fw-500 text-white">
               Let the star in you stand
             </div>
-            <div className="fs-22 fw-500 text-white">under the spotlight</div>
+            <div className="fs-22 fw-500 text-white">in the spotlight</div>
             <img src={Lanuch} alt="lanuch" className="mt-3" />
           </div>
         </div>
@@ -386,7 +384,8 @@ function BannerComponent({type}) {
             Join us and shine bright as the face of STAR Health!
           </div>
           <div className="fs-12 fw-bold my-2">
-            Campaign Duration : 25th June 2024 to 3rd July 2024
+            Campaign Duration : 25<sup>th</sup> June 2024 to 5<sup>th</sup> July
+            2024
           </div>
         </Modal.Body>
       </Modal>
@@ -441,9 +440,6 @@ function BannerComponent({type}) {
               </li>
               <li className="fs-10 text-black mb-3">
                 Look straight into the camera
-              </li>
-              <li className="fs-10 text-black mb-3">
-                No half profiles will be accepted
               </li>
               <li className="fs-10 text-black mb-3">
                 No sunglasses, caps allowed

@@ -175,7 +175,7 @@ function BannerComponent({type}) {
               </div>
             </div>
             <div className="text-white fs-18 fw-bold">
-              Campaign Duration 25th June 2024 to 3rd July 2024
+              Campaign Duration : 25th June 2024 to 3rd July 2024
             </div>
             <div className="mt-2">
               <Button className="whiteBorder-desktop" onClick={handleShow}>
@@ -386,7 +386,7 @@ function BannerComponent({type}) {
             Join us and shine bright as the face of STAR Health!
           </div>
           <div className="fs-12 fw-bold my-2">
-            Campaign Duration 25th June 2024 to 3rd July 2024
+            Campaign Duration : 25th June 2024 to 3rd July 2024
           </div>
         </Modal.Body>
       </Modal>

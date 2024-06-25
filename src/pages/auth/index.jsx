@@ -71,7 +71,7 @@ function SplashScreenComponent() {
               </Button>
             </div>
             <div className="text-white fs-18 fw-bold mt-3">
-              Campaign Duration 25th June 2024 to 3rd July 2024
+              Campaign Duration : 25th June 2024 to 3rd July 2024
             </div>
           </div>
         </div>

@@ -7,10 +7,7 @@ import {Typeahead} from "react-bootstrap-typeahead";
 import DatePicker from "react-multi-date-picker";
 import CalenderIcon from "../../assets/images/calendar.png";
 import "react-bootstrap-typeahead/css/Typeahead.css";
-import {useNavigate} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {logoutApi} from "../../redux/Service/authService";
-import {notify} from "helpers/global";
+import dayjs from "dayjs";
 
 function PersonalDetailsForm({onSubmit, defaultValues, stateList, loading}) {
   const {
@@ -24,17 +21,15 @@ function PersonalDetailsForm({onSubmit, defaultValues, stateList, loading}) {
     reValidateMode: "onChange",
     defaultValues: {defaultValues},
   });
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   function CustomInput({onFocus, value, onChange, openCalendar}) {
     return (
       <div className="hstack calenderInput">
         <input
           onFocus={onFocus}
-          value={value}
+          value={dayjs(value).format("DD/MM/YYYY")}
           onChange={onChange}
-          placeholder="YYYY/MM/DD"
+          placeholder="DD/MM/YYYY"
         />
         <div onClick={openCalendar} className="cursor">
           <img src={CalenderIcon} alt="c" width={20} />

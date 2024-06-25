@@ -34,6 +34,10 @@
     display: block !important;
   }
 
+  .splash-bg {
+    height: auto;
+  }
+
   /* .banner-logo img {
     width: 34px;
   } */

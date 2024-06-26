@@ -27,7 +27,7 @@ function PersonalDetailsForm({onSubmit, defaultValues, stateList, loading}) {
       <div className="hstack calenderInput">
         <input
           onFocus={onFocus}
-          value={dayjs(value).format("DD/MM/YYYY")}
+          value={value ? dayjs(value).format("DD/MM/YYYY") : null}
           onChange={onChange}
           placeholder="DD/MM/YYYY"
         />

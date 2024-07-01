@@ -55,6 +55,9 @@ function PersonalDetails() {
       state: data?.state[0]?.label,
       state_id: data?.state[0]?.id,
       dob: dayjs(data?.dob).format("YYYY/MM/DD"),
+      passport: null,
+      profile: null,
+      family: null,
       status: "upload",
     };
     try {
@@ -79,6 +82,9 @@ function PersonalDetails() {
       family_photo: data?.family_photo,
       passport_photo: data?.passport_photo,
       profile_photo: data?.profile_photo,
+      passport: null,
+      profile: null,
+      family: null,
       status: "summary",
     };
     setLoading(true);
@@ -103,6 +109,9 @@ function PersonalDetails() {
     setImageLoading(true);
     const secondStepData = {
       ...data,
+      passport: null,
+      profile: null,
+      family: null,
       status: "summary",
     };
     try {

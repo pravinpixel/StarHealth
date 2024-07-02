@@ -30,11 +30,6 @@ function UploadPhotosForm({
   });
 
   const passportPhoto = watch("passport_photo", null);
-
-  const passportImage = watch("passport", null);
-  const profielImage = watch("profile", null);
-  const familyImage = watch("family", null);
-
   const fullSizePhoto = watch("profile_photo", null);
   const familyPhoto = watch("family_photo", null);
 
@@ -166,7 +161,7 @@ function UploadPhotosForm({
               <div className="preview position-relative">
                 <div className="image-item">
                   <img
-                    src={passportPhoto.preview || passportImage}
+                    src={passportPhoto.preview || passportPhoto}
                     alt="preview"
                   />
                   <div
@@ -214,7 +209,7 @@ function UploadPhotosForm({
               <div className="preview position-relative">
                 <div className="image-item">
                   <img
-                    src={fullSizePhoto.preview || profielImage}
+                    src={fullSizePhoto.preview || fullSizePhoto}
                     // src={fullSizePhoto.preview || fullSizePhoto}
                     alt="preview"
                   />
@@ -262,7 +257,7 @@ function UploadPhotosForm({
               <div className="preview position-relative">
                 <div className="image-item">
                   <img
-                    src={familyPhoto.preview || familyImage}
+                    src={familyPhoto.preview || familyPhoto}
                     // src={familyPhoto.preview || familyPhoto}
                     alt="preview"
                   />

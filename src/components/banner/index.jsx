@@ -175,7 +175,7 @@ function BannerComponent({type}) {
               </div>
             </div>
             <div className="text-white fs-18 fw-bold">
-              Campaign Duration : 25<sup>th</sup> June 2024 to 5<sup>th</sup>{" "}
+              Campaign Duration : 25<sup>th</sup> June 2024 to 9<sup>th</sup>{" "}
               July 2024
             </div>
             <div className="mt-2">

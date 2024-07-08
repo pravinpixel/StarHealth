@@ -21,7 +21,7 @@ function BannerComponent({type}) {
     {
       id: 1,
       heading: "Is there a specific time window to submit pictures?",
-      sub_head: "Yes, all imagery must be submitted on or before July 5, 2024.",
+      sub_head: "Yes, all imagery must be submitted on or before July 9, 2024.",
     },
     {
       id: 2,
@@ -384,7 +384,7 @@ function BannerComponent({type}) {
             Join us and shine bright as the face of STAR Health!
           </div>
           <div className="fs-12 fw-bold my-2">
-            Campaign Duration : 25<sup>th</sup> June 2024 to 5<sup>th</sup> July
+            Campaign Duration : 25<sup>th</sup> June 2024 to 9<sup>th</sup> July
             2024
           </div>
         </Modal.Body>

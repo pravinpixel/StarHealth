@@ -18,11 +18,11 @@ import {useNavigate} from "react-router-dom";
 
 function BannerComponent({type}) {
   const faqContent = [
-    {
-      id: 1,
-      heading: "Is there a specific time window to submit pictures?",
-      sub_head: "Yes, all imagery must be submitted on or before July 9, 2024.",
-    },
+    // {
+    //   id: 1,
+    //   heading: "Is there a specific time window to submit pictures?",
+    //   sub_head: "Yes, all imagery must be submitted on or before July 9, 2024.",
+    // },
     {
       id: 2,
       heading: "How many images can I enter?",
@@ -30,46 +30,46 @@ function BannerComponent({type}) {
         "You can submit two images of yourself (mandatory) and one with your family (optional).",
     },
     {
-      id: 3,
+      id: 2,
       heading:
         "I have already submitted an image but would like to add another one. Can I exchange images?",
       sub_head:
         "No. Once an image has been submitted, it is final and may not be replaced by another image.",
     },
     {
-      id: 4,
+      id: 3,
       heading: "Can I submit images under more than one account?",
       sub_head:
         "No. It is against the rules and will lead to disqualification.",
     },
     {
-      id: 5,
+      id: 4,
       heading:
         "If my images get disqualified, will I be able to submit a replacement?",
       sub_head:
         "No. You may submit images per category, and these cannot be replaced after submission. Please choose your images carefully and consider the rules and requirements for submission before you hit the submit button.",
     },
     {
-      id: 6,
+      id: 5,
       heading:
         "Is image editing allowed? Can I edit images I have shot on a smartphone?",
       sub_head:
         "Basic image editing, and color corrections are allowed, i.e. brightness, contrast, sharpening, mood and white balance. The decision to accept your image will be at the discretion of the judges. Their decision is final.",
     },
     {
-      id: 7,
+      id: 6,
       heading:
         "Will I get notified when my image makes it into the next round?",
       sub_head: "Yes, all contestants will be informed by email.",
     },
     {
-      id: 8,
+      id: 7,
       heading: "How can you be sure that judges aren’t partial or unfair?",
       sub_head:
         "In order to maintain impartiality, all images will be made anonymous before the judges receive them.",
     },
     {
-      id: 9,
+      id: 8,
       heading: "Will my images be used for Star Health’s advertising?",
       sub_head:
         "Yes. The submitted images can be used for advertising purposes, or in our product brochures, flayers or on our social media pages. By participating and submitting your images, you consent to the use of your images, royalty free/ without compensation, for Star Health’s promotional material.",
@@ -174,10 +174,10 @@ function BannerComponent({type}) {
                 STAR Health!
               </div>
             </div>
-            <div className="text-white fs-18 fw-bold">
+            {/* <div className="text-white fs-18 fw-bold">
               Campaign Duration : 25<sup>th</sup> June 2024 to 9<sup>th</sup>{" "}
               July 2024
-            </div>
+            </div> */}
             <div className="mt-2">
               <Button className="whiteBorder-desktop" onClick={handleShow}>
                 View FAQs
@@ -383,10 +383,10 @@ function BannerComponent({type}) {
             spotlight to represent the heart and soul of STAR Health Insurance.
             Join us and shine bright as the face of STAR Health!
           </div>
-          <div className="fs-12 fw-bold my-2">
+          {/* <div className="fs-12 fw-bold my-2">
             Campaign Duration : 25<sup>th</sup> June 2024 to 9<sup>th</sup> July
             2024
-          </div>
+          </div> */}
         </Modal.Body>
       </Modal>
       {/* photo guide lines */}

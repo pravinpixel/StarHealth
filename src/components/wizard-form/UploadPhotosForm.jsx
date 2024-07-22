@@ -44,7 +44,12 @@ function UploadPhotosForm({
           type: "custom",
           message: "Unsupported Format. Only PNG, JPEG, and JPG are allowed.",
         });
-      } else if (acceptedFile.length > 0) {
+      }
+      if (
+        acceptedFile[0]?.type === "image/png" ||
+        acceptedFile[0]?.type === "image/jpg" ||
+        acceptedFile[0]?.type === "image/jpeg"
+      ) {
         const file = acceptedFile[0];
         setError("passport_photo", null);
         setValue(
@@ -53,6 +58,11 @@ function UploadPhotosForm({
             preview: URL.createObjectURL(file),
           })
         );
+      } else {
+        setError("passport_photo", {
+          type: "custom",
+          message: "Unsupported Format. Only PNG, JPEG, and JPG are allowed.",
+        });
       }
     },
     accept: {
@@ -72,7 +82,12 @@ function UploadPhotosForm({
           type: "custom",
           message: "Unsupported Format. Only PNG, JPEG, and JPG are allowed.",
         });
-      } else if (acceptedFile.length > 0) {
+      }
+      if (
+        acceptedFile[0]?.type === "image/png" ||
+        acceptedFile[0]?.type === "image/jpg" ||
+        acceptedFile[0]?.type === "image/jpeg"
+      ) {
         const file = acceptedFile[0];
         setError("profile_photo", null);
         setValue(
@@ -81,6 +96,11 @@ function UploadPhotosForm({
             preview: URL.createObjectURL(file),
           })
         );
+      } else if (acceptedFile.length > 0) {
+        setError("profile_photo", {
+          type: "custom",
+          message: "Unsupported Format. Only PNG, JPEG, and JPG are allowed.",
+        });
       }
     },
     accept: {
@@ -101,7 +121,12 @@ function UploadPhotosForm({
           type: "custom",
           message: "Unsupported Format. Only PNG, JPEG, and JPG are allowed.",
         });
-      } else if (acceptedFile.length > 0) {
+      }
+      if (
+        acceptedFile[0]?.type === "image/png" ||
+        acceptedFile[0]?.type === "image/jpg" ||
+        acceptedFile[0]?.type === "image/jpeg"
+      ) {
         const file = acceptedFile[0];
         setError("family_photo", null);
         setValue(
@@ -110,6 +135,11 @@ function UploadPhotosForm({
             preview: URL.createObjectURL(file),
           })
         );
+      } else if (acceptedFile.length > 0) {
+        setError("family_photo", {
+          type: "custom",
+          message: "Unsupported Format. Only PNG, JPEG, and JPG are allowed.",
+        });
       }
     },
     accept: {

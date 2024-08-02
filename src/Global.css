@@ -144,12 +144,12 @@ button {
   background: #FFFFFF;
   color: #2B3984;
   border: none;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   padding: 12px 20px;
   border-radius: 5000px;
   line-height: 12px;
-  height: 36px;
+  /* max-height: 50; */
 }
 
 .whiteBorder-desktop {
@@ -208,6 +208,13 @@ button {
 
 .splash-btn:hover {
   background: #2B3984;
+}
+
+.splash-btn:disabled {
+  background: white !important;
+  color: #2B3984 !important;
+  opacity: 1;
+  cursor: no-drop;
 }
 
 button:disabled,

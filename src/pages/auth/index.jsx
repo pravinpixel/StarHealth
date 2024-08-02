@@ -62,12 +62,13 @@ function SplashScreenComponent() {
             {/* <p>Ready to be the face of STAR?</p> */}
             <div>
               <Button
-                className="splash-btn"
-                onClick={() => {
-                  navigate("/login");
-                }}
+                className="splash-btn fs-14"
+                disabled
+                // onClick={() => {
+                //   navigate("/login");
+                // }}
               >
-                Click to Participate
+                Registration Closed, Thanks for your participation
               </Button>
             </div>
             {/* <div className="text-white fs-18 fw-bold mt-3">
